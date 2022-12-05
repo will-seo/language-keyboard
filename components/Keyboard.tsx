@@ -1,16 +1,16 @@
-import { CharacterDataType, DataType } from '../utils/types';
-import { getCharacterFromData } from '../utils/data';
+import { LanguageData } from '../types';
 import { MouseEvent } from 'react';
 import styles from '../styles/Home.module.css'
 
 interface KeyboardProps {
-  data: DataType,
+  languageData: LanguageData,
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 export default function Keyboard(props: KeyboardProps) {
-  const { data, onClick } = props;
-  const { rows, columns } = data;
+  const { languageData, onClick } = props;
+  const { rows, columns } = languageData;
+  const characters = Object.entries(languageData.characters);
 
   const keyboardRows = [];
 
@@ -18,8 +18,10 @@ export default function Keyboard(props: KeyboardProps) {
     const keyboardColumns = [];
 
     for (let x = 0; x < columns; x++) {
-      const character = getCharacterFromData(data, x, y);
-      keyboardColumns.push(<td key={x}>{character ? <KeyboardKey character={character} onClick={onClick} /> : null}</td>);
+      const character = characters.find(item => item[1].x === x && item[1].y === y);
+      keyboardColumns.push(
+        <td key={x}>{character ? <KeyboardKey to={character[1].to} from={character[0]} onClick={onClick} /> : null}</td>
+      );
     }
 
     keyboardRows.push(<tr key={y}>{keyboardColumns}</tr>)
@@ -33,14 +35,15 @@ export default function Keyboard(props: KeyboardProps) {
 }
 
 interface KeyboardKeyProps {
-  character: CharacterDataType,
+  to: string,
+  from: string,
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 function KeyboardKey(props: KeyboardKeyProps) {
-  const { character, onClick } = props;
-  return <button data-to={character.to} onClick={onClick}>
-    <span className={styles.to}>{character.to}</span>
-    <span className={styles.from}>{character.from}</span>
+  const { from, to, onClick } = props;
+  return <button data-to={to} onClick={onClick}>
+    <span className={styles.to}>{to}</span>
+    <span className={styles.from}>{from}</span>
   </button>
 }

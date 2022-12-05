@@ -17,6 +17,11 @@
     "next": "13.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "trie-prefix-tree": "^1.5.1",
     "typescript": "4.9.3"
+  },
+  "devDependencies": {
+    "@types/trie-prefix-tree": "^1.5.0",
+    "@welldone-software/why-did-you-render": "^7.0.1"
   }
 }
