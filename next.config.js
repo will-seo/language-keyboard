@@ -2,7 +2,7 @@
 const path = require('path');
 
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   webpack(config, { dev, isServer }) {
     if (dev && !isServer) {
       const originalEntry = config.entry;
@@ -17,4 +17,10 @@ module.exports = {
     }
     return config;
   },
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+  },
 };
+
+module.exports = nextConfig;

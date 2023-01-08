@@ -2,12 +2,9 @@ import { MouseEvent } from 'react';
 import styles from '../styles/Keyboard.module.css';
 import { LanguageLayoutData } from '../types';
 
-interface CharacterProps {
+interface KeyboardKeyProps {
   to: string;
   from: string;
-}
-
-interface KeyboardKeyProps extends CharacterProps {
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 

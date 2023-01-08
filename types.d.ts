@@ -12,9 +12,8 @@ export type LanguageFAQsData = {
 
 export type LanguageData = {
   language: string;
+  metaDescription: string;
   faqs: LanguageFAQsData[];
-  dictionary: {
-    [key: string]: string;
-  };
+  dictionary: { [key: string]: string };
   layout: LanguageLayoutData[];
 };
