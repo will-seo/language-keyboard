@@ -1,13 +1,12 @@
-import fs from 'fs';
 import type { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import path from 'path';
 import { ParsedUrlQuery } from 'querystring';
 import { Dispatch, SetStateAction, useRef, useState } from 'react';
 import BasePage from '../components/Base';
 import Keyboard from '../components/Keyboard';
 import TextArea from '../components/TextArea';
 import { LanguageData, LanguageModeData } from '../types';
+import { getLanguages, loadLanguage } from '../utils/languages';
 
 interface LanguageModeProcessedData extends LanguageModeData {
   allowed: string[];
@@ -16,13 +15,13 @@ interface LanguageModeProcessedData extends LanguageModeData {
   rows: number;
 }
 
-interface ModeSwitcherProps {
+interface KeyboardModeSwitcherProps {
   current: LanguageModeProcessedData;
   modes: LanguageModeProcessedData[];
   setMode: Dispatch<SetStateAction<LanguageModeProcessedData>>;
 }
 
-const ModeSwitcher = (props: ModeSwitcherProps) => {
+const KeyboardModeSwitcher = (props: KeyboardModeSwitcherProps) => {
   const { current, modes, setMode } = props;
   const onClick = (mode: LanguageModeProcessedData) => {
     setMode(mode);
@@ -68,7 +67,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
 
   return (
     <BasePage title={title} description={description} faqs={faqs}>
-      <ModeSwitcher current={mode} modes={modes} setMode={setMode} />
+      <KeyboardModeSwitcher current={mode} modes={modes} setMode={setMode} />
       <TextArea
         text={text}
         language={`${language} ${mode.name}`}
@@ -108,11 +107,7 @@ export const getStaticProps: GetStaticProps<
   KeyboardPageParams
 > = async (context) => {
   const { keyboard } = context.params as KeyboardPageParams;
-  const keyboardsDirectory = path.join(process.cwd(), 'keyboards');
-  const filePath = path.join('/', keyboardsDirectory, `${keyboard}.json`);
-  const fileContents = fs.readFileSync(filePath, 'utf-8');
-
-  const data: LanguageData = JSON.parse(fileContents);
+  const data = loadLanguage(keyboard);
   const { language, description, faqs } = data;
 
   const modes = data.modes.map((mode) => {
@@ -143,19 +138,10 @@ export const getStaticProps: GetStaticProps<
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const keyboardsDirectory = path.join(process.cwd(), 'keyboards');
-  const filenames = fs.readdirSync(keyboardsDirectory);
-  const paths = filenames.map((filename) => {
-    return {
-      params: {
-        keyboard: path.parse(filename).name,
-      },
-    };
+  const paths = getLanguages().map((filename) => {
+    return { params: { keyboard: filename } };
   });
-  return {
-    paths,
-    fallback: false,
-  };
+  return { paths, fallback: false };
 };
 
 export default KeyboardPage;
