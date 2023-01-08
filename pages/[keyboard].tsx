@@ -1,10 +1,19 @@
 import type { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import { Dispatch, SetStateAction, useRef, useState } from 'react';
+import {
+  Dispatch,
+  RefObject,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import BasePage from '../components/Base';
+import FAQs from '../components/FAQs';
 import Keyboard from '../components/Keyboard';
 import TextArea from '../components/TextArea';
+import styles from '../styles/Keyboard.module.css';
 import { LanguageData, LanguageModeData } from '../types';
 import { getLanguages, loadLanguage } from '../utils/languages';
 
@@ -19,15 +28,17 @@ interface KeyboardModeSwitcherProps {
   current: LanguageModeProcessedData;
   modes: LanguageModeProcessedData[];
   setMode: Dispatch<SetStateAction<LanguageModeProcessedData>>;
+  textAreaRef: RefObject<HTMLTextAreaElement>;
 }
 
 const KeyboardModeSwitcher = (props: KeyboardModeSwitcherProps) => {
-  const { current, modes, setMode } = props;
+  const { current, modes, setMode, textAreaRef } = props;
   const onClick = (mode: LanguageModeProcessedData) => {
     setMode(mode);
+    if (textAreaRef.current) textAreaRef.current.focus();
   };
   return (
-    <nav>
+    <nav className={styles.keyboardModeSwitcher}>
       {modes.map((mode, key) => (
         <button
           data-active={current === mode}
@@ -49,25 +60,38 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const { language, description, faqs, modes } = props;
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
+  const [caret, setCaret] = useState(0);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const title = `${language} Language Keyboard`;
+
+  useEffect(() => {
+    if (textAreaRef.current)
+      textAreaRef.current.setSelectionRange(caret, caret);
+  }, [textAreaRef, caret, text]);
 
   const updateText = (insertText: string, startOffset = 0) => {
     if (!textAreaRef.current || !insertText) return;
     const { selectionStart, selectionEnd } = textAreaRef.current;
     textAreaRef.current.focus();
     const [start, end] = [selectionStart - startOffset, selectionEnd];
+    setCaret(start + 1);
     setText(text.slice(0, start) + insertText + text.slice(end));
-    textAreaRef.current.setSelectionRange(start, start);
   };
 
   const onChange = () => {
-    if (textAreaRef.current) setText(textAreaRef.current.value);
+    if (!textAreaRef.current) return;
+    setCaret(textAreaRef.current.selectionStart);
+    setText(textAreaRef.current.value);
   };
 
   return (
     <BasePage title={title} description={description} faqs={faqs}>
-      <KeyboardModeSwitcher current={mode} modes={modes} setMode={setMode} />
+      <KeyboardModeSwitcher
+        current={mode}
+        modes={modes}
+        setMode={setMode}
+        textAreaRef={textAreaRef}
+      />
       <TextArea
         text={text}
         language={`${language} ${mode.name}`}
@@ -84,14 +108,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         columns={mode.columns}
         updateText={updateText}
       />
-      <section>
-        {faqs.map((faq, key) => (
-          <div key={key}>
-            <h2>{faq.question}</h2>
-            <p dangerouslySetInnerHTML={{ __html: faq.answer }}></p>
-          </div>
-        ))}
-      </section>
+      <FAQs faqs={faqs} />
     </BasePage>
   );
 };

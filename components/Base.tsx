@@ -26,9 +26,7 @@ const renderFAQPageSchema = (faqs?: LanguageFAQsData[]) => {
       };
     }),
   };
-  return (
-    <script type="application/ld+json">{JSON.stringify(data, null, 2)}</script>
-  );
+  return <script type="application/ld+json">{JSON.stringify(data)}</script>;
 };
 
 const BasePage = (props: BasePage) => {

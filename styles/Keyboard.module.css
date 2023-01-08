@@ -2,20 +2,37 @@
   margin: 2rem 0 0;
 }
 
-.keyboard td {
-  min-width: 3rem;
-}
-
 .keyboard button {
   width: 100%;
   font-size: 1rem;
 }
 
-.to {
-  font-size: 1.5rem;
+.keyboard .to {
+  display: block;
+  font-size: 1rem;
+}
+
+.keyboard .from {
   display: block;
 }
 
-.from {
-  display: block;
+.keyboardModeSwitcher {
+  margin: 1rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.keyboardModeSwitcher button[data-active='true'] {
+  font-weight: bold;
+}
+
+@media (min-width: 960px) {
+  .keyboard td {
+    min-width: 3rem;
+  }
+
+  .keyboard .to {
+    font-size: 1.5rem;
+  }
 }

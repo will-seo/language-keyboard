@@ -23,6 +23,10 @@ h2 {
   margin: 2rem 0 0;
 }
 
+button {
+  font-size: 1rem;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
