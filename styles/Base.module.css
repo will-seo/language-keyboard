@@ -10,11 +10,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1260px;
+  max-width: 960px;
   margin: auto;
 }
 
 .title {
   font-size: 2rem;
   margin: 0;
+}
+
+.disclaimer {
+  font-style: italic;
+  margin: 2rem 0 0;
 }

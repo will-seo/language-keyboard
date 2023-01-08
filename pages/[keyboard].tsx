@@ -19,13 +19,14 @@ interface KeyboardPageProps extends LanguageData {
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const {
     language,
-    metaDescription,
+    description,
     dictionary,
     allowed,
     bufferMax,
     layout,
     columns,
     rows,
+    faqs,
   } = props;
   const [text, setText] = useState('');
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
@@ -48,7 +49,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   };
 
   return (
-    <BasePage title={title} metaDescription={metaDescription}>
+    <BasePage title={title} description={description} faqs={faqs}>
       <TextArea
         text={text}
         language={language}
@@ -64,6 +65,14 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         columns={columns}
         onClick={onClick}
       />
+      <section>
+        {faqs.map((faq, key) => (
+          <div key={key}>
+            <h2>{faq.question}</h2>
+            <p dangerouslySetInnerHTML={{ __html: faq.answer }}></p>
+          </div>
+        ))}
+      </section>
     </BasePage>
   );
 };
@@ -83,7 +92,7 @@ export const getStaticProps: GetStaticProps<
   const filePath = path.join('/', keyboardsDirectory, `${keyboard}.json`);
   const fileContents = fs.readFileSync(filePath, 'utf-8');
   const data: LanguageData = JSON.parse(fileContents);
-  const { language, metaDescription, faqs, dictionary, layout } = data;
+  const { language, description, faqs, dictionary, layout } = data;
 
   const words = Object.keys(dictionary);
   const allowed = Array.from(new Set(words.join(''))).sort();
@@ -94,7 +103,7 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       language,
-      metaDescription,
+      description,
       faqs,
       dictionary,
       allowed,

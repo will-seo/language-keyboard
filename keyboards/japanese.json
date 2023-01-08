@@ -1,10 +1,36 @@
 {
   "language": "Japanese",
-  "metaDescription": "Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.",
+  "description": "Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.",
   "faqs": [
     {
-      "question": "This is a question?",
-      "answer": "This is the answer."
+      "question": "What is an online Japanese keyboard?",
+      "answer": "This virtual keyboard is for Japanese language students so that they can quickly and easily type in hiragana and katakana when they don't have access to a Japanese IME (Input Method Editor). I have built it with beginners in mind, and have made it easy to use on both mobile and desktop. If you have any feedback or questions, please check out my About page, or contact me by email.",
+      "schema": false
+    },
+    {
+      "question": "What is Hiragana?",
+      "answer": "Hiragana (ひらがな) is the syllabic script that you will become most familiar with when learning Japanese. It is written phonetically, making Japanese pronunciation actually quite easy. For example, the word for 'demon' is written as あくま and pronounced a-ku-ma. In children's books and in beginner Japanese language books you'll often see Kanji with Hiragana written above it - this is called Furigana, and is used as a way to help readers pronounce the somewhat crazy world of Kanji. If you are going to start studying Japanese, learning Hiragana is a must.",
+      "schema": true
+    },
+    {
+      "question": "What is Katakana?",
+      "answer": "Katakana (カタカナ) works in an almost identical way to Hiragana, except that it is used mostly for words that are imported into the Japanese vocabulary. For example, the word ケーキ is written in Katakana and pronounced kee-ki, and unsurprisingly, in English, means cake - yay, that makes things a little easier. When travelling around Japan you'll actually see Katakana everywhere because it's also used for emphasis - like capital letters in English. So when walking past a karaoke bar in Shibuya, the sign will almost always be written as カラオケ and not からおけ. If you are planning to go on holiday to Japan, learning Katakana will probably be more useful than Hiragana.",
+      "schema": true
+    },
+    {
+      "question": "What is Kanji?",
+      "answer": "Kanji are essentially pictograms of the things they are describing. For example, the Kanji for \"tree\" is \"木\" - it looks like a tree! They are used in writing and if a word has a Kanji version, the Kanji version will normally be used. This can make learning to read and write Japanese very daunting, but you'll get there with enough practice. WaniKani is a great tool for helping build Kanji vocab, and this Teach Yourself book from Helen Gilhooly is a great way to get a better understanding of how Kanji works.",
+      "schema": true
+    },
+    {
+      "question": "What is Furigana?",
+      "answer": "Furigana helps avoid the issue of having to know 1,000s of Kanji when reading. It's essentially hiragana that is written above both Kanji and Katakana. It is often used in children's books and language books - even my favourite series of study books use them. As you get more familiar with your Kanji and Katakana, you'll stop needing to rely on Furigana, but it can be a lifesaver near the beginning of your journey.",
+      "schema": true
+    },
+    {
+      "question": "What is Rōmaji?",
+      "answer": "You'll hear the term \"Rōmaji\" getting thrown around when first starting to learn the language. It's basically the romanised version of the language, for example, the Japanese word for \"post office\" is 郵便局, and the romanised version is \"Yūbinkyoku\" - this is essentially the way the word is pronounced and can be useful for non-Japanese speakers, and without them having to learn any Hiragana or Katakana. You'll often see Rōmaji used in phrasebooks for tourists, however, it is much harder to learn the language using Rōmaji alone, and it is highly recommended that you quickly start to learn Hiragana and Katakana.",
+      "schema": true
     }
   ],
   "dictionary": {
@@ -119,6 +145,11 @@
     { "from": "su", "to": "す", "x": 8, "y": 2 },
     { "from": "ku", "to": "く", "x": 9, "y": 2 },
     { "from": "u", "to": "う", "x": 10, "y": 2 },
+    { "from": "pu", "to": "ぷ", "x": 12, "y": 2 },
+    { "from": "bu", "to": "ぶ", "x": 13, "y": 2 },
+    { "from": "du", "to": "づ", "x": 14, "y": 2 },
+    { "from": "zu", "to": "ず", "x": 15, "y": 2 },
+    { "from": "gu", "to": "ぐ", "x": 16, "y": 2 },
     { "from": "re", "to": "れ", "x": 2, "y": 3 },
     { "from": "me", "to": "め", "x": 4, "y": 3 },
     { "from": "he", "to": "へ", "x": 5, "y": 3 },
@@ -127,6 +158,11 @@
     { "from": "se", "to": "せ", "x": 8, "y": 3 },
     { "from": "ke", "to": "け", "x": 9, "y": 3 },
     { "from": "e", "to": "え", "x": 10, "y": 3 },
+    { "from": "pe", "to": "ぺ", "x": 12, "y": 3 },
+    { "from": "be", "to": "べ", "x": 13, "y": 3 },
+    { "from": "de", "to": "で", "x": 14, "y": 3 },
+    { "from": "ze", "to": "ぜ", "x": 15, "y": 3 },
+    { "from": "ge", "to": "げ", "x": 16, "y": 3 },
     { "from": "wo", "to": "を", "x": 1, "y": 4 },
     { "from": "ro", "to": "ろ", "x": 2, "y": 4 },
     { "from": "yo", "to": "よ", "x": 3, "y": 4 },
@@ -137,16 +173,6 @@
     { "from": "so", "to": "そ", "x": 8, "y": 4 },
     { "from": "ko", "to": "こ", "x": 9, "y": 4 },
     { "from": "o", "to": "お", "x": 10, "y": 4 },
-    { "from": "pu", "to": "ぷ", "x": 12, "y": 2 },
-    { "from": "bu", "to": "ぶ", "x": 13, "y": 2 },
-    { "from": "du", "to": "づ", "x": 14, "y": 2 },
-    { "from": "zu", "to": "ず", "x": 15, "y": 2 },
-    { "from": "gu", "to": "ぐ", "x": 16, "y": 2 },
-    { "from": "pe", "to": "ぺ", "x": 12, "y": 3 },
-    { "from": "be", "to": "べ", "x": 13, "y": 3 },
-    { "from": "de", "to": "で", "x": 14, "y": 3 },
-    { "from": "ze", "to": "ぜ", "x": 15, "y": 3 },
-    { "from": "ge", "to": "げ", "x": 16, "y": 3 },
     { "from": "po", "to": "ぽ", "x": 12, "y": 4 },
     { "from": "bo", "to": "ぼ", "x": 13, "y": 4 },
     { "from": "do", "to": "ど", "x": 14, "y": 4 },

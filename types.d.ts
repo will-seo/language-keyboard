@@ -8,11 +8,12 @@ export type LanguageLayoutData = {
 export type LanguageFAQsData = {
   question: string;
   answer: string;
+  schema: boolean;
 };
 
 export type LanguageData = {
   language: string;
-  metaDescription: string;
+  description: string;
   faqs: LanguageFAQsData[];
   dictionary: { [key: string]: string };
   layout: LanguageLayoutData[];
