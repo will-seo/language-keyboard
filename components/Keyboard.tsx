@@ -1,49 +1,68 @@
-import { LanguageData } from '../types';
 import { MouseEvent } from 'react';
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Keyboard.module.css';
+import { LanguageLayoutData } from '../types';
+
+interface CharacterProps {
+  to: string;
+  from: string;
+}
+
+interface KeyboardKeyProps extends CharacterProps {
+  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+}
+
+const KeyboardKey = (props: KeyboardKeyProps) => {
+  const { from, to, onClick } = props;
+  return (
+    <button onClick={onClick}>
+      <span className={styles.to}>{to}</span>
+      <span className={styles.from}>{from}</span>
+    </button>
+  );
+};
+
+KeyboardKey.whyDidYouRender = true;
 
 interface KeyboardProps {
-  languageData: LanguageData,
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  layout: LanguageLayoutData[];
+  rows: number;
+  columns: number;
+  onClick: (insertText: string) => void;
 }
 
-export default function Keyboard(props: KeyboardProps) {
-  const { languageData, onClick } = props;
-  const { rows, columns } = languageData;
-  const characters = Object.entries(languageData.characters);
-
-  const keyboardRows = [];
-
+const Keyboard = (props: KeyboardProps) => {
+  const { layout, rows, columns, onClick } = props;
+  const keyboardKeys: (LanguageLayoutData | null)[][] = [];
   for (let y = 0; y < rows; y++) {
-    const keyboardColumns = [];
-
+    keyboardKeys[y] = [];
     for (let x = 0; x < columns; x++) {
-      const character = characters.find(item => item[1].x === x && item[1].y === y);
-      keyboardColumns.push(
-        <td key={x}>{character ? <KeyboardKey to={character[1].to} from={character[0]} onClick={onClick} /> : null}</td>
-      );
+      const character = layout.find((item) => item.x === x && item.y === y);
+      keyboardKeys[y][x] = character || null;
     }
-
-    keyboardRows.push(<tr key={y}>{keyboardColumns}</tr>)
   }
-
   return (
     <table className={styles.keyboard}>
-      <tbody>{keyboardRows}</tbody>
+      <tbody>
+        {keyboardKeys.map((tr, y) => (
+          <tr key={y}>
+            {tr.map((td, x) => (
+              <td key={x}>
+                {td ? (
+                  <KeyboardKey
+                    to={td.to}
+                    from={td.from}
+                    onClick={() => onClick(td.to)}
+                  />
+                ) : null}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     </table>
-  )
-}
+  );
+};
 
-interface KeyboardKeyProps {
-  to: string,
-  from: string,
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
-}
+Keyboard.whyDidYouRender = true;
 
-function KeyboardKey(props: KeyboardKeyProps) {
-  const { from, to, onClick } = props;
-  return <button data-to={to} onClick={onClick}>
-    <span className={styles.to}>{to}</span>
-    <span className={styles.from}>{from}</span>
-  </button>
-}
+export default Keyboard;

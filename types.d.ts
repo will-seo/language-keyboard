@@ -1,15 +1,20 @@
-export type LanguageCharacterData = {
+export type LanguageLayoutData = {
+  from: string;
   to: string;
   x: number;
   y: number;
 };
 
+export type LanguageFAQsData = {
+  question: string;
+  answer: string;
+};
+
 export type LanguageData = {
-  name: string;
-  flag: string;
-  rows: number;
-  columns: number;
-  characters: {
-    [key: string]: LanguageCharacterData;
+  language: string;
+  faqs: LanguageFAQsData[];
+  dictionary: {
+    [key: string]: string;
   };
+  layout: LanguageLayoutData[];
 };

@@ -1,0 +1,21 @@
+.keyboard {
+  margin: 2rem 0 0;
+}
+
+.keyboard td {
+  min-width: 3rem;
+}
+
+.keyboard button {
+  width: 100%;
+  font-size: 1rem;
+}
+
+.to {
+  font-size: 1.5rem;
+  display: block;
+}
+
+.from {
+  display: block;
+}
