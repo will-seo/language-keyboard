@@ -52,6 +52,29 @@ const KeyboardModeSwitcher = (props: KeyboardModeSwitcherProps) => {
   );
 };
 
+interface KeyboardCopyButtonProps {
+  text: string;
+  textAreaRef: RefObject<HTMLTextAreaElement>;
+  copiedDuration?: number;
+}
+
+const KeyboardCopyButton = ({
+  text,
+  textAreaRef,
+  copiedDuration = 500,
+}: KeyboardCopyButtonProps) => {
+  const [copied, setCopied] = useState(false);
+  const onClick = () => {
+    if (textAreaRef.current) textAreaRef.current.select();
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => {
+      setCopied(false);
+    }, copiedDuration);
+  };
+  return <button onClick={onClick}>📄 {copied ? 'Copied!' : 'Copy'}</button>;
+};
+
 interface KeyboardPageProps extends LanguageData {
   modes: LanguageModeProcessedData[];
 }
@@ -86,12 +109,15 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
 
   return (
     <BasePage title={title} description={description} faqs={faqs}>
-      <KeyboardModeSwitcher
-        current={mode}
-        modes={modes}
-        setMode={setMode}
-        textAreaRef={textAreaRef}
-      />
+      <div className={styles.keyboardActions}>
+        <KeyboardModeSwitcher
+          current={mode}
+          modes={modes}
+          setMode={setMode}
+          textAreaRef={textAreaRef}
+        />
+        <KeyboardCopyButton text={text} textAreaRef={textAreaRef} />
+      </div>
       <TextArea
         text={text}
         language={`${language} ${mode.name}`}

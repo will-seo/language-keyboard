@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import styles from '../styles/TextArea.module.css';
+import styles from '../styles/Keyboard.module.css';
 
 interface TextAreaProps {
   text: string;
@@ -78,7 +78,6 @@ const TextArea = (props: TextAreaProps) => {
   return (
     <textarea
       className={styles.textArea}
-      rows={5}
       placeholder={`Start typing to convert to ${language}`}
       value={text}
       onChange={onChange}

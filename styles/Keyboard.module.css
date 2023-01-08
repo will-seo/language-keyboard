@@ -1,5 +1,9 @@
 .keyboard {
   margin: 2rem 0 0;
+  overflow-x: auto;
+  max-width: calc(100% + var(--padding) * 2);
+  display: block;
+  padding: 0 var(--padding);
 }
 
 .keyboard button {
@@ -16,15 +20,50 @@
   display: block;
 }
 
-.keyboardModeSwitcher {
-  margin: 1rem 0 0;
+.keyboardActions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  width: 100%;
+  margin: 2rem 0 0;
+}
+
+.keyboardActions > button:last-of-type {
+  margin-left: auto;
+}
+
+.keyboardModeSwitcher {
+  display: flex;
 }
 
 .keyboardModeSwitcher button[data-active='true'] {
+  background: white;
   font-weight: bold;
+}
+
+.keyboardModeSwitcher button[data-active='false']:not(:hover) {
+  background: var(--dark-gray);
+}
+
+.keyboardModeSwitcher button:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.keyboardModeSwitcher button:not(:first-of-type) {
+  margin-left: calc(var(--border-width) * -1);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.textArea {
+  font-family: inherit;
+  font-size: 1rem;
+  margin: 1rem 0 0;
+  min-height: 8rem;
+  padding: 1rem;
+  resize: vertical;
+  width: 100%;
 }
 
 @media (min-width: 960px) {
@@ -34,5 +73,9 @@
 
   .keyboard .to {
     font-size: 1.5rem;
+  }
+
+  .keyboardActions button {
+    min-width: 8rem;
   }
 }

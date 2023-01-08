@@ -1,3 +1,10 @@
+:root {
+  --border-width: 2px;
+  --padding: 1rem;
+  --light-gray: #ededed;
+  --dark-gray: #d0d0d0;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -25,6 +32,16 @@ h2 {
 
 button {
   font-size: 1rem;
+  line-height: 1;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 0.25rem;
+  border: var(--border-width) solid currentColor;
+  cursor: pointer;
+}
+
+button:hover {
+  background: var(--light-gray);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -35,5 +52,11 @@ button {
   body {
     color: white;
     background: black;
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --padding: 2rem;
   }
 }
