@@ -24,11 +24,11 @@ interface KeyboardProps {
   layout: LanguageLayoutData[];
   rows: number;
   columns: number;
-  onClick: (insertText: string) => void;
+  updateText: (insertText: string) => void;
 }
 
 const Keyboard = (props: KeyboardProps) => {
-  const { layout, rows, columns, onClick } = props;
+  const { layout, rows, columns, updateText } = props;
   const keyboardKeys: (LanguageLayoutData | null)[][] = [];
   for (let y = 0; y < rows; y++) {
     keyboardKeys[y] = [];
@@ -48,7 +48,7 @@ const Keyboard = (props: KeyboardProps) => {
                   <KeyboardKey
                     to={td.to}
                     from={td.from}
-                    onClick={() => onClick(td.to)}
+                    onClick={() => updateText(td.to)}
                   />
                 ) : null}
               </td>

@@ -1,4 +1,4 @@
-import { Ref } from 'react';
+import { RefObject } from 'react';
 import styles from '../styles/TextArea.module.css';
 
 interface TextAreaProps {
@@ -7,7 +7,8 @@ interface TextAreaProps {
   dictionary: { [key: string]: string };
   allowed: string[];
   bufferMax: number;
-  textAreaRef: Ref<HTMLTextAreaElement>;
+  textAreaRef: RefObject<HTMLTextAreaElement>;
+  updateText: (insertText: string, startOffset: number) => void;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
@@ -52,41 +53,37 @@ const TextArea = (props: TextAreaProps) => {
     dictionary,
     allowed,
     bufferMax,
-    onChange,
     textAreaRef,
+    updateText,
+    onChange,
   } = props;
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const modifier = e.altKey || e.ctrlKey || e.metaKey;
-    if (modifier || !allowed.includes(e.key)) return;
-
-    const target = e.currentTarget;
-    const { selectionStart, selectionEnd } = target;
+    if (!textAreaRef.current || modifier || !allowed.includes(e.key)) return;
+    const { selectionStart } = textAreaRef.current;
     const buffer =
-      target.value.slice(
+      textAreaRef.current.value.slice(
         Math.max(selectionStart - bufferMax, 0),
         selectionStart,
       ) + e.key;
     const keys = Object.keys(dictionary);
-    const replaceCharacters = checkBuffer(keys, buffer, allowed);
-    if (!replaceCharacters) return;
-
-    const replaceWith = dictionary[replaceCharacters];
-    const replaceStart = selectionStart - replaceCharacters.length + 1;
-    target.setRangeText(replaceWith, replaceStart, selectionEnd, 'end');
+    const replace = checkBuffer(keys, buffer, allowed);
+    if (!replace) return;
     e.preventDefault();
     e.stopPropagation();
+    updateText(dictionary[replace], replace.length - 1);
   };
 
   return (
     <textarea
+      className={styles.textArea}
+      rows={5}
+      placeholder={`Start typing to convert to ${language}`}
       value={text}
       onChange={onChange}
       onKeyDown={onKeyDown}
-      className={styles.textArea}
       ref={textAreaRef}
-      rows={5}
-      placeholder={`Start typing to convert to ${language}`}
     ></textarea>
   );
 };

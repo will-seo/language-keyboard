@@ -11,10 +11,15 @@ export type LanguageFAQsData = {
   schema: boolean;
 };
 
+export type LanguageModeData = {
+  name: string;
+  dictionary: { [key: string]: string };
+  layout: LanguageLayoutData[];
+};
+
 export type LanguageData = {
   language: string;
   description: string;
   faqs: LanguageFAQsData[];
-  dictionary: { [key: string]: string };
-  layout: LanguageLayoutData[];
+  modes: LanguageModeData[];
 };
