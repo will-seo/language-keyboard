@@ -19,6 +19,4 @@ const FAQs = (props: FAQsProps) => {
   );
 };
 
-FAQs.whyDidYouRender = true;
-
 export default FAQs;

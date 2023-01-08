@@ -139,8 +139,6 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   );
 };
 
-KeyboardPage.whyDidYouRender = true;
-
 interface KeyboardPageParams extends ParsedUrlQuery {
   keyboard: string;
 }

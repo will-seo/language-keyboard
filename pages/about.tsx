@@ -8,6 +8,4 @@ const AboutPage = () => {
   return <BasePage title={title} description={description}></BasePage>;
 };
 
-AboutPage.whyDidYouRender = true;
-
 export default AboutPage;

@@ -87,6 +87,4 @@ const TextArea = (props: TextAreaProps) => {
   );
 };
 
-TextArea.whyDidYouRender = true;
-
 export default TextArea;

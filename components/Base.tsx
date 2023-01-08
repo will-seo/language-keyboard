@@ -60,6 +60,4 @@ const BasePage = (props: BasePage) => {
   );
 };
 
-BasePage.whyDidYouRender = true;
-
 export default BasePage;

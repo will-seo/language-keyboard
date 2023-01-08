@@ -18,8 +18,6 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
   );
 };
 
-KeyboardKey.whyDidYouRender = true;
-
 interface KeyboardProps {
   layout: LanguageLayoutData[];
   rows: number;
@@ -59,7 +57,5 @@ const Keyboard = (props: KeyboardProps) => {
     </table>
   );
 };
-
-Keyboard.whyDidYouRender = true;
 
 export default Keyboard;

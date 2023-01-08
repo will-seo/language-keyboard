@@ -46,6 +46,4 @@ export const getStaticProps = async () => {
   };
 };
 
-HomePage.whyDidYouRender = true;
-
 export default HomePage;
