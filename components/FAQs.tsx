@@ -1,3 +1,4 @@
+import styles from '../styles/Keyboard.module.css';
 import { LanguageFAQsData } from '../types';
 
 interface FAQsProps {
@@ -7,7 +8,7 @@ interface FAQsProps {
 const FAQs = (props: FAQsProps) => {
   const { faqs } = props;
   return (
-    <section>
+    <section className={styles.faqs}>
       {faqs.map((faq, key) => (
         <div key={key}>
           <h2>{faq.question}</h2>

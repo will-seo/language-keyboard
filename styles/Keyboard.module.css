@@ -66,6 +66,11 @@
   width: 100%;
 }
 
+.faqs {
+  margin: 2rem 0 0;
+  border-top: var(--border-width) solid var(--dark-gray);
+}
+
 @media (min-width: 960px) {
   .keyboard td {
     min-width: 3rem;
