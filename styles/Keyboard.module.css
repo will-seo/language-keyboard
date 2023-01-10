@@ -1,9 +1,8 @@
 .keyboard {
-  margin: 2rem 0 0;
-  overflow-x: auto;
-  max-width: calc(100% + var(--padding) * 2);
   display: block;
-  padding: 0 var(--padding);
+  max-width: calc(100% + var(--gutter) * 2);
+  overflow-x: auto;
+  padding: var(--spacing) var(--gutter);
 }
 
 .keyboard button {
@@ -14,73 +13,35 @@
 .keyboard .to {
   display: block;
   font-size: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .keyboard .from {
   display: block;
 }
 
-.keyboardActions {
+.actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   width: 100%;
-  margin: 2rem 0 0;
+  padding: var(--spacing) 0;
 }
 
-.keyboardActions > button:last-of-type {
+.actions > button:last-of-type {
   margin-left: auto;
-}
-
-.keyboardModeSwitcher {
-  display: flex;
-}
-
-.keyboardModeSwitcher button[data-active='true'] {
-  background: white;
-  font-weight: bold;
-}
-
-.keyboardModeSwitcher button[data-active='false']:not(:hover) {
-  background: var(--dark-gray);
-}
-
-.keyboardModeSwitcher button:not(:last-of-type) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-.keyboardModeSwitcher button:not(:first-of-type) {
-  margin-left: calc(var(--border-width) * -1);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.textArea {
-  font-family: inherit;
-  font-size: 1rem;
-  margin: 1rem 0 0;
-  min-height: 8rem;
-  padding: 1rem;
-  resize: vertical;
-  width: 100%;
-}
-
-.faqs {
-  margin: 2rem 0 0;
-  border-top: var(--border-width) solid var(--dark-gray);
 }
 
 @media (min-width: 960px) {
   .keyboard td {
-    min-width: 3rem;
+    min-width: var(--button-width);
   }
 
   .keyboard .to {
     font-size: 1.5rem;
   }
 
-  .keyboardActions button {
+  .actions button {
     min-width: 8rem;
   }
 }

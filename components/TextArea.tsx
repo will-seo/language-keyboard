@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import styles from '../styles/Keyboard.module.css';
+import styles from '../styles/TextArea.module.css';
 
 interface TextAreaProps {
   text: string;
@@ -9,7 +9,7 @@ interface TextAreaProps {
   bufferMax: number;
   textAreaRef: RefObject<HTMLTextAreaElement>;
   updateText: (insertText: string, startOffset: number) => void;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  handleChange: () => void;
 }
 
 const cleanBuffer = (buffer: string, allowed: string[]) => {
@@ -55,7 +55,7 @@ const TextArea = (props: TextAreaProps) => {
     bufferMax,
     textAreaRef,
     updateText,
-    onChange,
+    handleChange,
   } = props;
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -80,7 +80,7 @@ const TextArea = (props: TextAreaProps) => {
       className={styles.textArea}
       placeholder={`Start typing to convert to ${language}`}
       value={text}
-      onChange={onChange}
+      onChange={() => handleChange()}
       onKeyDown={onKeyDown}
       ref={textAreaRef}
     ></textarea>

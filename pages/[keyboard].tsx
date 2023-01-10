@@ -1,91 +1,31 @@
 import type { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
-import {
-  Dispatch,
-  RefObject,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
-import BasePage from '../components/Base';
-import FAQs from '../components/FAQs';
+import { useEffect, useRef, useState } from 'react';
+import CopyButton from '../components/CopyButton';
+import FAQs from '../components/FAQ';
 import Keyboard from '../components/Keyboard';
+import Layout from '../components/Layout';
+import ModeSwitcher from '../components/ModeSwitcher';
 import TextArea from '../components/TextArea';
 import styles from '../styles/Keyboard.module.css';
-import { LanguageData, LanguageModeData } from '../types';
+import { LanguageData, LanguageModeProcessed, PageProps } from '../types';
 import { getLanguages, loadLanguage } from '../utils/languages';
+import { getMenu } from '../utils/menu';
 
-interface LanguageModeProcessedData extends LanguageModeData {
-  allowed: string[];
-  bufferMax: number;
-  columns: number;
-  rows: number;
-}
-
-interface KeyboardModeSwitcherProps {
-  current: LanguageModeProcessedData;
-  modes: LanguageModeProcessedData[];
-  setMode: Dispatch<SetStateAction<LanguageModeProcessedData>>;
-  textAreaRef: RefObject<HTMLTextAreaElement>;
-}
-
-const KeyboardModeSwitcher = (props: KeyboardModeSwitcherProps) => {
-  const { current, modes, setMode, textAreaRef } = props;
-  const onClick = (mode: LanguageModeProcessedData) => {
-    setMode(mode);
-    if (textAreaRef.current) textAreaRef.current.focus();
-  };
-  return (
-    <nav className={styles.keyboardModeSwitcher}>
-      {modes.map((mode, key) => (
-        <button
-          data-active={current === mode}
-          key={key}
-          onClick={() => onClick(mode)}
-        >
-          {mode.name}
-        </button>
-      ))}
-    </nav>
-  );
-};
-
-interface KeyboardCopyButtonProps {
-  text: string;
-  textAreaRef: RefObject<HTMLTextAreaElement>;
-  copiedDuration?: number;
-}
-
-const KeyboardCopyButton = ({
-  text,
-  textAreaRef,
-  copiedDuration = 500,
-}: KeyboardCopyButtonProps) => {
-  const [copied, setCopied] = useState(false);
-  const onClick = () => {
-    if (textAreaRef.current) textAreaRef.current.select();
-    navigator.clipboard.writeText(text);
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, copiedDuration);
-  };
-  return <button onClick={onClick}>📄 {copied ? 'Copied!' : 'Copy'}</button>;
-};
-
-interface KeyboardPageProps extends LanguageData {
-  modes: LanguageModeProcessedData[];
+interface KeyboardPageProps extends PageProps, LanguageData {
+  modes: LanguageModeProcessed[];
 }
 
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
-  const { language, description, faqs, modes } = props;
+  const { menu, language, description, faqs, modes } = props;
+
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
   const [caret, setCaret] = useState(0);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const title = `${language} Language Keyboard`;
+
+  const title = `${language} Keyboard`;
 
   useEffect(() => {
     if (textAreaRef.current)
@@ -101,22 +41,28 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     setText(text.slice(0, start) + insertText + text.slice(end));
   };
 
-  const onChange = () => {
+  const handleChangeMode = (modeName: string) => {
+    const newMode = modes.find((mode) => mode.name === modeName);
+    if (!newMode) return;
+    setMode(newMode);
+    textAreaRef.current?.focus();
+  };
+
+  const handleChangeText = () => {
     if (!textAreaRef.current) return;
     setCaret(textAreaRef.current.selectionStart);
     setText(textAreaRef.current.value);
   };
 
   return (
-    <BasePage title={title} description={description} faqs={faqs}>
-      <div className={styles.keyboardActions}>
-        <KeyboardModeSwitcher
-          current={mode}
-          modes={modes}
-          setMode={setMode}
-          textAreaRef={textAreaRef}
+    <Layout title={title} description={description} faqs={faqs} menu={menu}>
+      <div className={styles.actions}>
+        <ModeSwitcher
+          currentModeName={mode.name}
+          modeNames={modes.map((mode) => mode.name)}
+          handleChange={handleChangeMode}
         />
-        <KeyboardCopyButton text={text} textAreaRef={textAreaRef} />
+        <CopyButton textAreaRef={textAreaRef} />
       </div>
       <TextArea
         text={text}
@@ -126,7 +72,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         bufferMax={mode.bufferMax}
         textAreaRef={textAreaRef}
         updateText={updateText}
-        onChange={onChange}
+        handleChange={handleChangeText}
       />
       <Keyboard
         layout={mode.layout}
@@ -135,7 +81,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         updateText={updateText}
       />
       <FAQs faqs={faqs} />
-    </BasePage>
+    </Layout>
   );
 };
 
@@ -148,8 +94,10 @@ export const getStaticProps: GetStaticProps<
   KeyboardPageParams
 > = async (context) => {
   const { keyboard } = context.params as KeyboardPageParams;
+
   const data = loadLanguage(keyboard);
   const { language, description, faqs } = data;
+  const menu = getMenu();
 
   const modes = data.modes.map((mode) => {
     const words = Object.keys(mode.dictionary);
@@ -174,6 +122,7 @@ export const getStaticProps: GetStaticProps<
       description,
       faqs,
       modes,
+      menu,
     },
   };
 };

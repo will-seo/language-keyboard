@@ -1,49 +1,23 @@
-import Link from 'next/link';
-import BasePage from '../components/Base';
-import { getLanguages, loadLanguage } from '../utils/languages';
+import Layout from '../components/Layout';
+import { PageProps } from '../types';
+import { getMenu } from '../utils/menu';
 
 const title = 'Language Keyboard';
 const description =
   'Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.';
 
-interface LinkProps {
-  label: string;
-  route: string;
-}
-
-interface HomePageProps {
-  languages: LinkProps[];
-}
-
-const HomePage = (props: HomePageProps) => {
-  const { languages } = props;
+const HomePage = (props: PageProps) => {
+  const { menu } = props;
   return (
-    <BasePage title={title} description={description}>
-      <nav>
-        {languages.map((language, key) => (
-          <Link href={language.route} key={key}>
-            {language.label}
-          </Link>
-        ))}
-      </nav>
-    </BasePage>
+    <Layout title={title} description={description} menu={menu}>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+      asperiores minima, reiciendis, repellat vitae doloribus fugiat dolor
+      necessitatibus fuga sunt odio blanditiis ut est maiores ex veniam. Fugit,
+      quidem blanditiis.
+    </Layout>
   );
 };
 
-export const getStaticProps = async () => {
-  const languages = getLanguages().map((route) => {
-    const language = loadLanguage(route);
-    const label = language.language;
-    return {
-      label,
-      route,
-    };
-  });
-  return {
-    props: {
-      languages,
-    },
-  };
-};
+export const getStaticProps = async () => ({ props: { menu: getMenu() } });
 
 export default HomePage;

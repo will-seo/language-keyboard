@@ -1,0 +1,6 @@
+.footer {
+  background: var(--light-gray);
+  font-style: italic;
+  text-align: center;
+  padding: 1rem var(--gutter);
+}

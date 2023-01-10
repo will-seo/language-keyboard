@@ -1,25 +1,40 @@
-export type LanguageLayoutData = {
+export type LanguageLayout = {
   from: string;
   to: string;
   x: number;
   y: number;
 };
 
-export type LanguageFAQsData = {
-  question: string;
-  answer: string;
-  schema: boolean;
-};
-
-export type LanguageModeData = {
+export type LanguageMode = {
   name: string;
   dictionary: { [key: string]: string };
-  layout: LanguageLayoutData[];
+  layout: LanguageLayout[];
+};
+
+export type FAQ = {
+  question: string;
+  answer: string;
 };
 
 export type LanguageData = {
   language: string;
   description: string;
-  faqs: LanguageFAQsData[];
-  modes: LanguageModeData[];
+  faqs: FAQ[];
+  modes: LanguageMode[];
 };
+
+export type MenuLink = {
+  label: string;
+  route: string;
+};
+
+export interface PageProps {
+  menu: MenuLink[];
+}
+
+export interface LanguageModeProcessed extends LanguageMode {
+  allowed: string[];
+  bufferMax: number;
+  columns: number;
+  rows: number;
+}

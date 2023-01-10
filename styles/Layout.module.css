@@ -1,0 +1,22 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  margin: 0 auto;
+  width: 100%;
+  max-width: var(--page-width);
+  padding: var(--spacing) var(--gutter);
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  padding: var(--spacing) 0;
+}

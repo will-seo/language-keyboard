@@ -1,0 +1,6 @@
+.textArea {
+  min-height: 8rem;
+  padding: 1rem;
+  resize: vertical;
+  width: 100%;
+}

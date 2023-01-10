@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 import styles from '../styles/Keyboard.module.css';
-import { LanguageLayoutData } from '../types';
+import { LanguageLayout } from '../types';
 
 interface KeyboardKeyProps {
   to: string;
@@ -19,7 +19,7 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
 };
 
 interface KeyboardProps {
-  layout: LanguageLayoutData[];
+  layout: LanguageLayout[];
   rows: number;
   columns: number;
   updateText: (insertText: string) => void;
@@ -27,7 +27,7 @@ interface KeyboardProps {
 
 const Keyboard = (props: KeyboardProps) => {
   const { layout, rows, columns, updateText } = props;
-  const keyboardKeys: (LanguageLayoutData | null)[][] = [];
+  const keyboardKeys: (LanguageLayout | null)[][] = [];
   for (let y = 0; y < rows; y++) {
     keyboardKeys[y] = [];
     for (let x = 0; x < columns; x++) {
