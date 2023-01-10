@@ -8,7 +8,7 @@ interface ModeSwitcherProps {
 
 const ModeSwitcher = (props: ModeSwitcherProps) => {
   const { currentModeName, modeNames, handleChange } = props;
-  return (
+  return modeNames.length > 1 ? (
     <nav className={styles.modeSwitcher}>
       {modeNames.map((modeName, key) => (
         <button
@@ -20,7 +20,7 @@ const ModeSwitcher = (props: ModeSwitcherProps) => {
         </button>
       ))}
     </nav>
-  );
+  ) : null;
 };
 
 export default ModeSwitcher;

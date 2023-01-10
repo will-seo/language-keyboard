@@ -28,8 +28,12 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const title = `${language} Keyboard`;
 
   useEffect(() => {
-    if (textAreaRef.current)
-      textAreaRef.current.setSelectionRange(caret, caret);
+    setMode(modes[0]);
+    textAreaRef.current?.focus();
+  }, [modes]);
+
+  useEffect(() => {
+    textAreaRef.current?.setSelectionRange(caret, caret);
   }, [textAreaRef, caret, text]);
 
   const updateText = (insertText: string, startOffset = 0) => {
@@ -66,7 +70,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
       </div>
       <TextArea
         text={text}
-        language={`${language} ${mode.name}`}
+        language={language}
         dictionary={mode.dictionary}
         allowed={mode.allowed}
         bufferMax={mode.bufferMax}

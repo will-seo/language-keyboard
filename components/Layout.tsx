@@ -15,6 +15,7 @@ interface LayoutProps {
 
 const Layout = (props: LayoutProps) => {
   const { title, description, menu, faqs, children } = props;
+  const ogimage = '/ogimage.png';
   return (
     <div className={styles.container}>
       <Head>
@@ -24,11 +25,11 @@ const Layout = (props: LayoutProps) => {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content="/japanesekeyboard.png" />
+        <meta property="og:image" content={ogimage} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content="/japanesekeyboard.png" />
+        <meta name="twitter:image" content={ogimage} />
         {renderFAQSchema(faqs)}
       </Head>
       <Header menu={menu} />
