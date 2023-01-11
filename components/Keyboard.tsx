@@ -1,15 +1,15 @@
 import styles from '../styles/Keyboard.module.css';
-import { LanguageLayout } from '../types';
+import { LanguageKeyData } from '../types';
 
 interface KeyboardKeyProps {
-  layout: LanguageLayout;
+  keyData: LanguageKeyData;
   isUppercase: boolean;
   updateText: (insertText: string) => void;
 }
 
 const KeyboardKey = (props: KeyboardKeyProps) => {
-  const { layout, isUppercase, updateText } = props;
-  const { from, to, FROM, TO } = layout;
+  const { keyData, isUppercase, updateText } = props;
+  const { from, to, FROM, TO } = keyData;
 
   if (!to)
     return (
@@ -34,7 +34,7 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
 };
 
 interface KeyboardProps {
-  layout: LanguageLayout[][][];
+  layout: LanguageKeyData[][][];
   isUppercase: boolean;
   updateText: (insertText: string) => void;
 }
@@ -47,10 +47,10 @@ const Keyboard = (props: KeyboardProps) => {
         <div key={i} className={styles.keyboardColumn}>
           {columns.map((rows, j) => (
             <div key={j} className={styles.keyboardRow}>
-              {rows.map((keyLayout, k) => (
+              {rows.map((keyData, k) => (
                 <KeyboardKey
                   key={k}
-                  layout={keyLayout}
+                  keyData={keyData}
                   isUppercase={isUppercase}
                   updateText={updateText}
                 />

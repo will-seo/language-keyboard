@@ -1,4 +1,14 @@
-export type LanguageLayout = {
+export type MenuLink = {
+  label: string;
+  route: string;
+};
+
+export type FAQ = {
+  question: string;
+  answer: string;
+};
+
+export type LanguageKeyData = {
   from: string;
   to: string;
   FROM: string;
@@ -9,12 +19,7 @@ export type LanguageMode = {
   name: string;
   capslock: boolean;
   dictionary: { [key: string]: string };
-  layout: LanguageLayout[][][];
-};
-
-export type FAQ = {
-  question: string;
-  answer: string;
+  layout: LanguageKey[][][];
 };
 
 export type LanguageData = {
@@ -24,17 +29,12 @@ export type LanguageData = {
   modes: LanguageMode[];
 };
 
-export type MenuLink = {
-  label: string;
-  route: string;
-};
-
-export interface PageProps {
-  menu: MenuLink[];
-}
-
 export interface LanguageModeProcessed extends LanguageMode {
   allowed: string[];
   bufferMax: number;
   key: number;
+}
+
+export interface PageProps {
+  menu: MenuLink[];
 }
