@@ -1,22 +1,23 @@
-import styles from '../styles/ModeSwitcher.module.css';
+import styles from '../styles/Toggle.module.css';
+import { LanguageModeProcessed } from '../types';
 
 interface ModeSwitcherProps {
-  currentModeName: string;
-  modeNames: string[];
-  handleChange: (newMode: string) => void;
+  currentMode: LanguageModeProcessed;
+  allModes: LanguageModeProcessed[];
+  handleChange: (key: number) => void;
 }
 
 const ModeSwitcher = (props: ModeSwitcherProps) => {
-  const { currentModeName, modeNames, handleChange } = props;
-  return modeNames.length > 1 ? (
-    <nav className={styles.modeSwitcher}>
-      {modeNames.map((modeName, key) => (
+  const { currentMode, allModes, handleChange } = props;
+  return allModes.length > 1 ? (
+    <nav className={styles.toggle}>
+      {allModes.map((mode, key) => (
         <button
-          data-active={currentModeName === modeName}
           key={key}
-          onClick={() => handleChange(modeName)}
+          data-active={mode.key === currentMode.key}
+          onClick={() => handleChange(mode.key)}
         >
-          {modeName}
+          {mode.name}
         </button>
       ))}
     </nav>

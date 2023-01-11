@@ -1,14 +1,15 @@
 export type LanguageLayout = {
   from: string;
   to: string;
-  x: number;
-  y: number;
+  FROM: string;
+  TO: string;
 };
 
 export type LanguageMode = {
   name: string;
+  capslock: boolean;
   dictionary: { [key: string]: string };
-  layout: LanguageLayout[];
+  layout: LanguageLayout[][][];
 };
 
 export type FAQ = {
@@ -35,6 +36,5 @@ export interface PageProps {
 export interface LanguageModeProcessed extends LanguageMode {
   allowed: string[];
   bufferMax: number;
-  columns: number;
-  rows: number;
+  key: number;
 }

@@ -1,60 +1,65 @@
-import { MouseEvent } from 'react';
 import styles from '../styles/Keyboard.module.css';
 import { LanguageLayout } from '../types';
 
 interface KeyboardKeyProps {
-  to: string;
-  from: string;
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  layout: LanguageLayout;
+  isUppercase: boolean;
+  updateText: (insertText: string) => void;
 }
 
 const KeyboardKey = (props: KeyboardKeyProps) => {
-  const { from, to, onClick } = props;
+  const { layout, isUppercase, updateText } = props;
+  const { from, to, FROM, TO } = layout;
+
+  if (!to)
+    return (
+      <div className={`${styles.keyboardKey} ${styles.placeholder}`}></div>
+    );
+
+  const getCase = (lower: string, upper: string) =>
+    (isUppercase ? upper : lower) || lower;
+
+  const displayTo = getCase(to, TO);
+  const displayFrom = getCase(from, FROM);
+
   return (
-    <button onClick={onClick}>
-      <span className={styles.to}>{to}</span>
-      <span className={styles.from}>{from}</span>
+    <button
+      className={`${styles.keyboardKey} ${styles.button}`}
+      onClick={() => updateText(displayTo)}
+    >
+      <span className={styles.keyboardKeyTo}>{displayTo}</span>
+      <span className={styles.keyboardKeyFrom}>{displayFrom}</span>
     </button>
   );
 };
 
 interface KeyboardProps {
-  layout: LanguageLayout[];
-  rows: number;
-  columns: number;
+  layout: LanguageLayout[][][];
+  isUppercase: boolean;
   updateText: (insertText: string) => void;
 }
 
 const Keyboard = (props: KeyboardProps) => {
-  const { layout, rows, columns, updateText } = props;
-  const keyboardKeys: (LanguageLayout | null)[][] = [];
-  for (let y = 0; y < rows; y++) {
-    keyboardKeys[y] = [];
-    for (let x = 0; x < columns; x++) {
-      const character = layout.find((item) => item.x === x && item.y === y);
-      keyboardKeys[y][x] = character || null;
-    }
-  }
+  const { layout, isUppercase, updateText } = props;
   return (
-    <table className={styles.keyboard}>
-      <tbody>
-        {keyboardKeys.map((tr, y) => (
-          <tr key={y}>
-            {tr.map((td, x) => (
-              <td key={x}>
-                {td ? (
-                  <KeyboardKey
-                    to={td.to}
-                    from={td.from}
-                    onClick={() => updateText(td.to)}
-                  />
-                ) : null}
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className={styles.keyboard}>
+      {layout.map((columns, i) => (
+        <div key={i} className={styles.keyboardColumn}>
+          {columns.map((rows, j) => (
+            <div key={j} className={styles.keyboardRow}>
+              {rows.map((keyLayout, k) => (
+                <KeyboardKey
+                  key={k}
+                  layout={keyLayout}
+                  isUppercase={isUppercase}
+                  updateText={updateText}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
   );
 };
 
