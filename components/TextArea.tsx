@@ -63,10 +63,12 @@ const TextArea = (props: TextAreaProps) => {
     if (!textAreaRef.current || modifier || !allowed.includes(e.key)) return;
     const { selectionStart } = textAreaRef.current;
     const buffer =
-      textAreaRef.current.value.slice(
-        Math.max(selectionStart - bufferMax, 0),
-        selectionStart,
-      ) + e.key;
+      (bufferMax
+        ? textAreaRef.current.value.slice(
+            Math.max(selectionStart - bufferMax, 0),
+            selectionStart,
+          )
+        : '') + e.key;
     const keys = Object.keys(dictionary);
     const replace = checkBuffer(keys, buffer, allowed);
     if (!replace) return;
