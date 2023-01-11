@@ -7,6 +7,7 @@ export type LanguageLayout = {
 
 export type LanguageMode = {
   name: string;
+  capslock: boolean;
   dictionary: { [key: string]: string };
   layout: LanguageLayout[][][];
 };

@@ -26,6 +26,7 @@
   "modes": [
     {
       "name": "Hiragana",
+      "capslock": false,
       "dictionary": {
         "n": "ん",
         "wa": "わ",
@@ -208,6 +209,7 @@
     },
     {
       "name": "Katakana",
+      "capslock": false,
       "dictionary": {
         "n": "ン",
         "wa": "ワ",

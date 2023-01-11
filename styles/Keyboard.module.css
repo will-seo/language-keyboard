@@ -2,15 +2,16 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing);
-  justify-content: center;
   padding: var(--spacing) 0;
   width: 100%;
+  max-width: max-content;
 }
 
 .keyboardColumn {
   display: flex;
   flex-direction: column;
   overflow-x: auto;
+  margin: 0 auto;
 }
 
 .keyboardRow {

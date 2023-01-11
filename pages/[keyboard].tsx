@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { useEffect, useRef, useState } from 'react';
+import CapslockButton from '../components/CapslockButton';
 import CopyButton from '../components/CopyButton';
 import FAQs from '../components/FAQ';
 import Keyboard from '../components/Keyboard';
@@ -23,18 +24,36 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
   const [caret, setCaret] = useState(0);
+  const [keyboardUppercase, setKeyboardUppercase] = useState(false);
+  const [forceUppercase, setForceUppercase] = useState(false);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const title = `${language} Keyboard`;
 
+  // Update available modes on route change
   useEffect(() => {
     setMode(modes[0]);
     textAreaRef.current?.focus();
   }, [modes]);
 
+  // Update caret position on text change
   useEffect(() => {
     textAreaRef.current?.setSelectionRange(caret, caret);
   }, [textAreaRef, caret, text]);
+
+  // Check status of caps lock and shift keys when any key is pressed
+  useEffect(() => {
+    window.addEventListener('keydown', checkKeyboardUppercase);
+    window.addEventListener('keyup', checkKeyboardUppercase);
+    return () => {
+      window.removeEventListener('keydown', checkKeyboardUppercase);
+      window.removeEventListener('keyup', checkKeyboardUppercase);
+    };
+  }, []);
+
+  const checkKeyboardUppercase = (e: KeyboardEvent) => {
+    setKeyboardUppercase(e.shiftKey || e.getModifierState('CapsLock'));
+  };
 
   const updateText = (insertText: string, startOffset = 0) => {
     if (!textAreaRef.current || !insertText) return;
@@ -58,6 +77,12 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     setText(textAreaRef.current.value);
   };
 
+  const handleChangeForceUppercase = (newForceUppercase: boolean) => {
+    setForceUppercase(newForceUppercase);
+  };
+
+  const isUppercase = keyboardUppercase || forceUppercase;
+
   return (
     <Layout title={title} description={description} faqs={faqs} menu={menu}>
       <div className={styles.keyboardActions}>
@@ -66,6 +91,13 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
           allModes={modes}
           handleChange={handleChangeMode}
         />
+        {mode.capslock && (
+          <CapslockButton
+            isUppercase={isUppercase}
+            forceUppercase={forceUppercase}
+            handleChange={handleChangeForceUppercase}
+          />
+        )}
         <CopyButton textAreaRef={textAreaRef} />
       </div>
       <TextArea
@@ -74,11 +106,16 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         dictionary={mode.dictionary}
         allowed={mode.allowed}
         bufferMax={mode.bufferMax}
+        isUppercase={isUppercase}
         textAreaRef={textAreaRef}
         updateText={updateText}
         handleChange={handleChangeText}
       />
-      <Keyboard layout={mode.layout} updateText={updateText} />
+      <Keyboard
+        layout={mode.layout}
+        isUppercase={isUppercase}
+        updateText={updateText}
+      />
       <FAQs faqs={faqs} />
     </Layout>
   );
@@ -99,17 +136,14 @@ export const getStaticProps: GetStaticProps<
   const menu = getMenu();
 
   const modes = data.modes.map((mode, key) => {
-    const { name, dictionary, layout } = mode;
     const words = Object.keys(mode.dictionary);
     const allowed = Array.from(new Set(words.join(''))).sort();
     const bufferMax = Math.max(...words.map((word) => word.length - 1), 0);
     return {
       key,
-      name,
-      dictionary,
-      layout,
       allowed,
       bufferMax,
+      ...mode,
     };
   });
 

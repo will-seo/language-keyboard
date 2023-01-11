@@ -4,7 +4,8 @@
   "faqs": [],
   "modes": [
     {
-      "name": "Default",
+      "name": "",
+      "capslock": true,
       "dictionary": {
         "a": "ф",
         "b": "и",
@@ -76,43 +77,43 @@
       "layout": [
         [
           [
-            { "from": "q", "to": "й", "FROM": "Q", "TO": "!" },
-            { "from": "w", "to": "ц" },
-            { "from": "e", "to": "у" },
-            { "from": "r", "to": "к" },
-            { "from": "t", "to": "е" },
-            { "from": "y", "to": "н" },
-            { "from": "u", "to": "г" },
-            { "from": "i", "to": "ш" },
-            { "from": "o", "to": "щ" },
-            { "from": "p", "to": "з" },
-            { "from": "[", "to": "х" },
-            { "from": "]", "to": "ъ" }
+            { "from": "q", "to": "й", "FROM": "Q", "TO": "Й" },
+            { "from": "w", "to": "ц", "FROM": "W", "TO": "Ц" },
+            { "from": "e", "to": "у", "FROM": "E", "TO": "У" },
+            { "from": "r", "to": "к", "FROM": "R", "TO": "К" },
+            { "from": "t", "to": "е", "FROM": "T", "TO": "Е" },
+            { "from": "y", "to": "н", "FROM": "Y", "TO": "Н" },
+            { "from": "u", "to": "г", "FROM": "U", "TO": "Г" },
+            { "from": "i", "to": "ш", "FROM": "I", "TO": "Ш" },
+            { "from": "o", "to": "щ", "FROM": "O", "TO": "Щ" },
+            { "from": "p", "to": "з", "FROM": "P", "TO": "З" },
+            { "from": "[", "to": "х", "FROM": "{", "TO": "Х" },
+            { "from": "]", "to": "ъ", "FROM": "}", "TO": "Ъ" }
           ],
           [
-            { "from": "a", "to": "ф" },
-            { "from": "s", "to": "ы" },
-            { "from": "d", "to": "в" },
-            { "from": "f", "to": "а" },
-            { "from": "g", "to": "п" },
-            { "from": "h", "to": "р" },
-            { "from": "j", "to": "о" },
-            { "from": "k", "to": "л" },
-            { "from": "l", "to": "д" },
-            { "from": ";", "to": "ж" },
-            { "from": "'", "to": "э" }
+            { "from": "a", "to": "ф", "FROM": "A", "TO": "Ф" },
+            { "from": "s", "to": "ы", "FROM": "S", "TO": "Ы" },
+            { "from": "d", "to": "в", "FROM": "D", "TO": "В" },
+            { "from": "f", "to": "а", "FROM": "F", "TO": "А" },
+            { "from": "g", "to": "п", "FROM": "G", "TO": "П" },
+            { "from": "h", "to": "р", "FROM": "H", "TO": "Р" },
+            { "from": "j", "to": "о", "FROM": "J", "TO": "О" },
+            { "from": "k", "to": "л", "FROM": "K", "TO": "Л" },
+            { "from": "l", "to": "д", "FROM": "L", "TO": "Д" },
+            { "from": ";", "to": "ж", "FROM": ":", "TO": "Ж" },
+            { "from": "'", "to": "э", "FROM": "\"", "TO": "\"" }
           ],
           [
-            { "from": "`", "to": "ё" },
-            { "from": "z", "to": "я" },
-            { "from": "x", "to": "ч" },
-            { "from": "c", "to": "с" },
-            { "from": "v", "to": "м" },
-            { "from": "b", "to": "и" },
-            { "from": "n", "to": "т" },
-            { "from": "m", "to": "ь" },
-            { "from": ",", "to": "б" },
-            { "from": ".", "to": "ю" }
+            { "from": "`", "to": "ё", "FROM": "~", "TO": "~" },
+            { "from": "z", "to": "я", "FROM": "Z", "TO": "Я" },
+            { "from": "x", "to": "ч", "FROM": "X", "TO": "Ч" },
+            { "from": "c", "to": "с", "FROM": "C", "TO": "С" },
+            { "from": "v", "to": "м", "FROM": "V", "TO": "М" },
+            { "from": "b", "to": "и", "FROM": "B", "TO": "И" },
+            { "from": "n", "to": "т", "FROM": "N", "TO": "Т" },
+            { "from": "m", "to": "ь", "FROM": "M", "TO": "Ь" },
+            { "from": ",", "to": "б", "FROM": "<", "TO": "Б" },
+            { "from": ".", "to": "ю", "FROM": ">", "TO": "Ю" }
           ]
         ]
       ]

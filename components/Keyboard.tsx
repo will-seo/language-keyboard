@@ -1,14 +1,14 @@
-import { MouseEvent } from 'react';
 import styles from '../styles/Keyboard.module.css';
 import { LanguageLayout } from '../types';
 
 interface KeyboardKeyProps {
   layout: LanguageLayout;
-  onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  isUppercase: boolean;
+  updateText: (insertText: string) => void;
 }
 
 const KeyboardKey = (props: KeyboardKeyProps) => {
-  const { layout, onClick } = props;
+  const { layout, isUppercase, updateText } = props;
   const { from, to, FROM, TO } = layout;
 
   if (!to)
@@ -16,35 +16,43 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
       <div className={`${styles.keyboardKey} ${styles.placeholder}`}></div>
     );
 
+  const getCase = (lower: string, upper: string) =>
+    (isUppercase ? upper : lower) || lower;
+
+  const displayTo = getCase(to, TO);
+  const displayFrom = getCase(from, FROM);
+
   return (
     <button
       className={`${styles.keyboardKey} ${styles.button}`}
-      onClick={onClick}
+      onClick={() => updateText(displayTo)}
     >
-      <span className={styles.keyboardKeyTo}>{to}</span>
-      <span className={styles.keyboardKeyFrom}>{from || ''}</span>
+      <span className={styles.keyboardKeyTo}>{displayTo}</span>
+      <span className={styles.keyboardKeyFrom}>{displayFrom}</span>
     </button>
   );
 };
 
 interface KeyboardProps {
   layout: LanguageLayout[][][];
+  isUppercase: boolean;
   updateText: (insertText: string) => void;
 }
 
 const Keyboard = (props: KeyboardProps) => {
-  const { layout, updateText } = props;
+  const { layout, isUppercase, updateText } = props;
   return (
     <div className={styles.keyboard}>
-      {layout.map((x, i) => (
+      {layout.map((columns, i) => (
         <div key={i} className={styles.keyboardColumn}>
-          {x.map((y, j) => (
+          {columns.map((rows, j) => (
             <div key={j} className={styles.keyboardRow}>
-              {y.map((z, k) => (
+              {rows.map((keyLayout, k) => (
                 <KeyboardKey
                   key={k}
-                  layout={z}
-                  onClick={() => (z.to ? updateText(z.to) : null)}
+                  layout={keyLayout}
+                  isUppercase={isUppercase}
+                  updateText={updateText}
                 />
               ))}
             </div>

@@ -7,6 +7,7 @@ interface TextAreaProps {
   dictionary: { [key: string]: string };
   allowed: string[];
   bufferMax: number;
+  isUppercase: boolean;
   textAreaRef: RefObject<HTMLTextAreaElement>;
   updateText: (insertText: string, startOffset: number) => void;
   handleChange: () => void;
@@ -53,6 +54,7 @@ const TextArea = (props: TextAreaProps) => {
     dictionary,
     allowed,
     bufferMax,
+    isUppercase,
     textAreaRef,
     updateText,
     handleChange,
@@ -60,7 +62,8 @@ const TextArea = (props: TextAreaProps) => {
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const modifier = e.altKey || e.ctrlKey || e.metaKey;
-    if (!textAreaRef.current || modifier || !allowed.includes(e.key)) return;
+    const key = isUppercase ? e.key.toUpperCase() : e.key;
+    if (!textAreaRef.current || modifier || !allowed.includes(key)) return;
     const { selectionStart } = textAreaRef.current;
     const buffer =
       (bufferMax
@@ -68,7 +71,7 @@ const TextArea = (props: TextAreaProps) => {
             Math.max(selectionStart - bufferMax, 0),
             selectionStart,
           )
-        : '') + e.key;
+        : '') + key;
     const keys = Object.keys(dictionary);
     const replace = checkBuffer(keys, buffer, allowed);
     if (!replace) return;
