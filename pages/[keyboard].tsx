@@ -45,8 +45,8 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     setText(text.slice(0, start) + insertText + text.slice(end));
   };
 
-  const handleChangeMode = (modeName: string) => {
-    const newMode = modes.find((mode) => mode.name === modeName);
+  const handleChangeMode = (key: number) => {
+    const newMode = modes.find((mode) => mode.key === key);
     if (!newMode) return;
     setMode(newMode);
     textAreaRef.current?.focus();
@@ -60,10 +60,10 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
 
   return (
     <Layout title={title} description={description} faqs={faqs} menu={menu}>
-      <div className={styles.actions}>
+      <div className={styles.keyboardActions}>
         <ModeSwitcher
-          currentModeName={mode.name}
-          modeNames={modes.map((mode) => mode.name)}
+          currentMode={mode}
+          allModes={modes}
           handleChange={handleChangeMode}
         />
         <CopyButton textAreaRef={textAreaRef} />
@@ -78,12 +78,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         updateText={updateText}
         handleChange={handleChangeText}
       />
-      <Keyboard
-        layout={mode.layout}
-        rows={mode.rows}
-        columns={mode.columns}
-        updateText={updateText}
-      />
+      <Keyboard layout={mode.layout} updateText={updateText} />
       <FAQs faqs={faqs} />
     </Layout>
   );
@@ -103,20 +98,18 @@ export const getStaticProps: GetStaticProps<
   const { language, description, faqs } = data;
   const menu = getMenu();
 
-  const modes = data.modes.map((mode) => {
+  const modes = data.modes.map((mode, key) => {
+    const { name, dictionary, layout } = mode;
     const words = Object.keys(mode.dictionary);
     const allowed = Array.from(new Set(words.join(''))).sort();
     const bufferMax = Math.max(...words.map((word) => word.length - 1), 0);
-    const columns = Math.max(...mode.layout.map((key) => key.x + 1), 0);
-    const rows = Math.max(...mode.layout.map((key) => key.y + 1), 0);
     return {
-      name: mode.name,
-      dictionary: mode.dictionary,
-      layout: mode.layout,
+      key,
+      name,
+      dictionary,
+      layout,
       allowed,
       bufferMax,
-      columns,
-      rows,
     };
   });
 

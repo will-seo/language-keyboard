@@ -1,26 +1,40 @@
 .keyboard {
-  display: block;
-  max-width: calc(100% + var(--gutter) * 2);
-  overflow-x: auto;
-  padding: var(--spacing) var(--gutter);
-}
-
-.keyboard button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing);
+  justify-content: center;
+  padding: var(--spacing) 0;
   width: 100%;
-  font-size: 1rem;
 }
 
-.keyboard .to {
+.keyboardColumn {
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+}
+
+.keyboardRow {
+  display: flex;
+  justify-content: center;
+}
+
+.keyboardKey {
+  flex-basis: min-content;
+  margin: var(--key-spacing);
+  min-width: var(--key-width);
+}
+
+.keyboardKeyFrom {
   display: block;
-  font-size: 1rem;
+}
+
+.keyboardKeyTo {
+  display: block;
+  font-size: 1.25rem;
   margin-bottom: 0.5rem;
 }
 
-.keyboard .from {
-  display: block;
-}
-
-.actions {
+.keyboardActions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -28,20 +42,6 @@
   padding: var(--spacing) 0;
 }
 
-.actions > button:last-of-type {
+.keyboardActions > button:last-of-type {
   margin-left: auto;
-}
-
-@media (min-width: 960px) {
-  .keyboard td {
-    min-width: var(--button-width);
-  }
-
-  .keyboard .to {
-    font-size: 1.5rem;
-  }
-
-  .actions button {
-    min-width: 8rem;
-  }
 }

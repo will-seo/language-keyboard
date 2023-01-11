@@ -3,58 +3,55 @@ import styles from '../styles/Keyboard.module.css';
 import { LanguageLayout } from '../types';
 
 interface KeyboardKeyProps {
-  to: string;
-  from: string;
+  layout: LanguageLayout;
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
 const KeyboardKey = (props: KeyboardKeyProps) => {
-  const { from, to, onClick } = props;
+  const { layout, onClick } = props;
+  const { from, to, FROM, TO } = layout;
+
+  if (!to)
+    return (
+      <div className={`${styles.keyboardKey} ${styles.placeholder}`}></div>
+    );
+
   return (
-    <button onClick={onClick}>
-      <span className={styles.to}>{to}</span>
-      <span className={styles.from}>{from}</span>
+    <button
+      className={`${styles.keyboardKey} ${styles.button}`}
+      onClick={onClick}
+    >
+      <span className={styles.keyboardKeyTo}>{to}</span>
+      <span className={styles.keyboardKeyFrom}>{from || ''}</span>
     </button>
   );
 };
 
 interface KeyboardProps {
-  layout: LanguageLayout[];
-  rows: number;
-  columns: number;
+  layout: LanguageLayout[][][];
   updateText: (insertText: string) => void;
 }
 
 const Keyboard = (props: KeyboardProps) => {
-  const { layout, rows, columns, updateText } = props;
-  const keyboardKeys: (LanguageLayout | null)[][] = [];
-  for (let y = 0; y < rows; y++) {
-    keyboardKeys[y] = [];
-    for (let x = 0; x < columns; x++) {
-      const character = layout.find((item) => item.x === x && item.y === y);
-      keyboardKeys[y][x] = character || null;
-    }
-  }
+  const { layout, updateText } = props;
   return (
-    <table className={styles.keyboard}>
-      <tbody>
-        {keyboardKeys.map((tr, y) => (
-          <tr key={y}>
-            {tr.map((td, x) => (
-              <td key={x}>
-                {td ? (
-                  <KeyboardKey
-                    to={td.to}
-                    from={td.from}
-                    onClick={() => updateText(td.to)}
-                  />
-                ) : null}
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
-    </table>
+    <div className={styles.keyboard}>
+      {layout.map((x, i) => (
+        <div key={i} className={styles.keyboardColumn}>
+          {x.map((y, j) => (
+            <div key={j} className={styles.keyboardRow}>
+              {y.map((z, k) => (
+                <KeyboardKey
+                  key={k}
+                  layout={z}
+                  onClick={() => (z.to ? updateText(z.to) : null)}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
   );
 };
 

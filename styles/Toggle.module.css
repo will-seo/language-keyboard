@@ -1,22 +1,22 @@
-.modeSwitcher {
+.toggle {
   display: flex;
 }
 
-.modeSwitcher button[data-active='true'] {
+.toggle button[data-active='true'] {
   background: white;
   font-weight: bold;
 }
 
-.modeSwitcher button[data-active='false']:not(:hover) {
+.toggle button[data-active='false']:not(:hover) {
   background: var(--dark-gray);
 }
 
-.modeSwitcher button:not(:last-of-type) {
+.toggle button:not(:last-of-type) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.modeSwitcher button:not(:first-of-type) {
+.toggle button:not(:first-of-type) {
   margin-left: calc(var(--border-width) * -1);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;

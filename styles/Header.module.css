@@ -1,24 +1,19 @@
 .header {
   width: 100%;
   background: var(--light-gray);
-  padding: 1rem var(--gutter);
+  white-space: nowrap;
+  overflow-x: auto;
 }
 
 .menu ul {
   display: flex;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow-x: auto;
-  justify-content: center;
+  margin: 0 auto;
+  max-width: var(--page-width);
+  padding: var(--spacing) var(--gutter);
 }
 
 .menu li {
-  padding: 0 0 0 1rem;
-}
-
-.menu li:first-of-type {
-  padding: 0;
+  padding: 0 1rem 0 0;
 }
 
 .menu li[data-active='true'] {

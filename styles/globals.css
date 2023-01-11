@@ -2,8 +2,10 @@
 
 :root {
   --page-width: 960px;
-  --button-width: 3rem;
   --border-width: 2px;
+  --key-width: 48px;
+  --key-spacing: 1px;
+  --button-width: 1rem;
   --gutter: 1rem;
   --spacing: 1rem;
   --light: #ffffff;
@@ -14,12 +16,65 @@
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+@media (min-width: 960px) {
+  :root {
+    --gutter: 2rem;
+    --button-width: 8rem;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
   color: var(--dark);
   font-family: var(--sans-serif);
   font-size: 1rem;
   font-weight: normal;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
 button {
@@ -30,6 +85,7 @@ button {
   border-radius: 0.25rem;
   border: var(--border-width) solid currentColor;
   cursor: pointer;
+  min-width: var(--button-width);
 }
 
 button:hover {
@@ -44,11 +100,5 @@ button:hover {
   body {
     color: var(--light);
     background: var(--dark);
-  }
-}
-
-@media (min-width: 960px) {
-  :root {
-    --gutter: 2rem;
   }
 }
