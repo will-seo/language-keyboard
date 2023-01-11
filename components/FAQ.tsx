@@ -12,7 +12,10 @@ const FAQ = (props: FAQProps) => {
       {faqs.map((faq, key) => (
         <div key={key} className={styles.faq}>
           <h2 className={styles.question}>{faq.question}</h2>
-          <p className={styles.answer}>{faq.answer}</p>
+          <div
+            className={styles.answer}
+            dangerouslySetInnerHTML={{ __html: faq.answer }}
+          ></div>
         </div>
       ))}
     </section>
