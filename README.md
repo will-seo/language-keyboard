@@ -6,6 +6,11 @@ https://nodejs.dev/en/learn/how-to-install-nodejs/
 1. Install Yarn:
 https://yarnpkg.com/getting-started/install
 
+3. Install dependencies - open a terminal and run:
+```bash
+yarn
+```
+
 ## Getting Started
 To run the development server:
 
