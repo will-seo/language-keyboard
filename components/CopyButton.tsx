@@ -1,4 +1,7 @@
+import { faCopy } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { RefObject, useState } from 'react';
+import buttonStyles from '../styles/Button.module.css';
 
 interface CopyButtonProps {
   textAreaRef: RefObject<HTMLTextAreaElement>;
@@ -16,7 +19,15 @@ const CopyButton = ({ textAreaRef, copiedDuration = 500 }: CopyButtonProps) => {
       setCopied(false);
     }, copiedDuration);
   };
-  return <button onClick={onClick}>📄 {copied ? 'Copied!' : 'Copy'}</button>;
+  return (
+    <button
+      onClick={onClick}
+      className={`${buttonStyles.button} ${buttonStyles.iconButton}`}
+    >
+      <FontAwesomeIcon icon={faCopy} />
+      {copied ? 'Done' : 'Copy'}
+    </button>
+  );
 };
 
 export default CopyButton;

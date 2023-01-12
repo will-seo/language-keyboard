@@ -5,22 +5,22 @@
   left: 0;
   background: var(--teal);
   padding: var(--spacing);
-  filter: drop-shadow(2px 4px 6px rgba(0 0 0 / 0.25));
   display: grid;
   align-items: flex-start;
   grid-template-columns: auto auto;
-  gap: var(--spacing);
+  gap: calc(var(--spacing) * 2);
   transition: transform 0.25s;
 }
 
 .menu[data-open='false'] {
-  transform: translateX(-100%);
+  transform: translateX(calc(-100% - 1px));
 }
 
 .menu ul {
   display: grid;
   gap: var(--spacing);
   margin: 0 auto;
+  font-size: 1.25rem;
 }
 
 .menu li[data-active='true'] {
@@ -34,11 +34,6 @@
 
 .menu a:hover {
   text-decoration: underline;
-}
-
-.closeButton {
-  min-height: var(--menu-button-size);
-  min-width: var(--menu-button-size);
 }
 
 .fadeOut {

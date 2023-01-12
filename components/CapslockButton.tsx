@@ -1,4 +1,4 @@
-import styles from '../styles/Toggle.module.css';
+import buttonStyles from '../styles/Button.module.css';
 
 interface CapslockButtonProps {
   isUppercase: boolean;
@@ -9,8 +9,9 @@ interface CapslockButtonProps {
 const CapslockButton = (props: CapslockButtonProps) => {
   const { isUppercase, forceUppercase, handleChange } = props;
   return (
-    <div className={styles.toggle}>
+    <div className={buttonStyles.toggle}>
       <button
+        className={`${buttonStyles.button} ${buttonStyles.toggleButton}`}
         data-active={forceUppercase}
         onClick={() => {
           handleChange(!forceUppercase);

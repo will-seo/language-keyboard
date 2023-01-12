@@ -1,11 +1,7 @@
-import {
-  brands,
-  icon,
-  regular,
-  solid,
-} from '@fortawesome/fontawesome-svg-core/import.macro';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
+import buttonStyles from '../styles/Button.module.css';
 import styles from '../styles/Header.module.css';
 import { MenuLink } from '../types';
 import Menu from './Menu';
@@ -23,13 +19,10 @@ const Header = (props: HeaderProps) => {
       <div className={styles.headerWrapper}>
         <button
           onClick={() => setMenuOpen(true)}
-          className={styles.openButton}
+          className={buttonStyles.menuButton}
           aria-label="Open menu"
         >
-          <FontAwesomeIcon icon={solid('user-secret')} />
-          <FontAwesomeIcon icon={regular('coffee')} />
-          <FontAwesomeIcon icon={icon({ name: 'coffee', style: 'solid' })} />
-          <FontAwesomeIcon icon={brands('twitter')} />
+          <FontAwesomeIcon icon={faBars} size="3x" />
         </button>
         <h1 className={styles.title}>{title}</h1>
         <Menu

@@ -1,0 +1,52 @@
+.button {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--light);
+  color: var(--dark);
+  border: var(--border-width) solid var(--dark);
+  min-width: var(--button-width);
+}
+
+.button:hover {
+  background: var(--teal);
+  color: var(--light);
+}
+
+.menuButton {
+  width: var(--menu-button-size);
+  height: var(--menu-button-size);
+  color: var(--dark);
+}
+
+.menuButton:hover {
+  color: var(--light);
+}
+
+.iconButton {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.toggle {
+  display: flex;
+  margin: 0 var(--spacing) 0 0;
+}
+
+.toggleButton[data-active='true'] {
+  font-weight: bold;
+  background: var(--teal);
+  color: var(--light);
+}
+
+.toggleButton:not(:last-of-type) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.toggleButton:not(:first-of-type) {
+  margin-left: calc(var(--border-width) * -1);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}

@@ -13,7 +13,6 @@ import styles from '../styles/Keyboard.module.css';
 import { LanguageData, LanguageModeProcessed, PageProps } from '../types';
 import { getLanguages, loadLanguage } from '../utils/languages';
 import { getMenu } from '../utils/menu';
-
 interface KeyboardPageProps extends PageProps, LanguageData {
   modes: LanguageModeProcessed[];
 }
@@ -85,21 +84,6 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
 
   return (
     <Layout title={title} meta={meta} faqs={faqs} menu={menu}>
-      <div className={styles.keyboardActions}>
-        <ModeSwitcher
-          currentMode={mode}
-          allModes={modes}
-          handleChange={handleChangeMode}
-        />
-        {mode.capslock && (
-          <CapslockButton
-            isUppercase={isUppercase}
-            forceUppercase={forceUppercase}
-            handleChange={handleChangeForceUppercase}
-          />
-        )}
-        <CopyButton textAreaRef={textAreaRef} />
-      </div>
       <TextArea
         text={text}
         language={language}
@@ -116,6 +100,21 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         isUppercase={isUppercase}
         updateText={updateText}
       />
+      <div className={styles.keyboardActions}>
+        <ModeSwitcher
+          currentMode={mode}
+          allModes={modes}
+          handleChange={handleChangeMode}
+        />
+        {mode.capslock && (
+          <CapslockButton
+            isUppercase={isUppercase}
+            forceUppercase={forceUppercase}
+            handleChange={handleChangeForceUppercase}
+          />
+        )}
+        <CopyButton textAreaRef={textAreaRef} />
+      </div>
       <FAQs faqs={faqs} />
     </Layout>
   );

@@ -7,7 +7,7 @@ interface FAQProps {
 
 const FAQ = ({ faqs = [] }: FAQProps) => {
   return (
-    <section>
+    <section className={styles.faqs}>
       {faqs.map((faq, key) => (
         <div key={key} className={styles.faq}>
           <h2 className={styles.question}>{faq.question}</h2>

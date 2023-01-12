@@ -1,8 +1,6 @@
 :root {
   --page-width: 960px;
   --border-width: 2px;
-  --key-width: 48px;
-  --key-spacing: 1px;
   --button-width: 1rem;
   --menu-button-size: 48px;
   --gutter: 1rem;
@@ -80,14 +78,7 @@ select {
 button {
   font-size: 1rem;
   line-height: 1;
-  padding: 0.5rem;
-  background: var(--light);
-  border-radius: 0.25rem;
-  border: var(--border-width) solid currentColor;
   cursor: pointer;
-  min-width: var(--button-width);
-}
-
-button:hover {
-  background: var(--light-gray);
+  border: none;
+  background: none;
 }

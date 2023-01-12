@@ -1,9 +1,15 @@
+.faqs {
+  margin: calc(var(--spacing) * 2) 0 0;
+  border-top: 1px solid var(--dark-gray);
+}
+
 .faq {
-  padding: var(--spacing) 0;
+  margin: calc(var(--spacing) * 2) 0 0;
 }
 
 .question {
   margin: 0 0 0.5rem;
   font-size: 1.5rem;
   font-weight: bold;
+  line-height: 1;
 }

@@ -2,15 +2,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing);
-  padding: var(--spacing) 0;
   width: 100%;
   max-width: max-content;
+  padding: var(--spacing) 0 0;
 }
 
 .keyboardColumn {
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
   margin: 0 auto;
 }
 
@@ -20,9 +19,14 @@
 }
 
 .keyboardKey {
-  flex-basis: min-content;
-  margin: var(--key-spacing);
-  min-width: var(--key-width);
+  padding: 0.25rem;
+  min-width: 28px;
+  border-radius: 0.25rem;
+}
+
+button.keyboardKey:hover {
+  color: var(--light);
+  background: var(--teal);
 }
 
 .keyboardKeyFrom {
@@ -38,11 +42,13 @@
 .keyboardActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  width: 100%;
-  padding: var(--spacing) 0;
+  justify-content: center;
+  padding: var(--spacing) 0 0;
 }
 
-.keyboardActions > button:last-of-type {
-  margin-left: auto;
+@media (min-width: 960px) {
+  .keyboardKey {
+    padding: 0.5rem;
+    min-width: 48px;
+  }
 }

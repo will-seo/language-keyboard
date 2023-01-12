@@ -1,6 +1,9 @@
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
+import buttonStyles from '../styles/Button.module.css';
 import styles from '../styles/Menu.module.css';
 import { MenuLink } from '../types';
 
@@ -25,15 +28,19 @@ const Menu = (props: MenuProps) => {
         <ul>
           {(menu || []).map((item, key) => (
             <li key={key} data-active={currentPath === item.route}>
-              <Link href={item.route}>{item.label}</Link>
+              <Link href={item.route} onClick={() => closeMenu()}>
+                {item.label}
+              </Link>
             </li>
           ))}
         </ul>
         <button
           onClick={() => closeMenu()}
-          className={styles.closeButton}
+          className={buttonStyles.menuButton}
           aria-label="Close menu"
-        ></button>
+        >
+          <FontAwesomeIcon icon={faXmark} size="3x" />
+        </button>
       </nav>
     </Fragment>
   );
