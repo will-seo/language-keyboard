@@ -2,16 +2,16 @@ import type { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { useEffect, useRef, useState } from 'react';
-import CapslockButton from '../components/CapslockButton';
 import CopyButton from '../components/CopyButton';
 import FAQs from '../components/FAQ';
 import Keyboard from '../components/Keyboard';
 import Layout from '../components/Layout';
 import ModeSwitcher from '../components/ModeSwitcher';
+import ModifierButton from '../components/ModifierButton';
 import TextArea from '../components/TextArea';
 import styles from '../styles/Keyboard.module.css';
 import { LanguageData, LanguageModeProcessed, PageProps } from '../types';
-import { getLanguages, loadLanguage } from '../utils/languages';
+import { getLanguages, layoutToKeyLookup, loadLanguage } from '../utils/languages';
 import { getMenu } from '../utils/menu';
 interface KeyboardPageProps extends PageProps, LanguageData {
   modes: LanguageModeProcessed[];
@@ -23,8 +23,10 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
   const [caret, setCaret] = useState(0);
-  const [keyboardUppercase, setKeyboardUppercase] = useState(false);
-  const [forceUppercase, setForceUppercase] = useState(false);
+  const [capsLockKey, setCapsLockKey] = useState(false);
+  const [shiftKey, setShiftKey] = useState(false);
+  const [capsLockKeyOverride, setCapsLockKeyOverride] = useState(false);
+  const [shiftKeyOverride, setShiftKeyOverride] = useState(false);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const title = `${language} Keyboard`;
@@ -42,16 +44,17 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
 
   // Check status of caps lock and shift keys when any key is pressed
   useEffect(() => {
-    window.addEventListener('keydown', checkKeyboardUppercase);
-    window.addEventListener('keyup', checkKeyboardUppercase);
+    window.addEventListener('keydown', handKeyPress);
+    window.addEventListener('keyup', handKeyPress);
     return () => {
-      window.removeEventListener('keydown', checkKeyboardUppercase);
-      window.removeEventListener('keyup', checkKeyboardUppercase);
+      window.removeEventListener('keydown', handKeyPress);
+      window.removeEventListener('keyup', handKeyPress);
     };
   }, []);
 
-  const checkKeyboardUppercase = (e: KeyboardEvent) => {
-    setKeyboardUppercase(e.shiftKey || e.getModifierState('CapsLock'));
+  const handKeyPress = (e: KeyboardEvent) => {
+    setShiftKey(e.shiftKey);
+    setCapsLockKey(e.getModifierState('CapsLock'));
   };
 
   const updateText = (insertText: string, startOffset = 0) => {
@@ -76,43 +79,43 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     setText(textAreaRef.current.value);
   };
 
-  const handleChangeForceUppercase = (newForceUppercase: boolean) => {
-    setForceUppercase(newForceUppercase);
-  };
-
-  const isUppercase = keyboardUppercase || forceUppercase;
-
   return (
     <Layout title={title} meta={meta} faqs={faqs} menu={menu}>
       <TextArea
         text={text}
         language={language}
         dictionary={mode.dictionary}
+        keyLookup={mode.keyLookup}
         allowed={mode.allowed}
         bufferMax={mode.bufferMax}
-        isUppercase={isUppercase}
+        shift={shiftKey || shiftKeyOverride}
+        capsLock={capsLockKey || capsLockKeyOverride}
         textAreaRef={textAreaRef}
         updateText={updateText}
         handleChange={handleChangeText}
       />
       <Keyboard
         layout={mode.layout}
-        isUppercase={isUppercase}
+        shift={shiftKey || shiftKeyOverride}
+        capsLock={capsLockKey || capsLockKeyOverride}
         updateText={updateText}
       />
       <div className={styles.keyboardActions}>
-        <ModeSwitcher
-          currentMode={mode}
-          allModes={modes}
-          handleChange={handleChangeMode}
+        <ModeSwitcher currentMode={mode} allModes={modes} handleChange={handleChangeMode} />
+        <ModifierButton
+          modifier={shiftKey}
+          modifierOverride={shiftKeyOverride}
+          modifierOnText={'Shift on'}
+          modifierOffText={'Shift off'}
+          handleChange={(status) => setShiftKeyOverride(status)}
         />
-        {mode.capslock && (
-          <CapslockButton
-            isUppercase={isUppercase}
-            forceUppercase={forceUppercase}
-            handleChange={handleChangeForceUppercase}
-          />
-        )}
+        <ModifierButton
+          modifier={capsLockKey}
+          modifierOverride={capsLockKeyOverride}
+          modifierOnText={'Caps on'}
+          modifierOffText={'Caps off'}
+          handleChange={(status) => setCapsLockKeyOverride(status)}
+        />
         <CopyButton textAreaRef={textAreaRef} />
       </div>
       <FAQs faqs={faqs} />
@@ -124,10 +127,7 @@ interface KeyboardPageParams extends ParsedUrlQuery {
   keyboard: string;
 }
 
-export const getStaticProps: GetStaticProps<
-  KeyboardPageProps,
-  KeyboardPageParams
-> = async (context) => {
+export const getStaticProps: GetStaticProps<KeyboardPageProps, KeyboardPageParams> = async (context) => {
   const { keyboard } = context.params as KeyboardPageParams;
 
   const data = loadLanguage(keyboard);
@@ -140,10 +140,12 @@ export const getStaticProps: GetStaticProps<
     const words = Object.keys(mode.dictionary);
     const allowed = Array.from(new Set(words.join(''))).sort();
     const bufferMax = Math.max(...words.map((word) => word.length - 1), 0);
+    const keyLookup = layoutToKeyLookup(mode.layout);
     return {
       key,
       allowed,
       bufferMax,
+      keyLookup,
       ...mode,
     };
   });

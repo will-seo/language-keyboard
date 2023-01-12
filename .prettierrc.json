@@ -4,5 +4,6 @@
   "singleQuote": true,
   "tabWidth": 2,
   "useTabs": false,
-  "organizeImportsSkipDestructiveCodeActions": false
+  "organizeImportsSkipDestructiveCodeActions": false,
+  "printWidth": 120
 }

@@ -12,10 +12,9 @@ const HomePage = (props: PageProps) => {
   const { menu } = props;
   return (
     <Layout title={title} meta={meta} menu={menu}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-      asperiores minima, reiciendis, repellat vitae doloribus fugiat dolor
-      necessitatibus fuga sunt odio blanditiis ut est maiores ex veniam. Fugit,
-      quidem blanditiis.
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci asperiores minima, reiciendis, repellat vitae
+      doloribus fugiat dolor necessitatibus fuga sunt odio blanditiis ut est maiores ex veniam. Fugit, quidem
+      blanditiis.
     </Layout>
   );
 };

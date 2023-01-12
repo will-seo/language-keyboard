@@ -3,27 +3,24 @@ import { LanguageKeyData } from '../types';
 
 interface KeyboardKeyProps {
   keyData: LanguageKeyData;
-  isUppercase: boolean;
+  capsLock: boolean;
+  shift: boolean;
   updateText: (insertText: string) => void;
 }
 
 const KeyboardKey = (props: KeyboardKeyProps) => {
-  const { keyData, isUppercase, updateText } = props;
-  const { from, to, FROM, TO } = keyData;
+  const { keyData, capsLock, shift, updateText } = props;
+  const { from, to, FROM, TO, special } = keyData;
 
   if (!to) return <div className={`${styles.keyboardKey}`}></div>;
 
-  const getCase = (lower: string, upper: string) =>
-    (isUppercase ? upper : lower) || lower;
+  const getCase = (lower: string, upper?: string) => (shift || (capsLock && !special) ? upper : lower) || lower;
 
   const displayTo = getCase(to, TO);
   const displayFrom = getCase(from, FROM);
 
   return (
-    <button
-      className={`${styles.keyboardKey}`}
-      onClick={() => updateText(displayTo)}
-    >
+    <button className={`${styles.keyboardKey}`} onClick={() => updateText(displayTo)}>
       <span className={styles.keyboardKeyTo}>{displayTo}</span>
       <span className={styles.keyboardKeyFrom}>{displayFrom}</span>
     </button>
@@ -32,12 +29,13 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
 
 interface KeyboardProps {
   layout: LanguageKeyData[][][];
-  isUppercase: boolean;
+  capsLock: boolean;
+  shift: boolean;
   updateText: (insertText: string) => void;
 }
 
 const Keyboard = (props: KeyboardProps) => {
-  const { layout, isUppercase, updateText } = props;
+  const { layout, capsLock, shift, updateText } = props;
   return (
     <div className={styles.keyboard}>
       {layout.map((columns, i) => (
@@ -45,12 +43,7 @@ const Keyboard = (props: KeyboardProps) => {
           {columns.map((rows, j) => (
             <div key={j} className={styles.keyboardRow}>
               {rows.map((keyData, k) => (
-                <KeyboardKey
-                  key={k}
-                  keyData={keyData}
-                  isUppercase={isUppercase}
-                  updateText={updateText}
-                />
+                <KeyboardKey key={k} keyData={keyData} capsLock={capsLock} shift={shift} updateText={updateText} />
               ))}
             </div>
           ))}

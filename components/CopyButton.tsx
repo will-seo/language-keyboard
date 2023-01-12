@@ -20,10 +20,7 @@ const CopyButton = ({ textAreaRef, copiedDuration = 500 }: CopyButtonProps) => {
     }, copiedDuration);
   };
   return (
-    <button
-      onClick={onClick}
-      className={`${buttonStyles.button} ${buttonStyles.iconButton}`}
-    >
+    <button onClick={onClick} className={`${buttonStyles.button} ${buttonStyles.iconButton}`}>
       <FontAwesomeIcon icon={faCopy} />
       {copied ? 'Done' : 'Copy'}
     </button>

@@ -84,8 +84,8 @@
             { "from": "i", "to": "ш", "FROM": "I", "TO": "Ш" },
             { "from": "o", "to": "щ", "FROM": "O", "TO": "Щ" },
             { "from": "p", "to": "з", "FROM": "P", "TO": "З" },
-            { "from": "[", "to": "х", "FROM": "{", "TO": "Х" },
-            { "from": "]", "to": "ъ", "FROM": "}", "TO": "Ъ" }
+            { "from": "[", "to": "х", "FROM": "{", "TO": "Х", "special": true },
+            { "from": "]", "to": "ъ", "FROM": "}", "TO": "Ъ", "special": true }
           ],
           [
             { "from": "a", "to": "ф", "FROM": "A", "TO": "Ф" },
@@ -97,11 +97,11 @@
             { "from": "j", "to": "о", "FROM": "J", "TO": "О" },
             { "from": "k", "to": "л", "FROM": "K", "TO": "Л" },
             { "from": "l", "to": "д", "FROM": "L", "TO": "Д" },
-            { "from": ";", "to": "ж", "FROM": ":", "TO": "Ж" },
-            { "from": "'", "to": "э", "FROM": "\"", "TO": "\"" }
+            { "from": ";", "to": "ж", "FROM": ":", "TO": "Ж", "special": true },
+            { "from": "'", "to": "э", "FROM": "\"", "TO": "\"", "special": true }
           ],
           [
-            { "from": "`", "to": "ё", "FROM": "~", "TO": "~" },
+            { "from": "`", "to": "ё", "FROM": "~", "TO": "Ё", "special": true },
             { "from": "z", "to": "я", "FROM": "Z", "TO": "Я" },
             { "from": "x", "to": "ч", "FROM": "X", "TO": "Ч" },
             { "from": "c", "to": "с", "FROM": "C", "TO": "С" },
@@ -109,8 +109,8 @@
             { "from": "b", "to": "и", "FROM": "B", "TO": "И" },
             { "from": "n", "to": "т", "FROM": "N", "TO": "Т" },
             { "from": "m", "to": "ь", "FROM": "M", "TO": "Ь" },
-            { "from": ",", "to": "б", "FROM": "<", "TO": "Б" },
-            { "from": ".", "to": "ю", "FROM": ">", "TO": "Ю" }
+            { "from": ",", "to": "б", "FROM": "<", "TO": "Б", "special": true },
+            { "from": ".", "to": "ю", "FROM": ">", "TO": "Ю", "special": true }
           ]
         ]
       ]

@@ -17,15 +17,16 @@ export type MetaData = {
 export type LanguageKeyData = {
   from: string;
   to: string;
-  FROM: string;
-  TO: string;
+  FROM?: string;
+  TO?: string;
+  special?: boolean;
 };
 
 export type LanguageMode = {
   name?: string;
   capslock: boolean;
   dictionary: { [key: string]: string };
-  layout: LanguageKey[][][];
+  layout: LanguageKeyData[][][];
 };
 
 export type LanguageData = {
@@ -38,6 +39,7 @@ export type LanguageData = {
 export interface LanguageModeProcessed extends LanguageMode {
   allowed: string[];
   bufferMax: number;
+  keyLookup: { [key: string]: string };
   key: number;
 }
 

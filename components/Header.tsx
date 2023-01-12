@@ -17,19 +17,11 @@ const Header = (props: HeaderProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.headerWrapper}>
-        <button
-          onClick={() => setMenuOpen(true)}
-          className={buttonStyles.menuButton}
-          aria-label="Open menu"
-        >
+        <button onClick={() => setMenuOpen(true)} className={buttonStyles.menuButton} aria-label="Open menu">
           <FontAwesomeIcon icon={faBars} size="3x" />
         </button>
         <h1 className={styles.title}>{title}</h1>
-        <Menu
-          menuOpen={menuOpen}
-          menu={menu}
-          closeMenu={() => setMenuOpen(false)}
-        />
+        <Menu menuOpen={menuOpen} menu={menu} closeMenu={() => setMenuOpen(false)} />
       </div>
     </header>
   );
