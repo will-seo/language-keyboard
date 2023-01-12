@@ -6,6 +6,12 @@ export type MenuLink = {
 export type FAQ = {
   question: string;
   answer: string;
+  schema?: boolean;
+};
+
+export type MetaData = {
+  description?: string;
+  image?: string;
 };
 
 export type LanguageKeyData = {
@@ -24,8 +30,8 @@ export type LanguageMode = {
 
 export type LanguageData = {
   language: string;
-  description: string;
-  faqs: FAQ[];
+  meta?: MetaData;
+  faqs?: FAQ[];
   modes: LanguageMode[];
 };
 

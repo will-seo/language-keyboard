@@ -11,10 +11,7 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
   const { keyData, isUppercase, updateText } = props;
   const { from, to, FROM, TO } = keyData;
 
-  if (!to)
-    return (
-      <div className={`${styles.keyboardKey} ${styles.placeholder}`}></div>
-    );
+  if (!to) return <div className={`${styles.keyboardKey}`}></div>;
 
   const getCase = (lower: string, upper: string) =>
     (isUppercase ? upper : lower) || lower;
@@ -24,7 +21,7 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
 
   return (
     <button
-      className={`${styles.keyboardKey} ${styles.button}`}
+      className={`${styles.keyboardKey}`}
       onClick={() => updateText(displayTo)}
     >
       <span className={styles.keyboardKeyTo}>{displayTo}</span>
