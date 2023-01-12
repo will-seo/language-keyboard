@@ -22,7 +22,7 @@ export type LanguageKeyData = {
 };
 
 export type LanguageMode = {
-  name: string;
+  name?: string;
   capslock: boolean;
   dictionary: { [key: string]: string };
   layout: LanguageKey[][][];

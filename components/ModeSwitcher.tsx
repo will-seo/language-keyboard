@@ -17,7 +17,7 @@ const ModeSwitcher = (props: ModeSwitcherProps) => {
           data-active={mode.key === currentMode.key}
           onClick={() => handleChange(mode.key)}
         >
-          {mode.name}
+          {mode.name || ''}
         </button>
       ))}
     </nav>

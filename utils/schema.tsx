@@ -5,7 +5,7 @@ export const renderSchema = (data: object) => (
 );
 
 export const renderFAQSchema = (faqs?: FAQ[]) => {
-  const filtered = faqs?.filter((faq) => faq.schema);
+  const filtered = faqs?.filter((faq) => faq.schema !== false);
   return (
     filtered &&
     renderSchema({
