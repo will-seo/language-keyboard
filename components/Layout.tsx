@@ -9,13 +9,14 @@ interface LayoutProps {
   title: string;
   description: string;
   menu: MenuLink[];
+  ogimage?: string;
   faqs?: FAQ[];
   children?: React.ReactNode;
 }
 
 const Layout = (props: LayoutProps) => {
   const { title, description, menu, faqs, children } = props;
-  const ogimage = '/ogimage.png';
+  const ogimage = props.ogimage || '/ogimage.png';
   return (
     <div className={styles.container}>
       <Head>

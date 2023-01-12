@@ -27,6 +27,7 @@ export type LanguageData = {
   description: string;
   faqs: FAQ[];
   modes: LanguageMode[];
+  ogimage?: string;
 };
 
 export interface LanguageModeProcessed extends LanguageMode {
