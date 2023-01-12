@@ -19,7 +19,7 @@ interface KeyboardPageProps extends PageProps, LanguageData {
 }
 
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
-  const { menu, language, description, faqs, modes, ogimage } = props;
+  const { menu, language, meta, faqs, modes } = props;
 
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
@@ -84,13 +84,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const isUppercase = keyboardUppercase || forceUppercase;
 
   return (
-    <Layout
-      title={title}
-      description={description}
-      faqs={faqs}
-      menu={menu}
-      ogimage={ogimage}
-    >
+    <Layout title={title} meta={meta} faqs={faqs} menu={menu}>
       <div className={styles.keyboardActions}>
         <ModeSwitcher
           currentMode={mode}
@@ -138,7 +132,9 @@ export const getStaticProps: GetStaticProps<
   const { keyboard } = context.params as KeyboardPageParams;
 
   const data = loadLanguage(keyboard);
-  const { language, description, faqs, ogimage } = data;
+  const { language } = data;
+  const meta = data.meta || {};
+  const faqs = data.faqs || [];
   const menu = getMenu();
 
   const modes = data.modes.map((mode, key) => {
@@ -156,9 +152,8 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       language,
-      description,
+      meta,
       faqs,
-      ogimage,
       modes,
       menu,
     },

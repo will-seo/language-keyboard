@@ -3,13 +3,15 @@ import { PageProps } from '../types';
 import { getMenu } from '../utils/menu';
 
 const title = 'Language Keyboard';
-const description =
-  'Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.';
+const meta = {
+  description:
+    'Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.',
+};
 
 const HomePage = (props: PageProps) => {
   const { menu } = props;
   return (
-    <Layout title={title} description={description} menu={menu}>
+    <Layout title={title} meta={meta} menu={menu}>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
       asperiores minima, reiciendis, repellat vitae doloribus fugiat dolor
       necessitatibus fuga sunt odio blanditiis ut est maiores ex veniam. Fugit,

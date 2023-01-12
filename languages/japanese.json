@@ -1,8 +1,15 @@
 {
   "language": "Japanese",
-  "description": "Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.",
-  "ogimage": "/testjapaneseimage.png",
+  "meta": {
+    "description": "Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.",
+    "image": "/testjapaneseimage.png"
+  },
   "faqs": [
+    {
+      "question": "What is an online Japanese keyboard?",
+      "answer": "This virtual keyboard is for Japanese language students so that they can quickly and easily type in hiragana and katakana when they don't have access to a Japanese IME (Input Method Editor). I have built it with beginners in mind, and have made it easy to use on both mobile and desktop. If you have any feedback or questions, please check out my About page, or contact me by email.",
+      "schema": false
+    },
     {
       "question": "What is Hiragana?",
       "answer": "Hiragana (ひらがな) is the syllabic script that you will become most familiar with when learning Japanese. It is written phonetically, making Japanese pronunciation actually quite easy. For example, the word for 'demon' is written as あくま and pronounced a-ku-ma. In children's books and in beginner Japanese language books you'll often see Kanji with Hiragana written above it - this is called Furigana, and is used as a way to help readers pronounce the somewhat crazy world of Kanji. If you are going to start studying Japanese, learning Hiragana is a must."
