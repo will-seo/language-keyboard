@@ -8,8 +8,7 @@
   display: grid;
   align-items: flex-start;
   grid-template-columns: auto auto;
-  gap: calc(var(--spacing) * 2);
-  transition: transform 0.25s;
+  transition: transform var(--menu-open-duration);
 }
 
 .menu[data-open='false'] {
@@ -18,9 +17,13 @@
 
 .menu ul {
   display: grid;
+  align-content: flex-start;
   gap: var(--spacing);
   margin: 0 auto;
   font-size: 1.25rem;
+  overflow-y: auto;
+  height: 100%;
+  padding-right: calc(var(--spacing) * 2);
 }
 
 .menu li[data-active='true'] {
@@ -43,7 +46,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  transition: opacity 0.25s;
+  transition: opacity var(--menu-open-duration);
 }
 
 .fadeOut[data-open='false'] {

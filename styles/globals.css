@@ -5,6 +5,7 @@
   --menu-button-size: 48px;
   --gutter: 1rem;
   --spacing: 1rem;
+  --menu-open-duration: 0.25s;
   --light: #ffffff;
   --light-gray: #ededed;
   --dark-gray: #d0d0d0;
