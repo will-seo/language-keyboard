@@ -14,9 +14,3 @@
   max-width: var(--page-width);
   padding: var(--spacing) var(--gutter);
 }
-
-.title {
-  font-size: 2rem;
-  text-align: center;
-  padding: var(--spacing) 0;
-}

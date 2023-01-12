@@ -4,12 +4,14 @@
   --key-width: 48px;
   --key-spacing: 1px;
   --button-width: 1rem;
+  --menu-button-size: 48px;
   --gutter: 1rem;
   --spacing: 1rem;
   --light: #ffffff;
   --light-gray: #ededed;
   --dark-gray: #d0d0d0;
   --dark: #111111;
+  --teal: #16a596;
   --sans-serif: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -88,15 +90,4 @@ button {
 
 button:hover {
   background: var(--light-gray);
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-
-  body {
-    color: var(--light);
-    background: var(--dark);
-  }
 }

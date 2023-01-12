@@ -38,11 +38,8 @@ const Layout = (props: LayoutProps) => {
         <meta name="twitter:image" content={image} />
         {renderFAQSchema(faqs)}
       </Head>
-      <Header menu={menu} />
-      <main className={styles.main}>
-        <h1 className={styles.title}>{title}</h1>
-        {children}
-      </main>
+      <Header title={title} menu={menu} />
+      <main className={styles.main}>{children}</main>
       <Footer />
     </div>
   );
