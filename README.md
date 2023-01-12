@@ -1,11 +1,16 @@
-## Getting Started
+## Setup
 
-First, run the development server:
+1. Install Node.js:
+https://nodejs.dev/en/learn/how-to-install-nodejs/
+
+1. Install Yarn:
+https://yarnpkg.com/getting-started/install
+
+## Getting Started
+To run the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
