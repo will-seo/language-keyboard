@@ -1,6 +1,6 @@
 .faqs {
   margin: calc(var(--spacing) * 2) 0 0;
-  border-top: 1px solid var(--dark-gray);
+  border-top: var(--border-width) solid var(--dark-gray);
 }
 
 .faq {

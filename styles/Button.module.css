@@ -25,7 +25,7 @@
 .iconButton {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 0.5rem;
+  gap: calc(var(--spacing) / 2);
   justify-content: center;
 }
 

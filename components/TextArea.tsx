@@ -54,11 +54,11 @@ const TextArea = (props: TextAreaProps) => {
     const key = e.key;
     if (!textAreaRef.current || modifier || !allowed.includes(key)) return;
     const { selectionStart } = textAreaRef.current;
-    const buffer =
-      (bufferMax ? textAreaRef.current.value.slice(Math.max(selectionStart - bufferMax, 0), selectionStart) : '') + key;
-    console.log(buffer);
+    const buffer = bufferMax
+      ? textAreaRef.current.value.slice(Math.max(selectionStart - bufferMax, 0), selectionStart)
+      : '';
     const keys = Object.keys(dictionary);
-    const replace = checkBuffer(keys, buffer, allowed);
+    const replace = checkBuffer(keys, buffer + key, allowed);
     if (!replace) return;
     e.preventDefault();
     e.stopPropagation();

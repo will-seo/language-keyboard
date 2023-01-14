@@ -3,4 +3,10 @@
   padding: var(--spacing);
   resize: vertical;
   width: 100%;
+  color: inherit;
+  border: var(--border-width) solid var(--dark);
+}
+
+.textArea::placeholder {
+  color: var(--dark-gray);
 }
