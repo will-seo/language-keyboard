@@ -1,11 +1,13 @@
 import Layout from '../components/Layout';
-import { PageProps } from '../types';
+import { MetaData, PageProps } from '../types';
 import { getGlobalContext } from '../utils/context';
 
 const h1 = 'About Language Keyboard';
-const meta = {
+const meta: MetaData = {
+  title: 'About Language Keyboard',
   description:
     'Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.',
+  image: '/ogimage.png',
 };
 
 const AboutPage = (props: PageProps) => {
