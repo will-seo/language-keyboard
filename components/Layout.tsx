@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styles from '../styles/Layout.module.css';
 import { FAQ, MetaData, PageProps } from '../types';
+import { renderAnalytics } from '../utils/analytics';
 import { renderFAQSchema } from '../utils/schema';
 import Footer from './Footer';
 import Header from './Header';
@@ -21,7 +22,7 @@ interface LayoutProps extends PageProps {
 
 const Layout = (props: LayoutProps) => {
   const { globalContext, h1, meta, faqs, children } = props;
-  const { baseURL, menu } = globalContext;
+  const { baseURL, gtagID, menu } = globalContext;
   const router = useRouter();
   const canonicalUrl = baseURL + router.asPath;
   const description = meta?.description || metaDefaults.description;
@@ -50,6 +51,7 @@ const Layout = (props: LayoutProps) => {
       <Header h1={h1} menu={menu} />
       <main className={styles.main}>{children}</main>
       <Footer />
+      {renderAnalytics(gtagID)}
     </div>
   );
 };

@@ -20,8 +20,9 @@ export const getMenu = () => {
 export const getGlobalContext = () => {
   return {
     globalContext: {
-      menu: getMenu(),
       baseURL: process.env.URL || '',
+      gtagID: process.env.NEXT_PUBLIC_GTAG_ID || '',
+      menu: getMenu(),
     },
   };
 };

@@ -46,8 +46,9 @@ export interface LanguageModeProcessed extends LanguageMode {
 }
 
 export type GlobalContext = {
-  menu: MenuLink[];
   baseURL: string;
+  menu: MenuLink[];
+  gtagID: string;
 };
 export interface PageProps {
   globalContext: GlobalContext;
