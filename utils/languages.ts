@@ -18,7 +18,7 @@ export const loadLanguage = (language: string): LanguageData => {
 };
 
 export const hasModifiers = (layout: LanguageKeyData[][][]): [capsLock: boolean, shift: boolean] => {
-  const upperKeys = layout.flat(2).filter((keyData) => keyData.from && keyData.FROM);
+  const upperKeys = layout.flat(2).filter((keyData) => keyData.to && keyData.TO);
   const shiftKeys = upperKeys.filter((keyData) => keyData.shift);
   const shift = shiftKeys.length > 0;
   const capsLock = upperKeys.length - shiftKeys.length > 0;
