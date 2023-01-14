@@ -7,29 +7,21 @@ import { MenuLink } from '../types';
 import Menu from './Menu';
 
 interface HeaderProps {
-  title: string;
+  h1: string;
   menu: MenuLink[];
 }
 
 const Header = (props: HeaderProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { title, menu } = props;
+  const { h1, menu } = props;
   return (
     <header className={styles.header}>
       <div className={styles.headerWrapper}>
-        <button
-          onClick={() => setMenuOpen(true)}
-          className={buttonStyles.menuButton}
-          aria-label="Open menu"
-        >
+        <h1 className={styles.title}>{h1}</h1>
+        <Menu menuOpen={menuOpen} menu={menu} closeMenu={() => setMenuOpen(false)} />
+        <button onClick={() => setMenuOpen(true)} className={buttonStyles.menuButton} aria-label="Open menu">
           <FontAwesomeIcon icon={faBars} size="3x" />
         </button>
-        <h1 className={styles.title}>{title}</h1>
-        <Menu
-          menuOpen={menuOpen}
-          menu={menu}
-          closeMenu={() => setMenuOpen(false)}
-        />
       </div>
     </header>
   );

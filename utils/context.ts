@@ -9,11 +9,19 @@ export const getMenu = () => {
 
   const languages = getLanguages().map((filename) => {
     const route = `/${filename}`;
-    const language = loadLanguage(route).language;
-    const label = `${language} Keyboard`;
-    const link: MenuLink = { label, route };
-    return link;
+    const language = loadLanguage(route);
+    const label = language.h1;
+    return <MenuLink>{ label, route };
   });
 
   return [...defaults, ...languages];
+};
+
+export const getGlobalContext = () => {
+  return {
+    globalContext: {
+      menu: getMenu(),
+      baseURL: process.env.URL || '',
+    },
+  };
 };

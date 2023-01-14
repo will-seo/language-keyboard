@@ -19,11 +19,7 @@ const Menu = (props: MenuProps) => {
   const currentPath = router.asPath;
   return (
     <Fragment>
-      <div
-        className={styles.fadeOut}
-        data-open={menuOpen}
-        onClick={() => closeMenu()}
-      ></div>
+      <div className={styles.fadeOut} data-open={menuOpen} onClick={() => closeMenu()}></div>
       <nav className={styles.menu} data-open={menuOpen}>
         <ul>
           {(menu || []).map((item, key) => (
@@ -34,11 +30,7 @@ const Menu = (props: MenuProps) => {
             </li>
           ))}
         </ul>
-        <button
-          onClick={() => closeMenu()}
-          className={buttonStyles.menuButton}
-          aria-label="Close menu"
-        >
+        <button onClick={() => closeMenu()} className={buttonStyles.menuButton} aria-label="Close menu">
           <FontAwesomeIcon icon={faXmark} size="3x" />
         </button>
       </nav>

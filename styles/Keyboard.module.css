@@ -43,7 +43,14 @@ button.keyboardKey:hover {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: var(--spacing) 0 0;
+}
+
+.keyboardActions > * {
+  margin: var(--spacing) 0 0;
+}
+
+.keyboardActions > *:not(:last-child) {
+  margin-right: var(--spacing);
 }
 
 @media (min-width: 960px) {

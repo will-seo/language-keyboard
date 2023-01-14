@@ -10,6 +10,7 @@ export type FAQ = {
 };
 
 export type MetaData = {
+  title?: string;
   description?: string;
   image?: string;
 };
@@ -17,19 +18,20 @@ export type MetaData = {
 export type LanguageKeyData = {
   from: string;
   to: string;
-  FROM: string;
-  TO: string;
+  FROM?: string;
+  TO?: string;
+  shift?: boolean;
 };
 
 export type LanguageMode = {
   name?: string;
-  capslock: boolean;
   dictionary: { [key: string]: string };
-  layout: LanguageKey[][][];
+  layout: LanguageKeyData[][][];
 };
 
 export type LanguageData = {
   language: string;
+  h1: string;
   meta?: MetaData;
   faqs?: FAQ[];
   modes: LanguageMode[];
@@ -39,8 +41,14 @@ export interface LanguageModeProcessed extends LanguageMode {
   allowed: string[];
   bufferMax: number;
   key: number;
+  capsLock: boolean;
+  shift: boolean;
 }
 
-export interface PageProps {
+export type GlobalContext = {
   menu: MenuLink[];
+  baseURL: string;
+};
+export interface PageProps {
+  globalContext: GlobalContext;
 }

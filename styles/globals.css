@@ -1,7 +1,7 @@
 :root {
   --page-width: 960px;
   --border-width: 2px;
-  --button-width: 1rem;
+  --button-width: 6rem;
   --menu-button-size: 48px;
   --gutter: 1rem;
   --spacing: 1rem;
@@ -11,14 +11,14 @@
   --dark-gray: #d0d0d0;
   --dark: #111111;
   --teal: #16a596;
-  --sans-serif: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --sans-serif: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
 }
 
 @media (min-width: 960px) {
   :root {
     --gutter: 2rem;
-    --button-width: 8rem;
+    --button-width: 7.5rem;
   }
 }
 
@@ -82,4 +82,17 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+p {
+  margin: 0 0 var(--spacing);
+  width: 100%;
+}
+
+h2 {
+  margin: 0 0 calc(var(--spacing) / 2);
+  font-size: 1.5rem;
+  font-weight: bold;
+  line-height: 1;
+  width: 100%;
 }
