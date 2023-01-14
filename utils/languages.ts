@@ -17,13 +17,10 @@ export const loadLanguage = (language: string): LanguageData => {
   return JSON.parse(fileContents);
 };
 
-export const layoutToKeyLookup = (layout: LanguageKeyData[][][]): { [key: string]: string } => {
-  const flattened = layout
-    .flat(2)
-    .filter((keyData) => keyData.from && keyData.FROM)
-    .map((keyData) => {
-      return { [keyData.from]: keyData.FROM };
-    });
-  // console.log(flattened);
-  return Object.assign({}, ...flattened);
+export const hasModifiers = (layout: LanguageKeyData[][][]): [capsLock: boolean, shift: boolean] => {
+  const upperKeys = layout.flat(2).filter((keyData) => keyData.from && keyData.FROM);
+  const shiftKeys = upperKeys.filter((keyData) => keyData.shift);
+  const shift = shiftKeys.length > 0;
+  const capsLock = upperKeys.length - shiftKeys.length > 0;
+  return [capsLock, shift];
 };

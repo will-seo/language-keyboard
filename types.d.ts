@@ -20,7 +20,7 @@ export type LanguageKeyData = {
   to: string;
   FROM?: string;
   TO?: string;
-  special?: boolean;
+  shift?: boolean;
 };
 
 export type LanguageMode = {

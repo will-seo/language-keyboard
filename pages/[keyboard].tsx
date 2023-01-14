@@ -12,7 +12,7 @@ import TextArea from '../components/TextArea';
 import styles from '../styles/Keyboard.module.css';
 import { LanguageData, LanguageModeProcessed, PageProps } from '../types';
 import { getGlobalContext } from '../utils/context';
-import { getLanguages, layoutToKeyLookup, loadLanguage } from '../utils/languages';
+import { getLanguages, hasModifiers, loadLanguage } from '../utils/languages';
 
 interface KeyboardPageProps extends PageProps, LanguageData {
   modes: LanguageModeProcessed[];
@@ -84,11 +84,8 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         text={text}
         language={language}
         dictionary={mode.dictionary}
-        keyLookup={mode.keyLookup}
         allowed={mode.allowed}
         bufferMax={mode.bufferMax}
-        shift={shiftKeyOverride}
-        capsLock={capsLockKeyOverride}
         textAreaRef={textAreaRef}
         updateText={updateText}
         handleChange={handleChangeText}
@@ -132,14 +129,11 @@ export const getStaticProps: GetStaticProps<KeyboardPageProps, KeyboardPageParam
     const words = Object.keys(mode.dictionary);
     const allowed = Array.from(new Set(words.join(''))).sort();
     const bufferMax = Math.max(...words.map((word) => word.length - 1), 0);
-    const keyLookup = layoutToKeyLookup(mode.layout);
-    const capsLock = false;
-    const shift = false;
+    const [capsLock, shift] = hasModifiers(mode.layout);
     return {
       key,
       allowed,
       bufferMax,
-      keyLookup,
       capsLock,
       shift,
       ...mode,
@@ -148,7 +142,7 @@ export const getStaticProps: GetStaticProps<KeyboardPageProps, KeyboardPageParam
 
   return {
     props: {
-      globalContext,
+      ...globalContext,
       language,
       h1,
       meta,

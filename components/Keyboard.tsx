@@ -10,12 +10,12 @@ interface KeyboardKeyProps {
 
 const KeyboardKey = (props: KeyboardKeyProps) => {
   const { keyData, capsLock, shift, updateText } = props;
-  const { from, to, FROM, TO, special } = keyData;
+  const { from, to, FROM, TO } = keyData;
 
+  // Return placeholder if "to" isn't set
   if (!to) return <div className={`${styles.keyboardKey}`}></div>;
 
-  const getCase = (lower: string, upper?: string) => (shift || (capsLock && !special) ? upper : lower) || lower;
-
+  const getCase = (lower: string, upper?: string) => (shift || (capsLock && !keyData.shift) ? upper : lower) || lower;
   const displayTo = getCase(to, TO);
   const displayFrom = getCase(from, FROM);
 

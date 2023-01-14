@@ -12,9 +12,11 @@ const AboutPage = (props: PageProps) => {
   const { globalContext } = props;
   return (
     <Layout globalContext={globalContext} h1={h1} meta={meta}>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci asperiores minima, reiciendis, repellat vitae
-      doloribus fugiat dolor necessitatibus fuga sunt odio blanditiis ut est maiores ex veniam. Fugit, quidem
-      blanditiis.
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci asperiores minima, reiciendis, repellat vitae
+        doloribus fugiat dolor necessitatibus fuga sunt odio blanditiis ut est maiores ex veniam. Fugit, quidem
+        blanditiis.
+      </p>
     </Layout>
   );
 };

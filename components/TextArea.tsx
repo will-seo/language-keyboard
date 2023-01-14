@@ -5,11 +5,8 @@ interface TextAreaProps {
   text: string;
   language: string;
   dictionary: { [key: string]: string };
-  keyLookup: { [key: string]: string };
   allowed: string[];
   bufferMax: number;
-  capsLock: boolean;
-  shift: boolean;
   textAreaRef: RefObject<HTMLTextAreaElement>;
   updateText: (insertText: string, startOffset: number) => void;
   handleChange: () => void;
@@ -50,27 +47,12 @@ const checkBuffer = (keys: string[], buffer: string, allowed: string[]) => {
 };
 
 const TextArea = (props: TextAreaProps) => {
-  const {
-    text,
-    language,
-    dictionary,
-    keyLookup,
-    allowed,
-    bufferMax,
-    capsLock,
-    shift,
-    textAreaRef,
-    updateText,
-    handleChange,
-  } = props;
-
-  const checkUppercase = (key: string) => (shift ? keyLookup[key] : key) || key;
+  const { text, language, dictionary, allowed, bufferMax, textAreaRef, updateText, handleChange } = props;
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const modifier = e.altKey || e.ctrlKey || e.metaKey;
-    // const key = capsLock ? e.key.toUpperCase() : e.key;
-    if (!textAreaRef.current || modifier || !allowed.includes(e.key)) return;
-    const key = checkUppercase(e.key);
+    const key = e.key;
+    if (!textAreaRef.current || modifier || !allowed.includes(key)) return;
     const { selectionStart } = textAreaRef.current;
     const buffer =
       (bufferMax ? textAreaRef.current.value.slice(Math.max(selectionStart - bufferMax, 0), selectionStart) : '') + key;

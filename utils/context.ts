@@ -19,7 +19,9 @@ export const getMenu = () => {
 
 export const getGlobalContext = () => {
   return {
-    menu: getMenu(),
-    baseURL: process.env.URL || '',
+    globalContext: {
+      menu: getMenu(),
+      baseURL: process.env.URL || '',
+    },
   };
 };
