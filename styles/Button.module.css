@@ -31,7 +31,6 @@
 
 .toggle {
   display: flex;
-  margin: 0 var(--spacing) 0 0;
 }
 
 .toggleButton[data-active='true'] {

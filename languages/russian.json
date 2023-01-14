@@ -1,8 +1,8 @@
 {
   "language": "Russian",
+  "h1": "Russian Keyboard",
   "modes": [
     {
-      "capslock": true,
       "dictionary": {
         "a": "ф",
         "b": "и",

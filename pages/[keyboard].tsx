@@ -7,18 +7,19 @@ import FAQs from '../components/FAQ';
 import Keyboard from '../components/Keyboard';
 import Layout from '../components/Layout';
 import ModeSwitcher from '../components/ModeSwitcher';
-import ModifierButton from '../components/ModifierButton';
+import ModifierSwitcher from '../components/ModifierSwitcher';
 import TextArea from '../components/TextArea';
 import styles from '../styles/Keyboard.module.css';
 import { LanguageData, LanguageModeProcessed, PageProps } from '../types';
+import { getGlobalContext } from '../utils/context';
 import { getLanguages, layoutToKeyLookup, loadLanguage } from '../utils/languages';
-import { getMenu } from '../utils/menu';
+
 interface KeyboardPageProps extends PageProps, LanguageData {
   modes: LanguageModeProcessed[];
 }
 
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
-  const { menu, language, meta, faqs, modes } = props;
+  const { globalContext, language, h1, meta, faqs, modes } = props;
 
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
@@ -28,8 +29,6 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const [capsLockKeyOverride, setCapsLockKeyOverride] = useState(false);
   const [shiftKeyOverride, setShiftKeyOverride] = useState(false);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
-  const title = `${language} Keyboard`;
 
   // Update available modes on route change
   useEffect(() => {
@@ -80,7 +79,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   };
 
   return (
-    <Layout title={title} meta={meta} faqs={faqs} menu={menu}>
+    <Layout globalContext={globalContext} h1={h1} meta={meta} faqs={faqs}>
       <TextArea
         text={text}
         language={language}
@@ -88,8 +87,8 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         keyLookup={mode.keyLookup}
         allowed={mode.allowed}
         bufferMax={mode.bufferMax}
-        shift={shiftKey || shiftKeyOverride}
-        capsLock={capsLockKey || capsLockKeyOverride}
+        shift={shiftKeyOverride}
+        capsLock={capsLockKeyOverride}
         textAreaRef={textAreaRef}
         updateText={updateText}
         handleChange={handleChangeText}
@@ -102,19 +101,12 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
       />
       <div className={styles.keyboardActions}>
         <ModeSwitcher currentMode={mode} allModes={modes} handleChange={handleChangeMode} />
-        <ModifierButton
-          modifier={shiftKey}
-          modifierOverride={shiftKeyOverride}
-          modifierOnText={'Shift on'}
-          modifierOffText={'Shift off'}
-          handleChange={(status) => setShiftKeyOverride(status)}
-        />
-        <ModifierButton
-          modifier={capsLockKey}
-          modifierOverride={capsLockKeyOverride}
-          modifierOnText={'Caps on'}
-          modifierOffText={'Caps off'}
-          handleChange={(status) => setCapsLockKeyOverride(status)}
+        <ModifierSwitcher
+          currentMode={mode}
+          shiftKeyOverride={shiftKeyOverride}
+          capsLockKeyOverride={capsLockKeyOverride}
+          handleChangeShift={(status) => setShiftKeyOverride(status)}
+          handleChangeCapsLock={(status) => setCapsLockKeyOverride(status)}
         />
         <CopyButton textAreaRef={textAreaRef} />
       </div>
@@ -129,34 +121,39 @@ interface KeyboardPageParams extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps<KeyboardPageProps, KeyboardPageParams> = async (context) => {
   const { keyboard } = context.params as KeyboardPageParams;
+  const globalContext = getGlobalContext();
 
   const data = loadLanguage(keyboard);
-  const { language } = data;
+  const { h1, language } = data;
   const meta = data.meta || {};
   const faqs = data.faqs || [];
-  const menu = getMenu();
 
   const modes = data.modes.map((mode, key) => {
     const words = Object.keys(mode.dictionary);
     const allowed = Array.from(new Set(words.join(''))).sort();
     const bufferMax = Math.max(...words.map((word) => word.length - 1), 0);
     const keyLookup = layoutToKeyLookup(mode.layout);
+    const capsLock = false;
+    const shift = false;
     return {
       key,
       allowed,
       bufferMax,
       keyLookup,
+      capsLock,
+      shift,
       ...mode,
     };
   });
 
   return {
     props: {
+      globalContext,
       language,
+      h1,
       meta,
       faqs,
       modes,
-      menu,
     },
   };
 };

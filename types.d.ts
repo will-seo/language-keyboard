@@ -10,6 +10,7 @@ export type FAQ = {
 };
 
 export type MetaData = {
+  title?: string;
   description?: string;
   image?: string;
 };
@@ -24,13 +25,13 @@ export type LanguageKeyData = {
 
 export type LanguageMode = {
   name?: string;
-  capslock: boolean;
   dictionary: { [key: string]: string };
   layout: LanguageKeyData[][][];
 };
 
 export type LanguageData = {
   language: string;
+  h1: string;
   meta?: MetaData;
   faqs?: FAQ[];
   modes: LanguageMode[];
@@ -39,10 +40,15 @@ export type LanguageData = {
 export interface LanguageModeProcessed extends LanguageMode {
   allowed: string[];
   bufferMax: number;
-  keyLookup: { [key: string]: string };
   key: number;
+  capsLock: boolean;
+  shift: boolean;
 }
 
-export interface PageProps {
+export type GlobalContext = {
   menu: MenuLink[];
+  baseURL: string;
+};
+export interface PageProps {
+  globalContext: GlobalContext;
 }

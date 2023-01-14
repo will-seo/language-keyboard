@@ -1,6 +1,8 @@
 {
   "language": "Japanese",
+  "h1": "Japanese Keyboard",
   "meta": {
+    "title": "Japanese Keyboard",
     "description": "Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.",
     "image": "/ogimage.png"
   },
@@ -34,7 +36,6 @@
   "modes": [
     {
       "name": "Hiragana",
-      "capslock": false,
       "dictionary": {
         "n": "ん",
         "wa": "わ",
@@ -217,7 +218,6 @@
     },
     {
       "name": "Katakana",
-      "capslock": false,
       "dictionary": {
         "n": "ン",
         "wa": "ワ",
