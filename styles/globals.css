@@ -11,7 +11,6 @@
   --dark-gray: #bababa;
   --dark: #111111;
   --teal: #158479;
-  --sans-serif: Montserrat, DejaVu Sans, Verdana, sans‑serif;
 }
 
 @media (min-width: 960px) {
@@ -57,7 +56,6 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   color: var(--dark);
-  font-family: var(--sans-serif);
   font-size: 1rem;
   font-weight: normal;
 }
