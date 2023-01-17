@@ -9,7 +9,7 @@
   "faqs": [
     {
       "question": "What is an online Japanese keyboard?",
-      "answer": "This virtual keyboard is for Japanese language students so that they can quickly and easily type in hiragana and katakana when they don't have access to a Japanese IME (Input Method Editor). I have built it with beginners in mind, and have made it easy to use on both mobile and desktop. If you have any feedback or questions, please check out my About page, or contact me by email.",
+      "answer": "This virtual keyboard is for Japanese language students so that they can quickly and easily type in hiragana and katakana when they don't have access to a Japanese IME (Input Method Editor). I have built it with beginners in mind, and have made it easy to use on both mobile and desktop. If you have any feedback or questions, please check out my <a href=\"/about\">About</a> page, or contact me by email.",
       "schema": false
     },
     {

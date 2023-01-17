@@ -1,6 +1,10 @@
 .footer {
   background: var(--light-gray);
-  font-style: italic;
-  text-align: center;
   padding: var(--spacing) var(--gutter);
+}
+
+@media (min-width: 960px) {
+  .footer {
+    text-align: center;
+  }
 }
