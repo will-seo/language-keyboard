@@ -1,0 +1,31 @@
+{
+  "language": "Maori",
+  "h1": "Maori Keyboard",
+  "meta": {
+    "title": "Maori Keyboard",
+    "description": "Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.",
+    "image": "/ogimage.png"
+  },
+  "modes": [
+    {
+      "dictionary": {
+        "`a": "ā",
+        "`e": "ē",
+        "`i": "ī",
+        "`o": "ō",
+        "`u": "ū",
+        "`A": "Ā",
+        "`E": "Ē",
+        "`I": "Ī",
+        "`O": "Ō",
+        "`U": "Ū"
+      },
+      "layout": [
+        [
+          [{ "to": "ā" }, { "to": "ē" }, { "to": "ī" }, { "to": "ō" }, { "to": "ū" }],
+          [{ "to": "Ā" }, { "to": "Ē" }, { "to": "Ī" }, { "to": "Ō" }, { "to": "Ū", "shift": true }]
+        ]
+      ]
+    }
+  ]
+}

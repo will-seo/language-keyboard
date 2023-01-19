@@ -15,11 +15,11 @@
 .menuButton {
   width: var(--menu-button-size);
   height: var(--menu-button-size);
-  color: var(--dark);
+  color: var(--light);
 }
 
 .menuButton:hover {
-  color: var(--light);
+  color: var(--dark);
 }
 
 .iconButton {
