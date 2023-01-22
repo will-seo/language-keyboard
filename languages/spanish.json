@@ -1,0 +1,37 @@
+{
+  "language": "Spanish",
+  "h1": "Spanish Keyboard",
+  "meta": {
+    "title": "Spanish Keyboard",
+    "description": "Easily type in Spanish with our online Spanish keyboard",
+    "image": "/ogimage.png"
+  },
+  "modes": [
+    {
+      "dictionary": {
+        "`a": "á",
+        "`e": "é",
+        "`i": "í",
+        "`o": "ó",
+        "`u": "ú",
+        "`A": "ñ",
+        "`E": "ü",
+        "`a": "Á",
+        "`e": "É",
+        "`i": "Í",
+        "`o": "Ó",
+        "`u": "Ú",
+        "`A": "Ñ",
+        "`E": "Ü",
+        "`I": "¡",
+        "`O": "¿"
+      },
+      "layout": [
+        [
+          [{ "to": "á" }, { "to": "é" }, { "to": "í" }, { "to": "ó" }, { "to": "ú" }, { "to": "ñ" }, { "to": "¡" }],
+          [{ "to": "Á" }, { "to": "É" }, { "to": "Í" }, { "to": "Ó" }, { "to": "Ú" }, { "to": "Ñ" }, { "to": "¿" }]
+        ]
+      ]
+    }
+  ]
+}

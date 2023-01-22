@@ -26,15 +26,41 @@ const HomePage = (props: PageProps) => {
           <td>
             <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
           </td>
-        </tr>
-        <tr>
           <td>
-            <li>
-              <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
-            </li>
+            <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
           </td>
           <td>
             <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
+          </td>
+          <td>
+            <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
+          </td>
+          <td>
+            <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
+          </td>
+          <td>
+            <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
+          </td>
+          <td>
+            <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="https://languagekeyboard.net/maori">Maori Keyboard</a>
+          </td>
+          <td>
+            <a href="https://languagekeyboard.net/spanish">Spanish Keyboard</a>
           </td>
         </tr>
       </table>
