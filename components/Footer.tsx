@@ -3,7 +3,7 @@ import styles from '../styles/Footer.module.css';
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      Disclaimer: If you click on a link and make a purchase I may receive a small commission.
+      When you purchase through links on our site, we may earn an affiliate commission.
     </footer>
   );
 };

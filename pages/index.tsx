@@ -13,40 +13,8 @@ const HomePage = (props: PageProps) => {
   const { globalContext } = props;
   return (
     <Layout globalContext={globalContext} h1={h1} meta={meta}>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, harum nisi. Voluptatem culpa vero provident illo.
-        Accusamus dicta consequuntur harum quod necessitatibus odit perferendis a quo dolorem. Eius, placeat earum?
-        Voluptatum, quia excepturi! Similique, debitis.
-      </p>
+      <p>Here're all our keyboards so far</p>
       <table>
-        <tr>
-          <td>
-            <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
-          </td>
-          <td>
-            <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
-          </td>
-          <td>
-            <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
-          </td>
-          <td>
-            <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
-          </td>
-          <td>
-            <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
-          </td>
-          <td>
-            <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
-          </td>
-          <td>
-            <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
-          </td>
-        </tr>
         <tr>
           <td>
             <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
