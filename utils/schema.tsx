@@ -1,6 +1,8 @@
 import { FAQ } from '../types';
 
-export const renderSchema = (data: object) => <script type="application/ld+json">{JSON.stringify(data)}</script>;
+export const renderSchema = (data: object) => (
+  <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}></script>
+);
 
 export const renderFAQSchema = (faqs?: FAQ[]) => {
   const filtered = faqs?.filter((faq) => faq.schema !== false);

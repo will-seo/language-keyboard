@@ -4,8 +4,6 @@
   right: 0;
   bottom: 0;
   background: var(--teal);
-  padding: calc(var(--spacing) * 2);
-  padding-right: calc(var(--menu-button-size) + var(--spacing));
   transition: transform var(--menu-open-duration);
 }
 
@@ -28,7 +26,8 @@
   overflow-y: auto;
   height: 100%;
   line-height: 1;
-  padding-right: calc(var(--spacing) * 2);
+  padding: calc(var(--spacing) * 2);
+  padding-right: calc(var(--spacing) * 2 + var(--menu-button-size));
 }
 
 .menu li[data-active='true'] {
@@ -36,7 +35,7 @@
 }
 
 .menu a {
-  color: inherit;
+  color: var(--light);
   text-decoration: none;
 }
 
@@ -57,6 +56,22 @@
 .fadeOut[data-open='false'] {
   opacity: 0;
   pointer-events: none;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: var(--scrollbar-width);
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: var(--dark-teal);
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: var(--light);
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--light-gray);
 }
 
 @media (max-width: 960px) {

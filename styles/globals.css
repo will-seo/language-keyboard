@@ -2,6 +2,7 @@
   --page-width: 960px;
   --border-width: 2px;
   --button-width: 6rem;
+  --scrollbar-width: 5px;
   --menu-button-size: 48px;
   --gutter: 1rem;
   --spacing: 1rem;
@@ -11,6 +12,7 @@
   --dark-gray: #bababa;
   --dark: #111111;
   --teal: #16a596;
+  --dark-teal: #0b7167;
 }
 
 @media (min-width: 960px) {
@@ -71,6 +73,7 @@ button,
 textarea,
 select {
   font: inherit;
+  outline: none;
 }
 
 button {
@@ -81,22 +84,24 @@ button {
   background: none;
 }
 
-p {
-  margin: 0 0 var(--spacing);
-  width: 100%;
-}
-
-a:visited a:link a:active {
-  color: #16a596;
+a:visited,
+a:link,
+a:active {
+  color: var(--teal);
 }
 
 a:hover {
-  color: #0b7167;
+  color: var(--dark-teal);
 }
 
 h2 {
   margin: 0 0 calc(var(--spacing) / 2);
   font-size: 1.5rem;
   font-weight: lighter;
+  width: 100%;
+}
+
+p {
+  margin: 0 0 var(--spacing);
   width: 100%;
 }

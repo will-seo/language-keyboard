@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Layout from '../components/Layout';
 import { MetaData, PageProps } from '../types';
 import { getGlobalContext } from '../utils/context';
@@ -13,24 +14,26 @@ const HomePage = (props: PageProps) => {
   const { globalContext } = props;
   return (
     <Layout globalContext={globalContext} h1={h1} meta={meta}>
-      <p>Here're all our keyboards so far</p>
+      <p>Here&apos;re all our keyboards so far</p>
       <table>
-        <tr>
-          <td>
-            <a href="https://languagekeyboard.net/japanese">Japanese Keyboard</a>
-          </td>
-          <td>
-            <a href="https://languagekeyboard.net/russian">Russian Keyboard</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="https://languagekeyboard.net/maori">Maori Keyboard</a>
-          </td>
-          <td>
-            <a href="https://languagekeyboard.net/spanish">Spanish Keyboard</a>
-          </td>
-        </tr>
+        <tbody>
+          <tr>
+            <td>
+              <Link href="/japanese">Japanese Keyboard</Link>
+            </td>
+            <td>
+              <Link href="/russian">Russian Keyboard</Link>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <Link href="/maori">Maori Keyboard</Link>
+            </td>
+            <td>
+              <Link href="/spanish">Spanish Keyboard</Link>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </Layout>
   );
