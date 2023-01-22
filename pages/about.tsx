@@ -2,11 +2,10 @@ import Layout from '../components/Layout';
 import { MetaData, PageProps } from '../types';
 import { getGlobalContext } from '../utils/context';
 
-const h1 = 'About Language Keyboard';
+const h1 = 'About';
 const meta: MetaData = {
-  title: 'About Language Keyboard',
-  description:
-    'Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.',
+  title: 'About | Languagekeyboard.net',
+  description: 'Discover more about the the language keyboard, the phiolsophy behind it, and its future.',
   image: '/ogimage.png',
 };
 
@@ -15,9 +14,18 @@ const AboutPage = (props: PageProps) => {
   return (
     <Layout globalContext={globalContext} h1={h1} meta={meta}>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci asperiores minima, reiciendis, repellat vitae
-        doloribus fugiat dolor necessitatibus fuga sunt odio blanditiis ut est maiores ex veniam. Fugit, quidem
-        blanditiis.
+        I have been studying Japanese for two years and during this time have used a number of online language tools -
+        some more helpful than others. I original built a Japanese keyboard so that I had a quick and simple solution to
+        type in it when I didn't have a Japanese keyboard installed. Following the success of it, I have expanded the
+        tool to cover a range of languages. I hope you find these keyboard as useful as I do.
+      </p>
+      <p>
+        If you have any questions or suggestions, please email me at{' '}
+        <a href="mailto:will@languagekeyboard.net">will@languagekeyboard.net</a>, or find me on Twitter at{' '}
+        <a rel="noopener noreferrer" target="_blank" href="https://mobile.twitter.com/willdropphoto">
+          @willdropphoto
+        </a>
+        .
       </p>
     </Layout>
   );
