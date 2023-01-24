@@ -20,7 +20,7 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
   const displayFrom = getCase(from, FROM);
 
   return (
-    <div role="button" className={`${styles.keyboardKey}`} onClick={() => updateText(displayTo)}>
+    <div className={`${styles.keyboardKey}`} onClick={() => updateText(displayTo)}>
       <span className={styles.keyboardKeyTo}>{displayTo}</span>
       <span className={styles.keyboardKeyFrom}>{displayFrom}</span>
     </div>
