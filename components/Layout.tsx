@@ -33,7 +33,11 @@ const Layout = (props: LayoutProps) => {
   const viewport = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes';
 
   const handleAcceptCookies = () => {
-    console.log('cookies accepted');
+    if (gtag)
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+      });
   };
 
   useEffect(() => {
@@ -73,6 +77,10 @@ const Layout = (props: LayoutProps) => {
               __html: `
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){window.dataLayer.push(arguments);}
+                gtag('consent', 'default', {
+                  'ad_storage': 'denied',
+                  'analytics_storage': 'denied'
+                });
                 gtag('js', new Date());
                 gtag('config', '${gtagID}');
               `,
