@@ -5,6 +5,7 @@
   bottom: 0;
   background: var(--teal);
   transition: transform var(--menu-open-duration);
+  z-index: 1;
 }
 
 .menu[data-open='false'] {

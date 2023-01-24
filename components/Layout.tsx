@@ -82,9 +82,11 @@ const Layout = (props: LayoutProps) => {
       )}
       <CookieConsent
         buttonText="Accept all"
+        declineButtonText="Decline all"
         style={{ background: '#ededed', color: '#111111' }}
         buttonStyle={{ background: '#16a596', color: '#ffffff' }}
         onAccept={handleAcceptCookies}
+        enableDeclineButton
       >
         We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
         By clicking &quot;accept all&quot; you consent to our use of cookies.
