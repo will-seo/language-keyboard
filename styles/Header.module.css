@@ -11,7 +11,7 @@
   display: grid;
   align-items: center;
   gap: calc(var(--spacing) * 1);
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto auto 1fr;
 }
 
 .title {
@@ -20,14 +20,16 @@
   line-height: 1;
 }
 
+.headerWrapper > button:last-child {
+  justify-self: flex-end;
+}
+
 @media (min-width: 960px) {
   .title {
     font-size: 1.75rem;
-    grid-column: 2;
   }
 
   .headerWrapper {
     grid-template-columns: 1fr auto 1fr;
-    justify-items: flex-end;
   }
 }

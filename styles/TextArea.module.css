@@ -5,8 +5,16 @@
   width: 100%;
   color: inherit;
   border: var(--border-width) solid var(--dark);
+  font-family: sans-serif;
 }
 
 .textArea::placeholder {
   color: var(--dark-gray);
+}
+
+@media (max-width: 960px) {
+  .textArea {
+    position: sticky;
+    top: var(--spacing);
+  }
 }

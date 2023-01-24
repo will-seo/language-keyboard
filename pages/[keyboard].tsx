@@ -30,9 +30,10 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const [shiftKeyOverride, setShiftKeyOverride] = useState(false);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
-  // Update available modes on route change
+  // Update available modes and reset text on route change
   useEffect(() => {
     setMode(modes[0]);
+    setText('');
     textAreaRef.current?.focus();
   }, [modes]);
 
