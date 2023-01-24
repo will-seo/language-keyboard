@@ -1,7 +1,7 @@
 .footer {
   background: var(--light-gray);
-  padding: calc(var(--spacing) / 2) var(--gutter);
-  font-size: 0.75rem;
+  padding: var(--spacing) var(--gutter);
+  font-size: 0.875rem;
 }
 
 @media (min-width: 960px) {
