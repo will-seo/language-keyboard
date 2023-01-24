@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
+import { useEffect } from 'react';
+import CookieConsent, { getCookieConsentValue } from 'react-cookie-consent';
 import styles from '../styles/Layout.module.css';
 import { FAQ, MetaData, PageProps } from '../types';
-import { renderAnalytics } from '../utils/analytics';
 import { renderFAQSchema } from '../utils/schema';
 import Footer from './Footer';
 import Header from './Header';
@@ -29,6 +31,20 @@ const Layout = (props: LayoutProps) => {
   const image = baseURL + (meta?.image || metaDefaults.image);
   const title = meta?.title || h1 || metaDefaults.title;
   const viewport = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes';
+
+  const handleAcceptCookies = () => {
+    if (gtag)
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+      });
+  };
+
+  useEffect(() => {
+    const cookieConsent = getCookieConsentValue();
+    if (cookieConsent === 'true') handleAcceptCookies();
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -51,7 +67,38 @@ const Layout = (props: LayoutProps) => {
       <Header h1={h1} menu={menu} />
       <main className={styles.main}>{children}</main>
       <Footer />
-      {renderAnalytics(gtagID)}
+      {gtagID && (
+        <>
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${gtagID}`} strategy="afterInteractive" />
+          <Script
+            id="gtag"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){window.dataLayer.push(arguments);}
+                gtag('consent', 'default', {
+                  'ad_storage': 'denied',
+                  'analytics_storage': 'denied'
+                });
+                gtag('js', new Date());
+                gtag('config', '${gtagID}');
+              `,
+            }}
+          />
+        </>
+      )}
+      <CookieConsent
+        buttonText="Accept all"
+        declineButtonText="Decline all"
+        style={{ background: '#ededed', color: '#111111' }}
+        buttonStyle={{ background: '#16a596', color: '#ffffff' }}
+        onAccept={handleAcceptCookies}
+        enableDeclineButton
+      >
+        We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
+        By clicking &quot;accept all&quot; you consent to our use of cookies.
+      </CookieConsent>
     </div>
   );
 };
