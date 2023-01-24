@@ -7,6 +7,9 @@ import buttonStyles from '../styles/Button.module.css';
 import styles from '../styles/Menu.module.css';
 import { MenuLink } from '../types';
 
+const menuText =
+  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ullam fugit at, nobis sequi distinctio quia architecto ad, laboriosam adipisci nam quasi blanditiis consequuntur provident enim? Odit quaerat at iusto.';
+
 interface MenuProps {
   menuOpen: boolean;
   menu: MenuLink[];
@@ -39,6 +42,7 @@ const Menu = (props: MenuProps) => {
         <button onClick={() => closeMenu()} className={buttonStyles.menuButton} aria-label="Close menu">
           <FontAwesomeIcon icon={faXmark} size="3x" />
         </button>
+        {menuText && <div className={styles.menuText}>{menuText}</div>}
       </nav>
     </>
   );
