@@ -14,10 +14,10 @@ const AboutPage = (props: PageProps) => {
   return (
     <Layout globalContext={globalContext} h1={h1} meta={meta}>
       <p>
-        I have been studying Japanese for two years and during this time have used a number of online language tools -
-        some more helpful than others. I original built a Japanese keyboard so that I had a quick and simple solution to
-        type in it when I didn&apos;t have a Japanese keyboard installed. Following the success of it, I have expanded
-        the tool to cover a range of languages. I hope you find these keyboard as useful as I do.
+        I have been studying Japanese for over three years and during that time I&apos;ve used a number of online
+        language tools - some more helpful than others. I original built a Japanese keyboard so that I had a quick and
+        simple solution to type in it when I didn&apos;t have a Japanese keyboard installed. Following the success of
+        it, I have expanded the tool to cover a range of languages. I hope you find these keyboards as useful as I do.
       </p>
       <p>
         If you have any questions or suggestions, please email me at{' '}

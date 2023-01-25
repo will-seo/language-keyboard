@@ -15,6 +15,7 @@
 @media (max-width: 960px) {
   .textArea {
     position: sticky;
+    min-height: 4rem;
     top: var(--spacing);
   }
 }

@@ -14,7 +14,10 @@ const HomePage = (props: PageProps) => {
   const { globalContext } = props;
   return (
     <Layout globalContext={globalContext} h1={h1} meta={meta}>
-      <p>Here&apos;re all our keyboards so far</p>
+      <p>
+        Welcome to the Language Keyboard, your one-stop-shop for typing in non-roman alphabets. Here&apos;re all our
+        keyboards so far:
+      </p>
       <table>
         <tbody>
           <tr>
