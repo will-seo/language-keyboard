@@ -28,9 +28,16 @@
   text-align: center;
 }
 
-.keyboardKey:hover {
+.keyboardKey:active {
   color: var(--light);
   background: var(--teal);
+}
+
+@media (hover: hover) {
+  .keyboardKey:hover {
+    color: var(--light);
+    background: var(--teal);
+  }
 }
 
 .keyboardKeyFrom {

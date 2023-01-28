@@ -43,8 +43,14 @@
   text-decoration: none;
 }
 
-.menu a:hover {
+.menu a:active {
   text-decoration: underline;
+}
+
+@media (hover: hover) {
+  .menu a:hover {
+    text-decoration: underline;
+  }
 }
 
 .menuText {

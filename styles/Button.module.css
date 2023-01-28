@@ -7,19 +7,33 @@
   min-width: var(--button-width);
 }
 
-.button:hover {
+.button:active {
   background: var(--teal);
   color: var(--light);
+}
+
+@media (hover: hover) {
+  .button:hover {
+    background: var(--teal);
+    color: var(--light);
+  }
 }
 
 .menuButton {
   width: var(--menu-button-size);
   height: var(--menu-button-size);
   color: var(--light);
+  padding: 0;
 }
 
-.menuButton:hover {
+.menuButton:active {
   color: var(--dark);
+}
+
+@media (hover: hover) {
+  .menuButton:hover {
+    color: var(--dark);
+  }
 }
 
 .iconButton {
