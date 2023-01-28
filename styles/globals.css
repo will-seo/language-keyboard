@@ -3,7 +3,7 @@
   --border-width: 2px;
   --button-width: 6rem;
   --scrollbar-width: 5px;
-  --menu-button-size: 48px;
+  --menu-button-size: 32px;
   --menu-width: 350px;
   --gutter: 1rem;
   --spacing: 1rem;
@@ -14,6 +14,7 @@
   --dark: #111111;
   --teal: #0c6457;
   --dark-teal: #074038;
+  --red: #af0c0c;
 }
 
 @media (min-width: 960px) {
@@ -63,10 +64,14 @@ body {
   font-weight: normal;
 }
 
-img,
-picture {
+img {
   max-width: 100%;
   display: block;
+}
+
+table {
+  border-spacing: var(--spacing) calc(var(--spacing) / 2);
+  border-collapse: separate;
 }
 
 input,
@@ -91,8 +96,10 @@ a:active {
   color: var(--teal);
 }
 
-a:hover {
-  color: var(--dark-teal);
+@media (hover: hover) {
+  a:hover {
+    color: var(--dark-teal);
+  }
 }
 
 h2 {

@@ -40,7 +40,7 @@ const Menu = (props: MenuProps) => {
           ))}
         </ul>
         <button onClick={() => closeMenu()} className={buttonStyles.menuButton} aria-label="Close menu">
-          <FontAwesomeIcon icon={faXmark} size="3x" />
+          <FontAwesomeIcon icon={faXmark} size="2x" />
         </button>
         {menuText && <div className={styles.menuText}>{menuText}</div>}
       </nav>
