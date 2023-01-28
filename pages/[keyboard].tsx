@@ -19,7 +19,7 @@ interface KeyboardPageProps extends PageProps, LanguageData {
 }
 
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
-  const { globalContext, language, h1, meta, faqs, modes } = props;
+  const { globalContext, language, h1, placeholder, mobileKeyboard, meta, faqs, modes } = props;
 
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
@@ -84,6 +84,8 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
       <TextArea
         text={text}
         language={language}
+        placeholder={placeholder}
+        mobileKeyboard={mobileKeyboard}
         dictionary={mode.dictionary}
         allowed={mode.allowed}
         bufferMax={mode.bufferMax}
@@ -123,6 +125,8 @@ export const getStaticProps: GetStaticProps<KeyboardPageProps, KeyboardPageParam
 
   const data = loadLanguage(keyboard);
   const { h1, language } = data;
+  const placeholder = data.placeholder || '';
+  const mobileKeyboard = data.mobileKeyboard && true;
   const meta = data.meta || {};
   const faqs = data.faqs || [];
 
@@ -146,6 +150,8 @@ export const getStaticProps: GetStaticProps<KeyboardPageProps, KeyboardPageParam
       ...globalContext,
       language,
       h1,
+      placeholder,
+      mobileKeyboard: mobileKeyboard ?? true,
       meta,
       faqs,
       modes,
