@@ -13,7 +13,7 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
   const { from, to, FROM, TO } = keyData;
 
   // Return placeholder if "to" isn't set
-  if (!to) return <div className={`${styles.keyboardKey}`}></div>;
+  if (!to) return <div className={`${styles.keyboardKeyPlaceholder}`}></div>;
 
   const getCase = (lower: string, upper?: string) => (shift || (capsLock && !keyData.shift) ? upper : lower) || lower;
   const displayTo = getCase(to, TO);
