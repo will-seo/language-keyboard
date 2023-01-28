@@ -69,11 +69,6 @@ img {
   display: block;
 }
 
-table {
-  border-spacing: var(--spacing) calc(var(--spacing) / 2);
-  border-collapse: separate;
-}
-
 input,
 button,
 textarea,
