@@ -91,8 +91,9 @@ const Layout = (props: LayoutProps) => {
       <CookieConsent
         buttonText="Accept all"
         declineButtonText="Decline all"
-        style={{ background: '#ededed', color: '#111111' }}
-        buttonStyle={{ background: '#16a596', color: '#ffffff' }}
+        style={{ background: 'var(--light-gray)', color: 'var(--dark)' }}
+        buttonStyle={{ background: 'var(--dark-teal)', color: 'var(--light)' }}
+        declineButtonStyle={{ background: 'var(--red)', color: 'var(--light)' }}
         onAccept={handleAcceptCookies}
         enableDeclineButton
       >
