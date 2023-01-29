@@ -35,6 +35,9 @@ export type LanguageData = {
   menu?: string;
   placeholder?: string;
   mobileKeyboard?: boolean;
+  copy?: boolean;
+  spacebar?: boolean;
+  backspace?: boolean;
   meta?: MetaData;
   faqs?: FAQ[];
   modes: LanguageMode[];

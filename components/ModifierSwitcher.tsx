@@ -17,7 +17,7 @@ const ModifierSwitcher = (props: ModifierSwitcherProps) => {
     <div className={buttonStyles.toggle}>
       {currentMode.shift && (
         <button
-          className={`${buttonStyles.button} ${buttonStyles.toggleButton} ${buttonStyles.iconButton}`}
+          className={`${buttonStyles.button} ${buttonStyles.iconButton}`}
           data-active={shiftKeyOverride}
           onClick={() => {
             handleChangeShift(!shiftKeyOverride);
@@ -29,7 +29,7 @@ const ModifierSwitcher = (props: ModifierSwitcherProps) => {
       )}
       {currentMode.capsLock && (
         <button
-          className={`${buttonStyles.button} ${buttonStyles.toggleButton} ${buttonStyles.iconButton}`}
+          className={`${buttonStyles.button} ${buttonStyles.iconButton}`}
           data-active={capsLockKeyOverride}
           onClick={() => {
             handleChangeCapsLock(!capsLockKeyOverride);

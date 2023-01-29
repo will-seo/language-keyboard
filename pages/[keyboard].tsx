@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { useEffect, useRef, useState } from 'react';
-import CopyButton from '../components/CopyButton';
+import ControlButtons from '../components/ControlButtons';
 import FAQs from '../components/FAQ';
 import Keyboard from '../components/Keyboard';
 import Layout from '../components/Layout';
@@ -19,7 +19,8 @@ interface KeyboardPageProps extends PageProps, LanguageData {
 }
 
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
-  const { globalContext, language, h1, placeholder, mobileKeyboard, meta, faqs, modes } = props;
+  const { globalContext, language, h1, placeholder, mobileKeyboard, copy, spacebar, backspace, meta, faqs, modes } =
+    props;
 
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
@@ -57,13 +58,13 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     setCapsLockKey(e.getModifierState('CapsLock'));
   };
 
-  const updateText = (insertText: string, startOffset = 0) => {
-    if (!textAreaRef.current || !insertText) return;
+  const updateText = (insertText: string, startOffset = 0, caretOffset = 1) => {
+    if (!textAreaRef.current) return;
     const { selectionStart, selectionEnd } = textAreaRef.current;
-    textAreaRef.current.focus();
     const [start, end] = [selectionStart - startOffset, selectionEnd];
-    setCaret(start + 1);
+    setCaret(start + caretOffset);
     setText(text.slice(0, start) + insertText + text.slice(end));
+    textAreaRef.current.focus();
   };
 
   const handleChangeMode = (key: number) => {
@@ -108,7 +109,13 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
           handleChangeShift={(status) => setShiftKeyOverride(status)}
           handleChangeCapsLock={(status) => setCapsLockKeyOverride(status)}
         />
-        <CopyButton textAreaRef={textAreaRef} />
+        <ControlButtons
+          textAreaRef={textAreaRef}
+          updateText={updateText}
+          copy={copy}
+          spacebar={spacebar}
+          backspace={backspace}
+        />
       </div>
       <FAQs faqs={faqs} />
     </Layout>
@@ -126,7 +133,10 @@ export const getStaticProps: GetStaticProps<KeyboardPageProps, KeyboardPageParam
   const data = loadLanguage(keyboard);
   const { h1, language } = data;
   const placeholder = data.placeholder || '';
-  const mobileKeyboard = data.mobileKeyboard && true;
+  const mobileKeyboard = data.mobileKeyboard ?? true;
+  const copy = data.copy ?? true;
+  const spacebar = data.spacebar ?? true;
+  const backspace = data.backspace ?? true;
   const meta = data.meta || {};
   const faqs = data.faqs || [];
 
@@ -151,7 +161,10 @@ export const getStaticProps: GetStaticProps<KeyboardPageProps, KeyboardPageParam
       language,
       h1,
       placeholder,
-      mobileKeyboard: mobileKeyboard ?? true,
+      mobileKeyboard,
+      copy,
+      spacebar,
+      backspace,
       meta,
       faqs,
       modes,
