@@ -2,7 +2,7 @@
   "language": "Japanese",
   "h1": "Online Japanese Keyboard",
   "menu": "Japanese Keyboard",
-  "placeholder": "Start typing to convert",
+  "placeholder": "Start typing",
   "meta": {
     "title": "Japanese Keyboard",
     "description": "Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.",
@@ -87,6 +87,7 @@
         "e": "え",
         "wo": "を",
         "ro": "ろ",
+        "Ro": "ろ",
         "yo": "よ",
         "mo": "も",
         "ho": "ほ",
