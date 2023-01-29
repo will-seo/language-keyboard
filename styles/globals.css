@@ -3,17 +3,18 @@
   --border-width: 2px;
   --button-width: 6rem;
   --scrollbar-width: 5px;
-  --menu-button-size: 48px;
+  --menu-button-size: 32px;
   --menu-width: 350px;
   --gutter: 1rem;
   --spacing: 1rem;
-  --menu-open-duration: 0.25s;
+  --menu-open-duration: 0.2s;
   --light: #ffffff;
   --light-gray: #ededed;
   --dark-gray: #bababa;
   --dark: #111111;
   --teal: #0c6457;
   --dark-teal: #074038;
+  --red: #af0c0c;
 }
 
 @media (min-width: 960px) {
@@ -63,8 +64,7 @@ body {
   font-weight: normal;
 }
 
-img,
-picture {
+img {
   max-width: 100%;
   display: block;
 }
@@ -91,8 +91,10 @@ a:active {
   color: var(--teal);
 }
 
-a:hover {
-  color: var(--dark-teal);
+@media (hover: hover) {
+  a:hover {
+    color: var(--dark-teal);
+  }
 }
 
 h2 {

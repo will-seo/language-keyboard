@@ -1,6 +1,7 @@
 {
   "language": "Russian",
   "h1": "Russian Keyboard",
+  "mobileKeyboard": false,
   "modes": [
     {
       "dictionary": {

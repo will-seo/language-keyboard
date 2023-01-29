@@ -19,18 +19,29 @@
   margin: 0 auto;
 }
 
-.keyboardKey {
+.keyboardKey,
+.keyboardKeyPlaceholder {
   padding: 0.25rem;
   min-width: 28px;
   border-radius: 0.25rem;
   line-height: 1;
-  cursor: pointer;
   text-align: center;
 }
 
-.keyboardKey:hover {
+.keyboardKey {
+  cursor: pointer;
+}
+
+.keyboardKey:active {
   color: var(--light);
   background: var(--teal);
+}
+
+@media (hover: hover) {
+  .keyboardKey:hover {
+    color: var(--light);
+    background: var(--teal);
+  }
 }
 
 .keyboardKeyFrom {
@@ -59,7 +70,8 @@
 }
 
 @media (min-width: 960px) {
-  .keyboardKey {
+  .keyboardKey,
+  .keyboardKeyPlaceholder {
     padding: 0.5rem;
     min-width: 48px;
   }

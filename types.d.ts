@@ -32,6 +32,9 @@ export type LanguageMode = {
 export type LanguageData = {
   language: string;
   h1: string;
+  menu?: string;
+  placeholder?: string;
+  mobileKeyboard?: boolean;
   meta?: MetaData;
   faqs?: FAQ[];
   modes: LanguageMode[];
