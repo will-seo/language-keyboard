@@ -18,6 +18,12 @@ describe('Japanese keyboard', () => {
   const convert = [
     ['nwarayamahanatasakaapabadazaga', 'んわらやまはんあたさかあぱばだざが'],
     ['rimihinichishikiipibidijigi', 'りみひんいちしきいぴびぢじぎ'],
+    ['SHOU', 'しょう'],
+    ['NANI', 'なに'],
+    ['HIRAGANA', 'ひらがな'],
+    ['RINGO', 'りんご'],
+    ['GENKI', 'げんき'],
+    ['SHOUNEN', 'しょうねん'],
   ];
 
   test('render', () => {
