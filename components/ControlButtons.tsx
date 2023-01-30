@@ -55,8 +55,9 @@ const ControlButtons = ({
       )}
 
       {spacebar && (
-        <button onClick={onClickSpacebar} className={buttonStyles.button}>
-          Spacebar
+        <button onClick={onClickSpacebar} className={`${buttonStyles.button} ${buttonStyles.iconButton}`}>
+          <span className={buttonStyles.spacebar}>⎵</span>
+          Space
         </button>
       )}
 

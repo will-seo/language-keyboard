@@ -71,3 +71,8 @@
 .group > button:not(:last-of-type) {
   margin-right: calc(var(--spacing) / 2);
 }
+
+.spacebar {
+  line-height: 0.5;
+  font-weight: bold;
+}
