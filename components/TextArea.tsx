@@ -10,7 +10,7 @@ interface TextAreaProps {
   allowed: string[];
   bufferMax: number;
   textAreaRef: RefObject<HTMLTextAreaElement>;
-  updateText: (insertText: string, startOffset: number) => void;
+  updateText: (insertText: string, startOffset: number, caretOffset?: number) => void;
   handleChange: () => void;
 }
 

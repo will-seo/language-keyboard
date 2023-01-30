@@ -47,19 +47,32 @@
   display: flex;
 }
 
-.toggleButton[data-active='true'] {
+.toggle > button[data-active='true'] {
   font-weight: bold;
   background: var(--teal);
   color: var(--light);
 }
 
-.toggleButton:not(:last-of-type) {
+.toggle > button:not(:last-of-type) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.toggleButton:not(:first-of-type) {
+.toggle > button:not(:first-of-type) {
   margin-left: calc(var(--border-width) * -1);
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.group {
+  display: flex;
+}
+
+.group > button:not(:last-of-type) {
+  margin-right: calc(var(--spacing) / 2);
+}
+
+.spacebar {
+  line-height: 0.5;
+  font-weight: bold;
 }
