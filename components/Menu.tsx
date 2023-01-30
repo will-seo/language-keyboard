@@ -1,7 +1,7 @@
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import buttonStyles from '../styles/Button.module.css';
 import styles from '../styles/Menu.module.css';
@@ -18,8 +18,7 @@ interface MenuProps {
 
 const Menu = (props: MenuProps) => {
   const { menuOpen, menu, closeMenu } = props;
-  const router = useRouter();
-  const currentPath = router.asPath;
+  const currentPath = usePathname();
 
   useEffect(() => {
     if (menuOpen) document.body.style.overflow = 'hidden';

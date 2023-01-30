@@ -3,7 +3,6 @@ import styles from '../styles/TextArea.module.css';
 
 interface TextAreaProps {
   text: string;
-  language: string;
   placeholder?: string;
   mobileKeyboard?: boolean;
   dictionary: { [key: string]: string };
@@ -49,18 +48,8 @@ const checkBuffer = (keys: string[], buffer: string, allowed: string[]) => {
 };
 
 const TextArea = (props: TextAreaProps) => {
-  const {
-    text,
-    language,
-    placeholder,
-    mobileKeyboard,
-    dictionary,
-    allowed,
-    bufferMax,
-    textAreaRef,
-    updateText,
-    handleChange,
-  } = props;
+  const { text, placeholder, mobileKeyboard, dictionary, allowed, bufferMax, textAreaRef, updateText, handleChange } =
+    props;
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     const modifier = e.altKey || e.ctrlKey || e.metaKey;
@@ -81,7 +70,7 @@ const TextArea = (props: TextAreaProps) => {
   return (
     <textarea
       className={styles.textArea}
-      placeholder={placeholder || `Start typing to convert to ${language}`}
+      placeholder={placeholder || 'Start typing'}
       value={text}
       onChange={() => handleChange()}
       onKeyDown={onKeyDown}
