@@ -1,5 +1,6 @@
+import { KeyboardPageProps } from '../pages/[keyboard]';
 import { MenuLink } from '../types';
-import { getLanguages, loadLanguage } from './languages';
+import { getLanguages, hasModifiers, loadLanguage } from './languages';
 import menu from './menu';
 
 export const getMenuLanguages = () => {
@@ -19,4 +20,28 @@ export const getGlobalContext = () => {
       menu: [...menu, ...getMenuLanguages()],
     },
   };
+};
+
+export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
+  const globalContext = getGlobalContext();
+
+  const data = loadLanguage(keyboard);
+  const { h1 } = data;
+  const placeholder = data.placeholder || '';
+  const mobileKeyboard = data.mobileKeyboard ?? true;
+  const copy = data.copy ?? true;
+  const spacebar = data.spacebar ?? true;
+  const backspace = data.backspace ?? true;
+  const meta = data.meta || {};
+  const faqs = data.faqs || [];
+
+  const modes = data.modes.map((mode, key) => {
+    const words = Object.keys(mode.dictionary);
+    const allowed = Array.from(new Set(words.join(''))).sort();
+    const bufferMax = Math.max(...words.map((word) => word.length - 1), 0);
+    const [capsLock, shift] = hasModifiers(mode.layout);
+    return { key, allowed, bufferMax, capsLock, shift, ...mode };
+  });
+
+  return { ...globalContext, h1, placeholder, mobileKeyboard, copy, spacebar, backspace, meta, faqs, modes };
 };

@@ -11,16 +11,15 @@ import ModifierSwitcher from '../components/ModifierSwitcher';
 import TextArea from '../components/TextArea';
 import styles from '../styles/Keyboard.module.css';
 import { LanguageData, LanguageModeProcessed, PageProps } from '../types';
-import { getGlobalContext } from '../utils/context';
-import { getLanguages, hasModifiers, loadLanguage } from '../utils/languages';
+import { getLanguageContext } from '../utils/context';
+import { getLanguages } from '../utils/languages';
 
-interface KeyboardPageProps extends PageProps, LanguageData {
+export interface KeyboardPageProps extends PageProps, LanguageData {
   modes: LanguageModeProcessed[];
 }
 
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
-  const { globalContext, language, h1, placeholder, mobileKeyboard, copy, spacebar, backspace, meta, faqs, modes } =
-    props;
+  const { globalContext, h1, placeholder, mobileKeyboard, copy, spacebar, backspace, meta, faqs, modes } = props;
 
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
@@ -58,11 +57,11 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     setCapsLockKey(e.getModifierState('CapsLock'));
   };
 
-  const updateText = (insertText: string, startOffset = 0, caretOffset = 1) => {
+  const updateText = (insertText: string, startOffset = 0) => {
     if (!textAreaRef.current) return;
     const { selectionStart, selectionEnd } = textAreaRef.current;
     const [start, end] = [selectionStart - startOffset, selectionEnd];
-    setCaret(start + caretOffset);
+    setCaret(start + insertText.length);
     setText(text.slice(0, start) + insertText + text.slice(end));
     textAreaRef.current.focus();
   };
@@ -84,7 +83,6 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     <Layout globalContext={globalContext} h1={h1} meta={meta} faqs={faqs}>
       <TextArea
         text={text}
-        language={language}
         placeholder={placeholder}
         mobileKeyboard={mobileKeyboard}
         dictionary={mode.dictionary}
@@ -128,47 +126,8 @@ interface KeyboardPageParams extends ParsedUrlQuery {
 
 export const getStaticProps: GetStaticProps<KeyboardPageProps, KeyboardPageParams> = async (context) => {
   const { keyboard } = context.params as KeyboardPageParams;
-  const globalContext = getGlobalContext();
-
-  const data = loadLanguage(keyboard);
-  const { h1, language } = data;
-  const placeholder = data.placeholder || '';
-  const mobileKeyboard = data.mobileKeyboard ?? true;
-  const copy = data.copy ?? true;
-  const spacebar = data.spacebar ?? true;
-  const backspace = data.backspace ?? true;
-  const meta = data.meta || {};
-  const faqs = data.faqs || [];
-
-  const modes = data.modes.map((mode, key) => {
-    const words = Object.keys(mode.dictionary);
-    const allowed = Array.from(new Set(words.join(''))).sort();
-    const bufferMax = Math.max(...words.map((word) => word.length - 1), 0);
-    const [capsLock, shift] = hasModifiers(mode.layout);
-    return {
-      key,
-      allowed,
-      bufferMax,
-      capsLock,
-      shift,
-      ...mode,
-    };
-  });
-
   return {
-    props: {
-      ...globalContext,
-      language,
-      h1,
-      placeholder,
-      mobileKeyboard,
-      copy,
-      spacebar,
-      backspace,
-      meta,
-      faqs,
-      modes,
-    },
+    props: getLanguageContext(keyboard),
   };
 };
 

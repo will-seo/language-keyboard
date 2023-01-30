@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import Script from 'next/script';
 import { useEffect } from 'react';
 import CookieConsent, { getCookieConsentValue } from 'react-cookie-consent';
@@ -25,8 +25,7 @@ interface LayoutProps extends PageProps {
 const Layout = (props: LayoutProps) => {
   const { globalContext, h1, meta, faqs, children } = props;
   const { baseURL, gtagID, menu } = globalContext;
-  const router = useRouter();
-  const canonicalUrl = baseURL + router.asPath;
+  const canonicalUrl = baseURL + usePathname();
   const description = meta?.description || metaDefaults.description;
   const image = baseURL + (meta?.image || metaDefaults.image);
   const title = meta?.title || h1 || metaDefaults.title;

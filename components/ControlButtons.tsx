@@ -5,7 +5,7 @@ import buttonStyles from '../styles/Button.module.css';
 
 interface ControlButtonsProps {
   textAreaRef: RefObject<HTMLTextAreaElement>;
-  updateText: (insertText: string, startOffset: number, caretOffset?: number) => void;
+  updateText: (insertText: string, startOffset: number) => void;
   copy?: boolean;
   spacebar?: boolean;
   backspace?: boolean;
@@ -42,7 +42,7 @@ const ControlButtons = ({
     const { selectionStart, selectionEnd } = textAreaRef.current;
     if (selectionEnd === 0) return;
     const offset = selectionStart === selectionEnd ? 1 : 0;
-    updateText('', offset, 0);
+    updateText('', offset);
   };
 
   return (
