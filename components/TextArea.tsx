@@ -76,6 +76,7 @@ const TextArea = (props: TextAreaProps) => {
       onKeyDown={onKeyDown}
       ref={textAreaRef}
       inputMode={mobileKeyboard ? 'text' : 'none'}
+      aria-label="Input Method Editor"
     ></textarea>
   );
 };
