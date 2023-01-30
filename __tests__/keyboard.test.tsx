@@ -24,6 +24,7 @@ describe('Japanese keyboard', () => {
     ['RINGO', 'りんご'],
     ['GENKI', 'げんき'],
     ['SHOUNEN', 'しょうねん'],
+    ['NYAKE', 'にゃけ'],
   ];
 
   test('render', () => {
