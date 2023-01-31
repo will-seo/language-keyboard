@@ -51,13 +51,13 @@ const checkBuffer = (words: string[], buffer: string, input: string, allowed: st
   if (matchesWithInput.longestExact && matchesWithInput.longestExact.length >= matchesWithInput.longestPotential.length)
     return {
       match: matchesWithInput.longestExact,
-      offset: 0,
+      input: false,
     };
 
   if (matches.longestExact && !matchesWithInput.potential.includes(matches.longestExact))
     return {
       match: matches.longestExact,
-      offset: input.length,
+      input: true,
     };
 
   return null;
@@ -76,15 +76,18 @@ const TextArea = ({
 }: TextAreaProps) => {
   const onBeforeInput = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
     const { data } = e.nativeEvent;
-
+    const input = data || ' ';
     const words = Object.keys(dictionary);
     const selectionStart = textAreaRef.current?.selectionStart || 0;
     const text = textAreaRef.current?.value || '';
     const buffer = sliceBuffer(text, selectionStart, bufferMax);
-    const replace = checkBuffer(words, buffer, data, allowed, bufferMax);
+    const replace = checkBuffer(words, buffer, input, allowed, bufferMax);
 
     if (replace) {
-      updateText(dictionary[replace.match], replace.match.length);
+      e.preventDefault();
+      const insertText = dictionary[replace.match] + (replace.input ? input : '');
+      const replaceOffset = replace.match.length + (replace.input ? input.length : 0);
+      updateText(insertText, replaceOffset);
     }
   };
 
