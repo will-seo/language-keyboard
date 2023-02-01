@@ -13,58 +13,82 @@ interface TextAreaProps {
   handleChange: () => void;
 }
 
-const cleanBuffer = (buffer: string, allowed: string[]) => {
-  let cleaned = '';
-  for (let position = buffer.length - 1; position >= 0; position--) {
-    const character = buffer[position];
-    if (!allowed.includes(character)) return cleaned;
-    cleaned = character + cleaned;
+const getLongest = (words: string[]): string =>
+  words.reduce((previous, current) => (previous.length < current.length ? current : previous), '');
+
+const sliceBuffer = (text: string, before: number, maxLength: number) =>
+  text.slice(Math.max(before - maxLength, 0), before);
+
+const getMatches = (buffer: string, words: string[]) => {
+  const potential: string[] = [];
+  const exact: string[] = [];
+  for (let pos = 0; pos < buffer.length; pos += 1) {
+    const bufferSlice = buffer.slice(buffer.length - 1 - pos, buffer.length);
+    words.forEach((word) => {
+      const wordSlice = word.slice(0, pos + 1);
+      if (wordSlice === bufferSlice) {
+        if (word === bufferSlice) exact.push(word);
+        else potential.push(word);
+      }
+    });
   }
-  return buffer;
+  return {
+    longestExact: getLongest(exact),
+    longestPotential: getLongest(potential),
+    exact,
+    potential,
+  };
 };
 
-const checkBuffer = (keys: string[], buffer: string, allowed: string[]) => {
-  const cleanedBuffer = cleanBuffer(buffer, allowed);
-  const fullMatches = [];
-  let partialMatches = [...keys];
+const getBufferWithInput = (buffer: string, bufferMax: number) => sliceBuffer(buffer, buffer.length, bufferMax);
 
-  for (let position = 0; position < cleanedBuffer.length; position++) {
-    const bufferCharacter = cleanedBuffer[cleanedBuffer.length - 1 - position];
-    const newPartialMatches = [];
+const checkBuffer = (words: string[], buffer: string, input: string, allowed: string[], bufferMax: number) => {
+  const inputAllowed = allowed.includes(input);
+  const bufferWithInput = inputAllowed ? getBufferWithInput(buffer + input, bufferMax) : '';
+  const matches = getMatches(buffer, words);
+  const matchesWithInput = inputAllowed ? getMatches(bufferWithInput, words) : matches;
 
-    for (let index = 0; index < partialMatches.length; index++) {
-      const key = partialMatches[index];
-      const checkPosition = key.length - 1 - position;
-      const character = key[checkPosition];
-      if (character !== bufferCharacter) continue;
-      if (key.length === position + 1) fullMatches.push(key);
-      else newPartialMatches.push(key);
+  if (matchesWithInput.longestExact && matchesWithInput.longestExact.length >= matchesWithInput.longestPotential.length)
+    return {
+      match: matchesWithInput.longestExact,
+      input: false,
+    };
+
+  if (matches.longestExact && !matchesWithInput.potential.includes(matches.longestExact))
+    return {
+      match: matches.longestExact,
+      input: true,
+    };
+
+  return null;
+};
+
+const TextArea = ({
+  text,
+  placeholder,
+  mobileKeyboard,
+  dictionary,
+  allowed,
+  bufferMax,
+  textAreaRef,
+  updateText,
+  handleChange,
+}: TextAreaProps) => {
+  const onBeforeInput = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
+    const { data } = e.nativeEvent;
+    const input = data || ' ';
+    const words = Object.keys(dictionary);
+    const selectionStart = textAreaRef.current?.selectionStart || 0;
+    const text = textAreaRef.current?.value || '';
+    const buffer = sliceBuffer(text, selectionStart, bufferMax);
+    const replace = checkBuffer(words, buffer, input, allowed, bufferMax);
+
+    if (replace) {
+      e.preventDefault();
+      const insertText = dictionary[replace.match] + (replace.input ? input : '');
+      const replaceOffset = replace.match.length + (replace.input ? input.length : 0);
+      updateText(insertText, replaceOffset);
     }
-
-    partialMatches = newPartialMatches;
-  }
-
-  return fullMatches.sort((a, b) => b.length - a.length)[0];
-};
-
-const TextArea = (props: TextAreaProps) => {
-  const { text, placeholder, mobileKeyboard, dictionary, allowed, bufferMax, textAreaRef, updateText, handleChange } =
-    props;
-
-  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    const modifier = e.altKey || e.ctrlKey || e.metaKey;
-    const key = e.key;
-    if (!textAreaRef.current || modifier || !allowed.includes(key)) return;
-    const { selectionStart } = textAreaRef.current;
-    const buffer = bufferMax
-      ? textAreaRef.current.value.slice(Math.max(selectionStart - bufferMax, 0), selectionStart)
-      : '';
-    const keys = Object.keys(dictionary);
-    const replace = checkBuffer(keys, buffer + key, allowed);
-    if (!replace) return;
-    e.preventDefault();
-    e.stopPropagation();
-    updateText(dictionary[replace], replace.length - 1);
   };
 
   return (
@@ -73,7 +97,7 @@ const TextArea = (props: TextAreaProps) => {
       placeholder={placeholder || 'Start typing'}
       value={text}
       onChange={() => handleChange()}
-      onKeyDown={onKeyDown}
+      onBeforeInput={onBeforeInput}
       ref={textAreaRef}
       inputMode={mobileKeyboard ? 'text' : 'none'}
       aria-label="Input Method Editor"

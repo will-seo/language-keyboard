@@ -38,7 +38,7 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
   const modes = data.modes.map((mode, key) => {
     const words = Object.keys(mode.dictionary);
     const allowed = Array.from(new Set(words.join(''))).sort();
-    const bufferMax = Math.max(...words.map((word) => word.length - 1), 0);
+    const bufferMax = Math.max(...words.map((word) => word.length), 0);
     const [capsLock, shift] = hasModifiers(mode.layout);
     return { key, allowed, bufferMax, capsLock, shift, ...mode };
   });
