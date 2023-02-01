@@ -9,7 +9,7 @@ interface TextAreaProps {
   allowed: string[];
   bufferMax: number;
   textAreaRef: RefObject<HTMLTextAreaElement>;
-  updateText: (insertText: string, startOffset: number) => void;
+  updateText: (insertText: string, offset?: number) => void;
   handleChange: () => void;
 }
 
@@ -35,30 +35,62 @@ const getMatches = (buffer: string, words: string[]) => {
   return {
     longestExact: getLongest(exact),
     longestPotential: getLongest(potential),
-    exact,
     potential,
   };
 };
 
 const getBufferWithInput = (buffer: string, bufferMax: number) => sliceBuffer(buffer, buffer.length, bufferMax);
 
-const checkBuffer = (words: string[], buffer: string, input: string, allowed: string[], bufferMax: number) => {
-  const inputAllowed = allowed.includes(input);
-  const bufferWithInput = inputAllowed ? getBufferWithInput(buffer + input, bufferMax) : '';
+const checkBuffer = (
+  dictionary: { [key: string]: string },
+  buffer: string,
+  input: string,
+  allowed: string[],
+  bufferMax: number,
+) => {
+  const inputValid = allowed.includes(input);
+  const words = Object.keys(dictionary);
   const matches = getMatches(buffer, words);
-  const matchesWithInput = inputAllowed ? getMatches(bufferWithInput, words) : matches;
 
-  if (matchesWithInput.longestExact && matchesWithInput.longestExact.length >= matchesWithInput.longestPotential.length)
+  if (!inputValid && matches.longestExact) {
     return {
-      match: matchesWithInput.longestExact,
-      input: false,
+      text: dictionary[matches.longestExact] + input,
+      offset: matches.longestExact.length,
     };
+  }
 
-  if (matches.longestExact && !matchesWithInput.potential.includes(matches.longestExact))
+  if (!inputValid) return null;
+
+  const bufferWithInput = getBufferWithInput(buffer + input, bufferMax);
+  const matchesWithInput = getMatches(bufferWithInput, words);
+
+  if (
+    matches.longestExact &&
+    matchesWithInput.longestExact &&
+    !matches.potential.includes(matchesWithInput.longestExact)
+  ) {
     return {
-      match: matches.longestExact,
-      input: true,
+      text: dictionary[matches.longestExact] + dictionary[matchesWithInput.longestExact],
+      offset: matches.longestExact.length + matchesWithInput.longestExact.length - input.length,
     };
+  }
+
+  if (
+    matchesWithInput.longestExact &&
+    matchesWithInput.longestExact.length >= matchesWithInput.longestPotential.length
+  ) {
+    return {
+      text: dictionary[matchesWithInput.longestExact],
+      offset: matchesWithInput.longestExact.length - input.length,
+    };
+  }
+
+  if (matches.longestExact && !matchesWithInput.potential.includes(matches.longestExact)) {
+    return {
+      text: dictionary[matches.longestExact] + input,
+      offset: matches.longestExact.length,
+    };
+  }
 
   return null;
 };
@@ -77,17 +109,13 @@ const TextArea = ({
   const onBeforeInput = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
     const { data } = e.nativeEvent;
     const input = data || ' ';
-    const words = Object.keys(dictionary);
     const selectionStart = textAreaRef.current?.selectionStart || 0;
     const text = textAreaRef.current?.value || '';
     const buffer = sliceBuffer(text, selectionStart, bufferMax);
-    const replace = checkBuffer(words, buffer, input, allowed, bufferMax);
-
+    const replace = checkBuffer(dictionary, buffer, input, allowed, bufferMax);
     if (replace) {
       e.preventDefault();
-      const insertText = dictionary[replace.match] + (replace.input ? input : '');
-      const replaceOffset = replace.match.length + (replace.input ? input.length : 0);
-      updateText(insertText, replaceOffset);
+      updateText(replace.text, replace.offset);
     }
   };
 

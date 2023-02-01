@@ -57,12 +57,12 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     setCapsLockKey(e.getModifierState('CapsLock'));
   };
 
-  const updateText = (insertText: string, replaceOffset = 0) => {
+  const updateText = (insertText: string, offset = 0) => {
     if (!textAreaRef.current) return;
     const { selectionStart, selectionEnd } = textAreaRef.current;
-    const [start, end] = [selectionStart - replaceOffset + 1, selectionEnd];
-    setCaret(selectionStart + insertText.length);
-    setText(text.slice(0, start) + insertText + text.slice(end));
+    const start = selectionStart - offset;
+    setCaret(start + insertText.length);
+    setText(text.slice(0, start) + insertText + text.slice(selectionEnd));
     textAreaRef.current.focus();
   };
 

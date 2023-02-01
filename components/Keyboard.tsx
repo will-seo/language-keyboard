@@ -5,7 +5,7 @@ interface KeyboardKeyProps {
   keyData: LanguageKeyData;
   capsLock: boolean;
   shift: boolean;
-  updateText: (insertText: string) => void;
+  updateText: (insertText: string, offset?: number) => void;
 }
 
 const KeyboardKey = (props: KeyboardKeyProps) => {
@@ -31,7 +31,7 @@ interface KeyboardProps {
   layout: LanguageKeyData[][][];
   capsLock: boolean;
   shift: boolean;
-  updateText: (insertText: string) => void;
+  updateText: (insertText: string, offset?: number) => void;
 }
 
 const Keyboard = (props: KeyboardProps) => {

@@ -5,7 +5,7 @@ import buttonStyles from '../styles/Button.module.css';
 
 interface ControlButtonsProps {
   textAreaRef: RefObject<HTMLTextAreaElement>;
-  updateText: (insertText: string, startOffset: number) => void;
+  updateText: (insertText: string, offset?: number) => void;
   copy?: boolean;
   spacebar?: boolean;
   backspace?: boolean;
@@ -33,12 +33,15 @@ const ControlButtons = ({
   };
 
   const onClickSpacebar = () => {
+    if (!textAreaRef.current) return;
+    textAreaRef.current.focus();
     updateText(' ', 0);
   };
 
   const onClickBackspace = () => {
     if (!textAreaRef.current) return;
     textAreaRef.current.focus();
+    textAreaRef.current.dispatchEvent(new KeyboardEvent('keydown', { key: 'Backspace' }));
     const { selectionStart, selectionEnd } = textAreaRef.current;
     if (selectionEnd === 0) return;
     const offset = selectionStart === selectionEnd ? 1 : 0;
