@@ -36,7 +36,6 @@ const getMatches = (buffer: string, words: string[]) => {
     longestExact: getLongest(exact),
     longestPotential: getLongest(potential),
     potential,
-    // exact,
   };
 };
 
