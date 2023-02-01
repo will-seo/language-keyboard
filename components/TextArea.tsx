@@ -9,7 +9,7 @@ interface TextAreaProps {
   allowed: string[];
   bufferMax: number;
   textAreaRef: RefObject<HTMLTextAreaElement>;
-  updateText: (insertText: string, startOffset: number) => void;
+  updateText: (insertText: string, replaceLength: number) => void;
   handleChange: () => void;
 }
 
@@ -35,8 +35,8 @@ const getMatches = (buffer: string, words: string[]) => {
   return {
     longestExact: getLongest(exact),
     longestPotential: getLongest(potential),
-    exact,
     potential,
+    // exact,
   };
 };
 
@@ -44,20 +44,29 @@ const getBufferWithInput = (buffer: string, bufferMax: number) => sliceBuffer(bu
 
 const checkBuffer = (words: string[], buffer: string, input: string, allowed: string[], bufferMax: number) => {
   const inputAllowed = allowed.includes(input);
-  const bufferWithInput = inputAllowed ? getBufferWithInput(buffer + input, bufferMax) : '';
   const matches = getMatches(buffer, words);
-  const matchesWithInput = inputAllowed ? getMatches(bufferWithInput, words) : matches;
+
+  if (!inputAllowed && matches.longestExact)
+    return {
+      match: matches.longestExact,
+      appendInput: true,
+    };
+
+  if (!inputAllowed) return null;
+
+  const bufferWithInput = getBufferWithInput(buffer + input, bufferMax);
+  const matchesWithInput = getMatches(bufferWithInput, words);
 
   if (matchesWithInput.longestExact && matchesWithInput.longestExact.length >= matchesWithInput.longestPotential.length)
     return {
       match: matchesWithInput.longestExact,
-      input: false,
+      appendInput: false,
     };
 
   if (matches.longestExact && !matchesWithInput.potential.includes(matches.longestExact))
     return {
       match: matches.longestExact,
-      input: true,
+      appendInput: true,
     };
 
   return null;
@@ -85,9 +94,9 @@ const TextArea = ({
 
     if (replace) {
       e.preventDefault();
-      const insertText = dictionary[replace.match] + (replace.input ? input : '');
-      const replaceOffset = replace.match.length + (replace.input ? input.length : 0);
-      updateText(insertText, replaceOffset);
+      const insertText = dictionary[replace.match] + (replace.appendInput ? input : '');
+      const replaceLength = replace.match.length - (replace.appendInput ? 0 : input.length);
+      updateText(insertText, replaceLength);
     }
   };
 
