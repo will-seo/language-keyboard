@@ -41,32 +41,56 @@ const getMatches = (buffer: string, words: string[]) => {
 
 const getBufferWithInput = (buffer: string, bufferMax: number) => sliceBuffer(buffer, buffer.length, bufferMax);
 
-const checkBuffer = (words: string[], buffer: string, input: string, allowed: string[], bufferMax: number) => {
-  const inputAllowed = allowed.includes(input);
+const checkBuffer = (
+  dictionary: { [key: string]: string },
+  buffer: string,
+  input: string,
+  allowed: string[],
+  bufferMax: number,
+) => {
+  const inputValid = allowed.includes(input);
+  const words = Object.keys(dictionary);
   const matches = getMatches(buffer, words);
 
-  if (!inputAllowed && matches.longestExact)
+  if (!inputValid && matches.longestExact) {
     return {
-      match: matches.longestExact,
-      appendInput: true,
+      text: dictionary[matches.longestExact] + input,
+      offset: matches.longestExact.length,
     };
+  }
 
-  if (!inputAllowed) return null;
+  if (!inputValid) return null;
 
   const bufferWithInput = getBufferWithInput(buffer + input, bufferMax);
   const matchesWithInput = getMatches(bufferWithInput, words);
 
-  if (matchesWithInput.longestExact && matchesWithInput.longestExact.length >= matchesWithInput.longestPotential.length)
+  if (
+    matches.longestExact &&
+    matchesWithInput.longestExact &&
+    !matches.potential.includes(matchesWithInput.longestExact)
+  ) {
     return {
-      match: matchesWithInput.longestExact,
-      appendInput: false,
+      text: dictionary[matches.longestExact] + dictionary[matchesWithInput.longestExact],
+      offset: matches.longestExact.length + matchesWithInput.longestExact.length - input.length,
     };
+  }
 
-  if (matches.longestExact && !matchesWithInput.potential.includes(matches.longestExact))
+  if (
+    matchesWithInput.longestExact &&
+    matchesWithInput.longestExact.length >= matchesWithInput.longestPotential.length
+  ) {
     return {
-      match: matches.longestExact,
-      appendInput: true,
+      text: dictionary[matchesWithInput.longestExact],
+      offset: matchesWithInput.longestExact.length - input.length,
     };
+  }
+
+  if (matches.longestExact && !matchesWithInput.potential.includes(matches.longestExact)) {
+    return {
+      text: dictionary[matches.longestExact] + input,
+      offset: matches.longestExact.length,
+    };
+  }
 
   return null;
 };
@@ -85,17 +109,13 @@ const TextArea = ({
   const onBeforeInput = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
     const { data } = e.nativeEvent;
     const input = data || ' ';
-    const words = Object.keys(dictionary);
     const selectionStart = textAreaRef.current?.selectionStart || 0;
     const text = textAreaRef.current?.value || '';
     const buffer = sliceBuffer(text, selectionStart, bufferMax);
-    const replace = checkBuffer(words, buffer, input, allowed, bufferMax);
-
+    const replace = checkBuffer(dictionary, buffer, input, allowed, bufferMax);
     if (replace) {
       e.preventDefault();
-      const insertText = dictionary[replace.match] + (replace.appendInput ? input : '');
-      const replaceLength = replace.match.length - (replace.appendInput ? 0 : input.length);
-      updateText(insertText, replaceLength);
+      updateText(replace.text, replace.offset);
     }
   };
 
