@@ -5,7 +5,7 @@ import buttonStyles from '../styles/Button.module.css';
 
 interface ControlButtonsProps {
   textAreaRef: RefObject<HTMLTextAreaElement>;
-  updateText: (insertText: string, replaceLength: number) => void;
+  updateText: (insertText: string, offset?: number) => void;
   copy?: boolean;
   spacebar?: boolean;
   backspace?: boolean;

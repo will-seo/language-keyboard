@@ -9,7 +9,7 @@ interface TextAreaProps {
   allowed: string[];
   bufferMax: number;
   textAreaRef: RefObject<HTMLTextAreaElement>;
-  updateText: (insertText: string, replaceLength: number) => void;
+  updateText: (insertText: string, offset?: number) => void;
   handleChange: () => void;
 }
 
