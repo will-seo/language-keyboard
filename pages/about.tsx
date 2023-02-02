@@ -27,6 +27,9 @@ const AboutPage = (props: PageProps) => {
         </a>
         .
       </p>
+      <p>
+        You can find the <a href="/privacy-policy">site's Privacy Policy here</a>.
+      </p>
     </Layout>
   );
 };

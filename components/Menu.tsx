@@ -7,8 +7,7 @@ import buttonStyles from '../styles/Button.module.css';
 import styles from '../styles/Menu.module.css';
 import { MenuLink } from '../types';
 
-const menuText =
-  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt ullam fugit at, nobis sequi distinctio quia architecto ad, laboriosam adipisci nam quasi blanditiis consequuntur provident enim? Odit quaerat at iusto.';
+const menuText = 'Find our <a href="/privacy-policy">Privacy Policy</a>, © Copyright 2023';
 
 interface MenuProps {
   menuOpen: boolean;
