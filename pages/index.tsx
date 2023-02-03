@@ -18,10 +18,10 @@ const HomePage = (props: PageProps) => {
         Welcome to the Language Keyboard, your one-stop-shop for typing in non-roman alphabets. Here&apos;re all our
         keyboards so far:
       </p>
-      <table class="table table-hover table-condensed table-striped table-responsive">
+      <table>
         <tbody>
           <tr>
-            <td class="details-propertyvalue">
+            <td>
               <Link href="/japanese">Japanese Keyboard</Link>
             </td>
             <td>
@@ -29,7 +29,7 @@ const HomePage = (props: PageProps) => {
             </td>
           </tr>
           <tr>
-            <td class="details-propertyvalue">
+            <td>
               <Link href="/maori">Maori Keyboard</Link>
             </td>
             <td>
