@@ -3,6 +3,8 @@
   "h1": "Online Japanese Keyboard",
   "menu": "Japanese Keyboard",
   "placeholder": "Start typing",
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
   "meta": {
     "title": "Japanese Keyboard",
     "description": "Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.",
