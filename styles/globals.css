@@ -121,16 +121,21 @@ li {
 
 table {
   font-size: 1.25rem;
-  margin-right: auto;
-  width: 30rem;
+  align-self: flex-start;
 }
 
 td {
-  padding: 0.25rem 1rem;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 960px) {
+  td:not(:first-of-type) {
+    padding-left: 2rem;
+  }
 }
 
 @media (max-width: 959px) {
-  table td {
+  td {
     display: block;
   }
 }
