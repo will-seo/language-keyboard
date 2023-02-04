@@ -121,6 +121,8 @@ li {
 
 table {
   font-size: 1.25rem;
+  margin-right: auto;
+  width: 30rem;
 }
 
 td {
