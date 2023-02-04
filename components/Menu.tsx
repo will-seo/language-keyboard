@@ -7,16 +7,15 @@ import buttonStyles from '../styles/Button.module.css';
 import styles from '../styles/Menu.module.css';
 import { MenuLink } from '../types';
 
-const menuText = 'Find our <a href="/privacy-policy">Privacy Policy</a>, © Copyright 2023';
-
 interface MenuProps {
   menuOpen: boolean;
   menu: MenuLink[];
   closeMenu: () => void;
 }
 
-const Menu = (props: MenuProps) => {
-  const { menuOpen, menu, closeMenu } = props;
+const currentYear = new Date().getFullYear();
+
+const Menu = ({ menuOpen, menu, closeMenu }: MenuProps) => {
   const currentPath = usePathname();
 
   useEffect(() => {
@@ -40,7 +39,9 @@ const Menu = (props: MenuProps) => {
         <button onClick={() => closeMenu()} className={buttonStyles.menuButton} aria-label="Close menu">
           <FontAwesomeIcon icon={faXmark} size="2x" />
         </button>
-        {menuText && <div className={styles.menuText}>{menuText}</div>}
+        <div className={styles.menuText}>
+          Find our <Link href="/privacy-policy">Privacy Policy</Link> © Copyright {currentYear}
+        </div>
       </nav>
     </>
   );

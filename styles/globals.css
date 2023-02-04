@@ -1,5 +1,4 @@
 :root {
-  --page-width: 960px;
   --border-width: 2px;
   --button-width: 6rem;
   --scrollbar-width: 5px;
@@ -43,13 +42,6 @@ dd {
   margin: 0;
 }
 
-ul,
-ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
 html:focus-within {
   scroll-behavior: smooth;
 }
@@ -91,10 +83,8 @@ a:active {
   color: var(--teal);
 }
 
-@media (hover: hover) {
-  a:hover {
-    color: var(--dark-teal);
-  }
+a:hover {
+  color: var(--dark-teal);
 }
 
 h2 {
@@ -109,11 +99,36 @@ p {
   width: 100%;
 }
 
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+ul,
+ol {
+  margin: 0;
+  width: 100%;
+  margin: 0 0 calc(var(--spacing) / 2);
+  list-style-position: inside;
+}
+
+li {
+  margin: 0 0 calc(var(--spacing) / 2);
+}
+
 table {
-  font-size: 20px;
+  font-size: 1.25rem;
 }
 
 td {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 0.25rem 1rem;
+}
+
+@media (max-width: 959px) {
+  table td {
+    display: block;
+  }
 }

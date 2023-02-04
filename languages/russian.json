@@ -9,6 +9,7 @@
     "image": "/ogimage.png"
   },
   "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
   "faqs": [
     {
       "question": "How to use an online Russian keyboard?",
