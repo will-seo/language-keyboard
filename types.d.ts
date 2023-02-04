@@ -35,6 +35,7 @@ export type LanguageData = {
   menu?: string;
   placeholder?: string;
   mobileKeyboard?: boolean;
+  mobileKeyboardToggle?: boolean;
   copy?: boolean;
   spacebar?: boolean;
   backspace?: boolean;
@@ -54,7 +55,6 @@ export interface LanguageModeProcessed extends LanguageMode {
 export type GlobalContext = {
   baseURL: string;
   menu: MenuLink[];
-  gtagID: string;
 };
 export interface PageProps {
   globalContext: GlobalContext;

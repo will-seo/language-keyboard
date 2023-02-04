@@ -16,7 +16,6 @@ export const getGlobalContext = () => {
   return {
     globalContext: {
       baseURL: process.env.URL || '',
-      gtagID: process.env.NEXT_PUBLIC_GTAG_ID || '',
       menu: [...menu, ...getMenuLanguages()],
     },
   };
@@ -29,6 +28,7 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
   const { h1 } = data;
   const placeholder = data.placeholder || '';
   const mobileKeyboard = data.mobileKeyboard ?? true;
+  const mobileKeyboardToggle = data.mobileKeyboardToggle || false;
   const copy = data.copy ?? true;
   const spacebar = data.spacebar ?? true;
   const backspace = data.backspace ?? true;
@@ -43,5 +43,17 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
     return { key, allowed, bufferMax, capsLock, shift, ...mode };
   });
 
-  return { ...globalContext, h1, placeholder, mobileKeyboard, copy, spacebar, backspace, meta, faqs, modes };
+  return {
+    ...globalContext,
+    h1,
+    placeholder,
+    mobileKeyboard,
+    mobileKeyboardToggle,
+    copy,
+    spacebar,
+    backspace,
+    meta,
+    faqs,
+    modes,
+  };
 };

@@ -6,7 +6,7 @@
 
 .headerWrapper {
   padding: var(--spacing) var(--gutter);
-  max-width: var(--page-width);
+  max-width: 959px;
   margin: 0 auto;
   display: grid;
   align-items: center;

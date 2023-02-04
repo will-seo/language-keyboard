@@ -6,6 +6,7 @@ import ControlButtons from '../components/ControlButtons';
 import FAQs from '../components/FAQ';
 import Keyboard from '../components/Keyboard';
 import Layout from '../components/Layout';
+import MobileKeyboardSwitcher from '../components/MobileKeyboardSwitcher';
 import ModeSwitcher from '../components/ModeSwitcher';
 import ModifierSwitcher from '../components/ModifierSwitcher';
 import TextArea from '../components/TextArea';
@@ -19,7 +20,7 @@ export interface KeyboardPageProps extends PageProps, LanguageData {
 }
 
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
-  const { globalContext, h1, placeholder, mobileKeyboard, copy, spacebar, backspace, meta, faqs, modes } = props;
+  const { globalContext, h1, placeholder, copy, spacebar, backspace, meta, faqs, modes } = props;
 
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
@@ -28,7 +29,9 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const [shiftKey, setShiftKey] = useState(false);
   const [capsLockKeyOverride, setCapsLockKeyOverride] = useState(false);
   const [shiftKeyOverride, setShiftKeyOverride] = useState(false);
+  const [mobileKeyboard, setMobileKeyboard] = useState(props.mobileKeyboard || false);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
+  const mobileKeyboardToggle = props.mobileKeyboardToggle || false;
 
   // Update available modes and reset text on route change
   useEffect(() => {
@@ -57,6 +60,11 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     setCapsLockKey(e.getModifierState('CapsLock'));
   };
 
+  const handleKeyboardKeyClick = (insertText: string) => {
+    updateText(insertText);
+    if (shiftKeyOverride) setShiftKeyOverride(false);
+  };
+
   const updateText = (insertText: string, offset = 0) => {
     if (!textAreaRef.current) return;
     const { selectionStart, selectionEnd } = textAreaRef.current;
@@ -71,6 +79,10 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     if (!newMode) return;
     setMode(newMode);
     textAreaRef.current?.focus();
+  };
+
+  const handleChangeMobileKeyboard = (status: boolean) => {
+    setMobileKeyboard(status);
   };
 
   const handleChangeText = () => {
@@ -96,7 +108,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         layout={mode.layout}
         shift={shiftKey || shiftKeyOverride}
         capsLock={capsLockKey || capsLockKeyOverride}
-        updateText={updateText}
+        handleKeyboardKeyClick={handleKeyboardKeyClick}
       />
       <div className={styles.keyboardActions}>
         <ModeSwitcher currentMode={mode} allModes={modes} handleChange={handleChangeMode} />
@@ -106,6 +118,11 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
           capsLockKeyOverride={capsLockKeyOverride}
           handleChangeShift={(status) => setShiftKeyOverride(status)}
           handleChangeCapsLock={(status) => setCapsLockKeyOverride(status)}
+        />
+        <MobileKeyboardSwitcher
+          mobileKeyboard={mobileKeyboard}
+          mobileKeyboardToggle={mobileKeyboardToggle}
+          handleChange={handleChangeMobileKeyboard}
         />
         <ControlButtons
           textAreaRef={textAreaRef}

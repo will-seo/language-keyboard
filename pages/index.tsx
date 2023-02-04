@@ -18,7 +18,7 @@ const HomePage = (props: PageProps) => {
         Welcome to the Language Keyboard, your one-stop-shop for typing in non-roman alphabets. Here&apos;re all our
         keyboards so far:
       </p>
-      <table>
+      <table cellPadding={0} cellSpacing={0}>
         <tbody>
           <tr>
             <td>

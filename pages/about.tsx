@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Layout from '../components/Layout';
 import { MetaData, PageProps } from '../types';
 import { getGlobalContext } from '../utils/context';
@@ -28,7 +29,7 @@ const AboutPage = (props: PageProps) => {
         .
       </p>
       <p>
-        You can find the <a href="/privacy-policy">site's Privacy Policy here</a>.
+        You can find the <Link href="/privacy-policy">site's Privacy Policy here</Link>.
       </p>
     </Layout>
   );

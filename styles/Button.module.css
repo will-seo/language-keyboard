@@ -76,3 +76,9 @@
   line-height: 0.5;
   font-weight: bold;
 }
+
+@media (min-width: 960px) {
+  .mobileOnly {
+    display: none;
+  }
+}
