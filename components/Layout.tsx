@@ -46,7 +46,8 @@ const Layout = (props: LayoutProps) => {
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta name="twitter:image" content={image} />
-        <meta name="theme-color" content="#0c6457" />
+        <meta name="theme-color" content="#074038" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#0c6457" media="(prefers-color-scheme: light)" />
         {renderFAQSchema(faqs)}
       </Head>
       <Header h1={h1} menu={menu} />
