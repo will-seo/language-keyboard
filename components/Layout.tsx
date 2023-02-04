@@ -1,6 +1,8 @@
 import Head from 'next/head';
 import { usePathname } from 'next/navigation';
-import CookieConsent from 'react-cookie-consent';
+import Script from 'next/script';
+import { useEffect } from 'react';
+import CookieConsent, { getCookieConsentValue } from 'react-cookie-consent';
 import styles from '../styles/Layout.module.css';
 import { FAQ, MetaData, PageProps } from '../types';
 import { renderFAQSchema } from '../utils/schema';
@@ -29,6 +31,19 @@ const Layout = (props: LayoutProps) => {
   const title = meta?.title || h1 || metaDefaults.title;
   const viewport = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes';
 
+  const handleAcceptCookies = () => {
+    if ('gtag' in window)
+      window.gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+      });
+  };
+
+  useEffect(() => {
+    const cookieConsent = getCookieConsentValue();
+    if (cookieConsent === 'true') handleAcceptCookies();
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -53,12 +68,38 @@ const Layout = (props: LayoutProps) => {
       <Header h1={h1} menu={menu} />
       <main className={styles.main}>{children}</main>
       <Footer />
+      <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                analytics_storage: 'denied',
+              });
+            `,
+        }}
+      />
+      <Script
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-5WC42T9');
+            `,
+        }}
+      />
       <CookieConsent
         buttonText="Accept all"
         declineButtonText="Decline all"
         style={{ background: 'var(--light-gray)', color: 'var(--dark)' }}
         buttonStyle={{ background: 'var(--dark-teal)', color: 'var(--light)' }}
         declineButtonStyle={{ background: 'var(--red)', color: 'var(--light)' }}
+        onAccept={handleAcceptCookies}
         enableDeclineButton
       >
         We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
