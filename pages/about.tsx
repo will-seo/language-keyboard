@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Layout from '../components/Layout';
 import { MetaData, PageProps } from '../types';
 import { getGlobalContext } from '../utils/context';
@@ -21,15 +20,12 @@ const AboutPage = (props: PageProps) => {
         it, I have expanded the tool to cover a range of languages. I hope you find these keyboards as useful as I do.
       </p>
       <p>
-        If you have any questions or suggestions, please email me at{' '}
-        <a href="mailto:will@languagekeyboard.net">will@languagekeyboard.net</a>, or find me on Twitter at{' '}
+        If you have any questions or suggestions, please <a href="mailto:will@languagekeyboard.net">email me</a>, or
+        find me on Twitter at{' '}
         <a rel="noopener noreferrer" target="_blank" href="https://mobile.twitter.com/willdropphoto">
           @willdropphoto
         </a>
         .
-      </p>
-      <p>
-        You can find the <Link href="/privacy-policy">site's Privacy Policy here</Link>.
       </p>
     </Layout>
   );

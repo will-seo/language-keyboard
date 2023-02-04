@@ -1,11 +1,19 @@
 {
   "language": "Spanish",
-  "h1": "Spanish Keyboard",
+  "h1": "Online Spanish Keyboard",
+  "menu": "Spanish Keyboard",
   "meta": {
     "title": "Spanish Keyboard",
-    "description": "Easily type in Spanish with our online Spanish keyboard",
+    "description": "Easily type in Spanish with our online Spanish keyboard - perfect for typing in lengua española.",
     "image": "/ogimage.png"
   },
+  "faqs": [
+    {
+      "question": "How to use this Spanish keyboard?",
+      "answer": "This keyboard has been designed to mimic Microsoft's Spanish IME. To type an accented character, or Spanish punctuation, you just need to add an acute before the letter. For example <strong>` + ?</strong> will come out as <strong>¿</strong>. I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@langiageskeyboard.net\">let me know</a> if you have any suggestions.",
+      "schema": false
+    }
+  ],
   "modes": [
     {
       "dictionary": {
