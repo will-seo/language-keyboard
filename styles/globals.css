@@ -3,7 +3,7 @@
   --button-width: 6rem;
   --scrollbar-width: 5px;
   --menu-button-size: 32px;
-  --menu-width: 350px;
+  --menu-width: 400px;
   --gutter: 1rem;
   --spacing: 1rem;
   --menu-open-duration: 0.2s;
@@ -121,16 +121,21 @@ li {
 
 table {
   font-size: 1.25rem;
-  margin-right: auto;
-  width: 30rem;
+  align-self: flex-start;
 }
 
 td {
-  padding: 0.25rem 1rem;
+  padding-bottom: 0.5rem;
+}
+
+@media (min-width: 960px) {
+  td:not(:first-of-type) {
+    padding-left: 2rem;
+  }
 }
 
 @media (max-width: 959px) {
-  table td {
+  td {
     display: block;
   }
 }

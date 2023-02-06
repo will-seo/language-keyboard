@@ -83,6 +83,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
 
   const handleChangeMobileKeyboard = (status: boolean) => {
     setMobileKeyboard(status);
+    textAreaRef.current?.focus();
   };
 
   const handleChangeText = () => {
