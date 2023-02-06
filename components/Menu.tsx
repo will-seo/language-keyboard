@@ -40,7 +40,11 @@ const Menu = ({ menuOpen, menu, closeMenu }: MenuProps) => {
           <FontAwesomeIcon icon={faXmark} size="2x" />
         </button>
         <div className={styles.menuText}>
-          Find our <Link href="/privacy-policy">Privacy Policy</Link> © Copyright {currentYear}
+          Like this site?{' '}
+          <Link rel="noopener" target="_blank" href="https://www.buymeacoffee.com/willdrinkcoffee">
+            Buy me a coffee
+          </Link>
+          .
         </div>
       </nav>
     </>
