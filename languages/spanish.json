@@ -7,6 +7,7 @@
     "description": "Easily type in Spanish with our online Spanish keyboard - perfect for typing in lengua española.",
     "image": "/ogimage.png"
   },
+  "mobileKeyboard": true,
   "faqs": [
     {
       "question": "How to use this Spanish keyboard?",

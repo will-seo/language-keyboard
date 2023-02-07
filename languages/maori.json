@@ -7,6 +7,7 @@
     "description": "Easily type in Maori with our online Maori keyboard - perfect for typing in te reo Māori.",
     "image": "/ogimage.png"
   },
+  "mobileKeyboard": true,
   "faqs": [
     {
       "question": "How to use this Maori keyboard?",
