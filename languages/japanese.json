@@ -1,12 +1,12 @@
 {
   "language": "Japanese",
-  "h1": "Online Japanese Keyboard",
+  "h1": "Online Japanese Keyboard | Hiragana and Katakana",
   "menu": "Japanese Keyboard",
   "placeholder": "Start typing",
   "mobileKeyboard": false,
   "mobileKeyboardToggle": true,
   "meta": {
-    "title": "Japanese Keyboard",
+    "title": "Japanese Keyboard Online | Hiragana & Katakana Keyboard",
     "description": "Easily type in Hiragana and Katakana with our online Japanese keyboard - perfect for typing in both ひらがな and カタカナ.",
     "image": "/ogimage.png"
   },
