@@ -11,7 +11,7 @@
   "faqs": [
     {
       "question": "How to use this Spanish keyboard?",
-      "answer": "This keyboard has been designed to mimic Microsoft's Spanish IME. To type an accented character, or Spanish punctuation, you just need to add an acute before the letter. For example <strong>` + ?</strong> will come out as <strong>¿</strong>. I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@langiageskeyboard.net\">let me know</a> if you have any suggestions.",
+      "answer": "This keyboard has been designed to mimic Microsoft's Spanish IME. To type an accented character, or Spanish punctuation, you just need to add an acute before the letter. For example <strong>` + ?</strong> will come out as <strong>¿</strong>. I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
       "schema": false
     }
   ],

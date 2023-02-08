@@ -11,7 +11,7 @@
   "faqs": [
     {
       "question": "How to use this Maori keyboard?",
-      "answer": "This keyboard has been designed to mimic Microsoft's Maori IME. To type a long vowel with a macron, you just need to add an acute before the vowel. For example <strong>` + o</strong> will come out as <strong>ō</strong>. I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@langiageskeyboard.net\">let me know</a> if you have any suggestions.",
+      "answer": "This keyboard has been designed to mimic Microsoft's Maori IME. To type a long vowel with a macron, you just need to add an acute before the vowel. For example <strong>` + o</strong> will come out as <strong>ō</strong>. I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
       "schema": false
     }
   ],
