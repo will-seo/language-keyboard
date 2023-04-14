@@ -1,0 +1,42 @@
+{
+  "language": "German",
+  "h1": "Online German Keyboard",
+  "menu": "German Keyboard",
+  "meta": {
+    "title": "Online German Keyboard",
+    "description": "Easily type in German with our online Spanish keyboard - perfect for typing in Die deutsche Sprache.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": true,
+  "faqs": [
+    {
+      "question": "How to use this German keyboard?",
+      "answer": "This keyboard has been designed to mimic Microsoft's German IME and converts your QWERTY keyboard into a QWERTZ keyboard. On your keyboard you can now use the hyphen key (<strong>-</strong>) to type an Eszett (<strong>ß</strong>), an opening square bracket (<strong>[</strong>) for an  umlauted u (<strong>ü</strong>), a semi-colon (<strong>;</strong>) for an  umlauted o (<strong>ö</strong>) and an apostrophe (<strong>'</strong>) for an umlauted a (<strong>ä</strong>). I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
+      "schema": false
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "y": "z",
+        "z": "y",
+        "Y": "Z",
+        "Z": "Y",
+        "-": "ß",
+        "'": "ä",
+        "[": "ü",
+        ";": "ö",
+        "_": "ẞ",
+        "@": "Ä",
+        "{": "Ü",
+        ":": "Ö"
+      },
+      "layout": [
+        [
+          [{ "to": "ä" }, { "to": "ö" }, { "to": "ü" }, { "to": "ß" }],
+          [{ "to": "Ä" }, { "to": "Ö" }, { "to": "Ü" }, { "to": "ẞ" }]
+        ]
+      ]
+    }
+  ]
+}

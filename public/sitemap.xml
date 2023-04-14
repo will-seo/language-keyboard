@@ -3,7 +3,7 @@
 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://languagekeyboard.net/</loc>
-		<lastmod>2023-02-07</lastmod>
+		<lastmod>2023-04-14</lastmod>
 	</url>
 			<url>
 		<loc>https://languagekeyboard.net/about</loc>
@@ -24,5 +24,10 @@
 		<url>
 		<loc>https://languagekeyboard.net/spanish</loc>
 		<lastmod>2023-02-07</lastmod>
+	</url>
+		</url>
+		<url>
+		<loc>https://languagekeyboard.net/german</loc>
+		<lastmod>2023-04-14</lastmod>
 	</url>
 </urlset>

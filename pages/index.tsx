@@ -36,6 +36,9 @@ const HomePage = (props: PageProps) => {
             <td>
               <Link href="/spanish">Spanish Keyboard</Link>
             </td>
+            <td>
+              <Link href="/german">German Keyboard</Link>
+            </td>
           </tr>
         </tbody>
       </table>
