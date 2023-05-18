@@ -13,6 +13,11 @@
       "question": "How to use this German keyboard?",
       "answer": "This keyboard has been designed to mimic Microsoft's German IME and converts your QWERTY keyboard into a QWERTZ keyboard. On your keyboard you can now use the hyphen key (<strong>-</strong>) to type an Eszett (<strong>ß</strong>), an opening square bracket (<strong>[</strong>) for an  umlauted u (<strong>ü</strong>), a semi-colon (<strong>;</strong>) for an  umlauted o (<strong>ö</strong>) and an apostrophe (<strong>'</strong>) for an umlauted a (<strong>ä</strong>). I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
       "schema": false
+    },
+    {
+      "question": "What is a QWERTZ keyboard?",
+      "answer": "A QWERTZ keyboard is essentially a normal QWERTY keyboard, but with the <strong>Y</strong> and <strong>Z</strong> keys switched. This modified layout came about for three reasons. The German language has a lot of words that include the string <strong>TZ</strong> and so by switching the keys, it resulted in typewriters getting jammed less often as this string would then be typed by two hands – if you touch type anyway. But also, <strong>Z</strong> is used much more frequently than <strong>T</strong>, so putting it right by the index fingers made it faster to type. Which then also puts <strong>ZU</strong> next to each other, again, another common string of letters in the German language. This German virtual keyboard reflects that logic and therefore should be easier for users to type efficiently in German.",
+      "schema": true
     }
   ],
   "modes": [
