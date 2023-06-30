@@ -28,16 +28,19 @@ const HomePage = (props: PageProps) => {
             <td>
               <Link href="/russian">Russian Keyboard</Link>
             </td>
-          </tr>
-          <tr>
             <td>
               <Link href="/maori">Maori Keyboard</Link>
             </td>
+          </tr>
+          <tr>
             <td>
               <Link href="/spanish">Spanish Keyboard</Link>
             </td>
             <td>
               <Link href="/german">German Keyboard</Link>
+            </td>
+            <td>
+              <Link href="/morse-code">Morse Code</Link>
             </td>
           </tr>
         </tbody>
