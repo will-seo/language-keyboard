@@ -3,7 +3,7 @@
 	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://languagekeyboard.net/</loc>
-		<lastmod>2023-06-30</lastmod>
+		<lastmod>2023-09-17</lastmod>
 	</url>
 			<url>
 		<loc>https://languagekeyboard.net/about</loc>
@@ -13,9 +13,13 @@
 		<loc>https://languagekeyboard.net/japanese</loc>
 		<lastmod>2023-08-05</lastmod>
 	</url>
+		<url>
+		<loc>https://languagekeyboard.net/french</loc>
+		<lastmod>2023-09-17</lastmod>
+	</url>
 	<url>
 		<loc>https://languagekeyboard.net/russian</loc>
-		<lastmod>2023-08-05</lastmod>
+		<lastmod>2023-09-17</lastmod>
 	</url>
 	<url>
 		<loc>https://languagekeyboard.net/maori</loc>
