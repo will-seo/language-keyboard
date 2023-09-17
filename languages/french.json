@@ -1,0 +1,47 @@
+{
+  "language": "French",
+  "h1": "Online French Keyboard",
+  "menu": "French Keyboard",
+  "meta": {
+    "title": "Online French Keyboard",
+    "description": "Easily type in French with our online French keyboard - perfect for typing in français.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": true,
+  "faqs": [
+    {
+      "question": "How to use this French keyboard?",
+      "answer": "This keyboard has been designed to mimic Microsoft's Maori IME. To type a long vowel with a macron, you just need to add an acute before the vowel. For example <strong>` + o</strong> will come out as <strong>ō</strong>. I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
+      "schema": false
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "a": "q",
+        "w": "z",
+        "a": "q",
+        ";": "m",
+        "z": "w",
+        "m": ",",
+        "M": "?",
+        "`": "<",
+        "~": ">",
+        ",": ":",
+        "<": ";",
+        ".": ":",
+        ">": "/",
+        "/": "!",
+        "?": "§",
+        "'": "ù",
+        "@": "%"
+      },
+      "layout": [
+        [
+          [{ "to": "ā" }, { "to": "ē" }, { "to": "ī" }, { "to": "ō" }, { "to": "ū" }],
+          [{ "to": "Ā" }, { "to": "Ē" }, { "to": "Ī" }, { "to": "Ō" }, { "to": "Ū", "shift": true }]
+        ]
+      ]
+    }
+  ]
+}

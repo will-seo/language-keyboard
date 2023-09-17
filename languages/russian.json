@@ -15,6 +15,11 @@
       "question": "How to use an online Russian keyboard?",
       "answer": "This Russian keyboard has been designed to mimic Microsoft's Russian IME, and therefore all you need to do is tap the letter you need. If you are on a computer, you can type with a QWERTY keyboard too, but for usability I have disabled the built-in mobile keyboard. I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
       "schema": false
+    },
+    {
+      "question": "What is a JCUKEN keyboard?",
+      "answer": "This Russian keyboard uses the JCUKEN keyboard layout. JCUKEN is used primarily for typing in Russian, and was designed to make it easy to type using the Cyrillic alphabet. The name JCUKEN comes from the first six letters of the top row of keys, and it places often used letters in more convenient locations, enhancing typing speed and accuracy for those accustomed to the Cyrillic script. As well as Russian, the JCUKEN keyboard layout is used for a variety of other Cryilic languages including Bulgarian, Serbian and Ukrainian.",
+      "schema": false
     }
   ],
   "modes": [
