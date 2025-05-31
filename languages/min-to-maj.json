@@ -1,0 +1,123 @@
+{
+  "language": "Min to Maj",
+  "h1": "Minuscule to Majuscule Text Converter",
+  "menu": "Min to Maj",
+  "meta": {
+    "title": "Minuscule to Majuscule Text Converter",
+    "description": "Easily type in uppercase characters with our min to maj keyboard - perfect for typing in capital letters.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "faqs": [
+    {
+      "question": "This keyboard is currently broken and I am looking for a fix",
+      "answer": "",
+      "schema": false
+    },
+    {
+      "question": "How to use this minuscule to majuscule converter",
+      "answer": "Simply type using lowercase letters, and they'll be automatically converted into uppercase letters, that's it. I've built this to do the opposite too, so if you use an uppercase character, it'll be typed out in lower case.",
+      "schema": false
+    },
+    {
+      "question": "What is a minuscule to majuscule Keyboard",
+      "answer": "A min to maj keyboard is exactly as it sounds, and converts lowercase letters to uppercase letters as you type.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "a": "A",
+        "b": "B",
+        "c": "C",
+        "d": "D",
+        "e": "E",
+        "f": "F",
+        "g": "G",
+        "h": "H",
+        "i": "I",
+        "j": "J",
+        "k": "K",
+        "l": "L",
+        "m": "M",
+        "n": "N",
+        "o": "O",
+        "p": "P",
+        "q": "Q",
+        "r": "R",
+        "s": "S",
+        "t": "T",
+        "u": "U",
+        "v": "V",
+        "w": "W",
+        "x": "X",
+        "y": "Y",
+        "z": "Z",
+        "A": "a",
+        "B": "b",
+        "C": "c",
+        "D": "d",
+        "E": "e",
+        "F": "f",
+        "G": "g",
+        "H": "h",
+        "I": "i",
+        "J": "j",
+        "K": "k",
+        "L": "l",
+        "M": "m",
+        "N": "n",
+        "O": "o",
+        "P": "p",
+        "Q": "q",
+        "R": "r",
+        "S": "s",
+        "T": "t",
+        "U": "u",
+        "V": "v",
+        "W": "w",
+        "X": "x",
+        "Y": "y",
+        "Z": "z"
+      },
+      "layout": [
+        [
+          [
+            { "to": "Q", "TO": "q" },
+            { "to": "W", "TO": "w" },
+            { "to": "E", "TO": "e" },
+            { "to": "R", "TO": "r" },
+            { "to": "T", "TO": "t" },
+            { "to": "Y", "TO": "y" },
+            { "to": "U", "TO": "u" },
+            { "to": "I", "TO": "i" },
+            { "to": "O", "TO": "o" },
+            { "to": "P", "TO": "p" }
+          ],
+          [
+            { "to": "A", "TO": "a" },
+            { "to": "S", "TO": "s" },
+            { "to": "D", "TO": "d" },
+            { "to": "F", "TO": "f" },
+            { "to": "G", "TO": "g" },
+            { "to": "H", "TO": "h" },
+            { "to": "J", "TO": "j" },
+            { "to": "K", "TO": "k" },
+            { "to": "L", "TO": "l" }
+          ],
+          [
+            { "to": "Z", "TO": "z" },
+            { "to": "X", "TO": "x" },
+            { "to": "C", "TO": "c" },
+            { "to": "V", "TO": "v" },
+            { "to": "B", "TO": "b" },
+            { "to": "N", "TO": "n" },
+            { "to": "M", "TO": "m" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

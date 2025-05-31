@@ -21,9 +21,9 @@ const AboutPage = (props: PageProps) => {
       </p>
       <p>
         If you have any questions or suggestions, please <a href="mailto:will@languagekeyboard.net">email me</a>, or
-        find me on Twitter at{' '}
-        <a rel="noopener noreferrer" target="_blank" href="https://mobile.twitter.com/willdropphoto">
-          @willdropphoto
+        find me on Bluesky at{' '}
+        <a rel="noopener noreferrer" target="_blank" href="https://bsky.app/profile/iamwill.io">
+          @iamwill.io
         </a>
         .
       </p>

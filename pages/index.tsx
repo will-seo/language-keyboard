@@ -45,6 +45,9 @@ const HomePage = (props: PageProps) => {
             <td>
               <Link href="/morse-code">Morse Code</Link>
             </td>
+            <td>
+              <Link href="/min-to-maj">Min to Maj</Link>
+            </td>
           </tr>
         </tbody>
       </table>
