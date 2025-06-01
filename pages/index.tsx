@@ -49,6 +49,15 @@ const HomePage = (props: PageProps) => {
               <Link href="/min-to-maj">Min to Maj</Link>
             </td>
           </tr>
+          <tr>
+            {' '}
+            <td>
+              <Link href="/arabic">Arabic Keyboard</Link>
+            </td>
+            <td>
+              <Link href="/hebrew">Hebrew Keyboard</Link>
+            </td>
+          </tr>
         </tbody>
       </table>
     </Layout>

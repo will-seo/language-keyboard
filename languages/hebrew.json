@@ -1,0 +1,95 @@
+{
+  "language": "Hebrew",
+  "h1": "Hebrew Keyboard",
+  "menu": "Hebrew Keyboard",
+  "meta": {
+    "title": "Hebrew Keyboard",
+    "description": "Easily type in hebrew with our hebrew keyboard - perfect for typing using the אלפבית עברי.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "faqs": [
+    {
+      "question": "This keyboard is a work in progress, hopefully I'll have it fully working soon.",
+      "answer": "",
+      "schema": false
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "/",
+        "w": "''",
+        "e": "ק",
+        "r": "ר",
+        "t": "א",
+        "y": "ט",
+        "u": "ו",
+        "i": "ן",
+        "o": "ם",
+        "p": "פ",
+        "a": "ש",
+        "s": "ד",
+        "d": "ג",
+        "f": "כ",
+        "g": "ע",
+        "h": "י",
+        "j": "ח",
+        "k": "ל",
+        "l": "ך",
+        ";": "ף",
+        "z": "ז",
+        "x": "ס",
+        "c": "ב",
+        "v": "ה",
+        "b": "נ",
+        "n": "מ",
+        "m": "צ",
+        ",": "ת",
+        ".": "ץ"
+      },
+      "layout": [
+        [
+          [
+            { "from": "q", "to": "/" },
+            { "from": "w", "to": "'" },
+            { "from": "e", "to": "ק" },
+            { "from": "r", "to": "ר" },
+            { "from": "t", "to": "א" },
+            { "from": "y", "to": "ט" },
+            { "from": "u", "to": "ו" },
+            { "from": "i", "to": "ן" },
+            { "from": "o", "to": "ם" },
+            { "from": "p", "to": "פ" },
+            { "from": "[", "to": "[" },
+            { "from": "]", "to": "]" }
+          ],
+          [
+            { "from": "a", "to": "ש" },
+            { "from": "s", "to": "ד" },
+            { "from": "d", "to": "ג" },
+            { "from": "f", "to": "כ" },
+            { "from": "g", "to": "ע" },
+            { "from": "h", "to": "י" },
+            { "from": "j", "to": "ח" },
+            { "from": "k", "to": "ל" },
+            { "from": "l", "to": "ך" },
+            { "from": ";", "to": "ף" }
+          ],
+          [
+            { "from": "z", "to": "ז" },
+            { "from": "x", "to": "ס" },
+            { "from": "c", "to": "ב" },
+            { "from": "v", "to": "ה" },
+            { "from": "b", "to": "נ" },
+            { "from": "n", "to": "מ" },
+            { "from": "m", "to": "צ" },
+            { "from": ",", "to": "ת" },
+            { "from": ".", "to": "ץ" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

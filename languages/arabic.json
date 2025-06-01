@@ -1,0 +1,105 @@
+{
+  "language": "Arabic",
+  "h1": "Arabic Keyboard",
+  "menu": "Arabic Keyboard",
+  "meta": {
+    "title": "Arabic Keyboard",
+    "description": "Easily type in hebrew with our hebrew keyboard - perfect for typing using the אלפבית עברי.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "faqs": [
+    {
+      "question": "This keyboard is a work in progress, hopefully I'll have it fully working soon.",
+      "answer": "",
+      "schema": false
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "ض",
+        "w": "ص'",
+        "e": "ث",
+        "r": "ق",
+        "t": "ف",
+        "y": "غ",
+        "u": "ع",
+        "i": "ه",
+        "o": "خ",
+        "p": "ح",
+        "a": "ش",
+        "s": "س",
+        "d": "ي",
+        "f": "ب",
+        "g": "ل",
+        "h": "ا",
+        "j": "ت",
+        "k": "ن",
+        "l": "م",
+        ";": "ك",
+        "z": "ئ",
+        "x": "ء",
+        "c": "ؤ",
+        "v": "ر",
+        "b": "لا",
+        "n": "ى",
+        "m": "ة",
+        ",": "و",
+        "?": "؟",
+        ".": "ز",
+        "/": "ظ",
+        "'": "ط",
+        "[": "ج",
+        "]": "د",
+        "`": "ذ",
+        "¬": "ّ"
+      },
+      "layout": [
+        [
+          [
+            { "from": "`", "to": "ذ", "FROM": "¬", "TO": "ّ" },
+            { "from": "q", "to": "ض" },
+            { "from": "w", "to": "ص" },
+            { "from": "e", "to": "ث" },
+            { "from": "r", "to": "ق" },
+            { "from": "t", "to": "ف" },
+            { "from": "y", "to": "غ" },
+            { "from": "u", "to": "ع" },
+            { "from": "i", "to": "ه" },
+            { "from": "o", "to": "خ" },
+            { "from": "p", "to": "ح" },
+            { "from": "[", "to": "ج" },
+            { "from": "]", "to": "د" }
+          ],
+          [
+            { "from": "a", "to": "ش" },
+            { "from": "s", "to": "س" },
+            { "from": "d", "to": "ي" },
+            { "from": "f", "to": "ب" },
+            { "from": "g", "to": "ل" },
+            { "from": "h", "to": "ا" },
+            { "from": "j", "to": "ت" },
+            { "from": "k", "to": "ن" },
+            { "from": "l", "to": "م" },
+            { "from": ";", "to": "ك" },
+            { "from": "'", "to": "ط" }
+          ],
+          [
+            { "from": "z", "to": "ئ" },
+            { "from": "x", "to": "ء" },
+            { "from": "c", "to": "ؤ" },
+            { "from": "v", "to": "ر" },
+            { "from": "b", "to": "لا" },
+            { "from": "n", "to": "ى" },
+            { "from": "m", "to": "ة" },
+            { "from": ",", "to": "و" },
+            { "from": ".", "to": "ز" },
+            { "from": "/", "to": "ظ", "FROM": "?", "TO": "؟" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

@@ -11,19 +11,9 @@
   "mobileKeyboardToggle": true,
   "faqs": [
     {
-      "question": "This keyboard is currently broken and I am looking for a fix",
+      "question": "This keyboard is a work in progress, hopefully I'll have it fully working soon.",
       "answer": "",
       "schema": false
-    },
-    {
-      "question": "How to use this minuscule to majuscule converter",
-      "answer": "Simply type using lowercase letters, and they'll be automatically converted into uppercase letters, that's it. I've built this to do the opposite too, so if you use an uppercase character, it'll be typed out in lower case.",
-      "schema": false
-    },
-    {
-      "question": "What is a minuscule to majuscule Keyboard",
-      "answer": "A min to maj keyboard is exactly as it sounds, and converts lowercase letters to uppercase letters as you type.",
-      "schema": true
     }
   ],
   "modes": [
