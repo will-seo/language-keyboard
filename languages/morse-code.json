@@ -9,6 +9,7 @@
   },
   "mobileKeyboard": true,
   "spacebarCharacter": "/ ",
+  "backspaceToSpace": true,
   "modes": [
     {
       "dictionary": {

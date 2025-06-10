@@ -33,6 +33,7 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
   const copy = data.copy ?? true;
   const spacebarCharacter = data.spacebarCharacter ?? ' ';
   const backspace = data.backspace ?? true;
+  const backspaceToSpace = data.backspaceToSpace ?? true;
   const meta = data.meta || {};
   const faqs = data.faqs || [];
 
@@ -54,6 +55,7 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
     copy,
     spacebarCharacter,
     backspace,
+    backspaceToSpace,
     meta,
     faqs,
     modes,

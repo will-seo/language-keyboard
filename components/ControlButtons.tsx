@@ -9,6 +9,7 @@ interface ControlButtonsProps {
   copy?: boolean;
   spacebarCharacter?: string;
   backspace?: boolean;
+  backspaceToSpace?: boolean;
   copiedDuration?: number;
 }
 

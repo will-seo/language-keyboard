@@ -26,6 +26,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     placeholder,
     copy,
     backspace,
+    backspaceToSpace,
     meta,
     faqs,
     modes,
@@ -110,6 +111,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         placeholder={placeholder}
         mobileKeyboard={mobileKeyboard}
         rightToLeft={rightToLeft}
+        backspaceToSpace={backspaceToSpace}
         dictionary={mode.dictionary}
         allowed={mode.allowed}
         bufferMax={mode.bufferMax}
@@ -143,6 +145,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
           copy={copy}
           spacebarCharacter={spacebarCharacter}
           backspace={backspace}
+          backspaceToSpace={backspaceToSpace}
         />
       </div>
       <FAQs faqs={faqs} />

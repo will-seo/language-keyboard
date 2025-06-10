@@ -6,10 +6,11 @@ interface TextAreaProps {
   placeholder?: string;
   mobileKeyboard?: boolean;
   rightToLeft?: boolean;
+  backspaceToSpace?: boolean;
   dictionary: { [key: string]: string };
   allowed: string[];
   bufferMax: number;
-  textAreaRef: RefObject<HTMLTextAreaElement|null>;
+  textAreaRef: RefObject<HTMLTextAreaElement | null>;
   updateText: (insertText: string, offset?: number) => void;
   handleChange: () => void;
 }
@@ -101,6 +102,7 @@ const TextArea = ({
   placeholder,
   mobileKeyboard,
   rightToLeft,
+  backspaceToSpace,
   dictionary,
   allowed,
   bufferMax,
@@ -121,6 +123,24 @@ const TextArea = ({
     }
   };
 
+  const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    const { key } = e.nativeEvent;
+    if (!(key === 'Backspace' && backspaceToSpace) || !textAreaRef.current) return;
+
+    const selectionStart = textAreaRef.current.selectionStart || 0;
+    const selectionEnd = textAreaRef.current.selectionEnd || 0;
+    if (selectionStart !== selectionEnd) return;
+
+    const before = text.slice(0, selectionStart || text.length - 1);
+    const match = before.match(/\S+\s*$/);
+    const index = match?.index;
+    if (index === undefined) return;
+
+    e.preventDefault();
+    textAreaRef.current.value = text.slice(0, index);
+    handleChange();
+  };
+
   return (
     <textarea
       className={styles.textArea}
@@ -128,11 +148,11 @@ const TextArea = ({
       value={text}
       onChange={() => handleChange()}
       onBeforeInput={onBeforeInput}
+      onKeyDown={onKeyDown}
       ref={textAreaRef}
       inputMode={mobileKeyboard ? 'text' : 'none'}
       aria-label="Input Method Editor"
       dir={rightToLeft ? 'rtl' : 'ltr'}
-
     ></textarea>
   );
 };

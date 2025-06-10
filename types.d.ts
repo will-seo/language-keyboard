@@ -40,6 +40,7 @@ export type LanguageData = {
   copy?: boolean;
   spacebarCharacter?: string;
   backspace?: boolean;
+  backspaceToSpace?: boolean;
   meta?: MetaData;
   faqs?: FAQ[];
   modes: LanguageMode[];
