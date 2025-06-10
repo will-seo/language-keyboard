@@ -8,6 +8,7 @@
     "image": "/ogimage.png"
   },
   "mobileKeyboard": true,
+  "spacebarCharacter": "/ ",
   "modes": [
     {
       "dictionary": {

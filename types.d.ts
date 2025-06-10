@@ -38,7 +38,7 @@ export type LanguageData = {
   mobileKeyboardToggle?: boolean;
   rightToLeft?: boolean;
   copy?: boolean;
-  spacebar?: boolean;
+  spacebarCharacter?: string;
   backspace?: boolean;
   meta?: MetaData;
   faqs?: FAQ[];

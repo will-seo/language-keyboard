@@ -25,13 +25,13 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     h1,
     placeholder,
     copy,
-    spacebar,
     backspace,
     meta,
     faqs,
     modes,
-    rightToLeft = false,
-    mobileKeyboardToggle = false,
+    rightToLeft,
+    mobileKeyboardToggle,
+    spacebarCharacter,
   } = props;
 
   const [text, setText] = useState('');
@@ -141,7 +141,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
           textAreaRef={textAreaRef}
           updateText={updateText}
           copy={copy}
-          spacebar={spacebar}
+          spacebarCharacter={spacebarCharacter}
           backspace={backspace}
         />
       </div>

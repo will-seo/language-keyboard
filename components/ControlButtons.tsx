@@ -4,10 +4,10 @@ import { RefObject, useState } from 'react';
 import buttonStyles from '../styles/Button.module.css';
 
 interface ControlButtonsProps {
-  textAreaRef: RefObject<HTMLTextAreaElement|null>;
+  textAreaRef: RefObject<HTMLTextAreaElement | null>;
   updateText: (insertText: string, offset?: number) => void;
   copy?: boolean;
-  spacebar?: boolean;
+  spacebarCharacter?: string;
   backspace?: boolean;
   copiedDuration?: number;
 }
@@ -16,7 +16,7 @@ const ControlButtons = ({
   textAreaRef,
   updateText,
   copy,
-  spacebar,
+  spacebarCharacter,
   backspace,
   copiedDuration = 500,
 }: ControlButtonsProps) => {
@@ -35,7 +35,7 @@ const ControlButtons = ({
   const onClickSpacebar = () => {
     if (!textAreaRef.current) return;
     textAreaRef.current.focus();
-    updateText(' ', 0);
+    updateText(spacebarCharacter || ' ', 0);
   };
 
   const onClickBackspace = () => {
@@ -57,7 +57,7 @@ const ControlButtons = ({
         </button>
       )}
 
-      {spacebar && (
+      {spacebarCharacter && (
         <button onClick={onClickSpacebar} className={`${buttonStyles.button} ${buttonStyles.iconButton}`}>
           <span className={buttonStyles.spacebar}>⎵</span>
           Space

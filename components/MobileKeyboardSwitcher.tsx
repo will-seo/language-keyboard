@@ -4,7 +4,7 @@ import buttonStyles from '../styles/Button.module.css';
 
 interface MobileKeyboardSwitcherProps {
   mobileKeyboard: boolean;
-  mobileKeyboardToggle: boolean;
+  mobileKeyboardToggle?: boolean;
   handleChange: (status: boolean) => void;
 }
 
