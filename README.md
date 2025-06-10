@@ -1,7 +1,7 @@
 ## Setup
 
 1. Install Node.js:
-https://nodejs.dev/en/learn/how-to-install-nodejs/
+https://nodejs.org/en/download
 
 1. Install Yarn:
 https://yarnpkg.com/getting-started/install
