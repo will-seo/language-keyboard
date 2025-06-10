@@ -5,6 +5,7 @@ interface TextAreaProps {
   text: string;
   placeholder?: string;
   mobileKeyboard?: boolean;
+  rightToLeft?: boolean;
   dictionary: { [key: string]: string };
   allowed: string[];
   bufferMax: number;
@@ -99,6 +100,7 @@ const TextArea = ({
   text,
   placeholder,
   mobileKeyboard,
+  rightToLeft,
   dictionary,
   allowed,
   bufferMax,
@@ -129,6 +131,8 @@ const TextArea = ({
       ref={textAreaRef}
       inputMode={mobileKeyboard ? 'text' : 'none'}
       aria-label="Input Method Editor"
+      dir={rightToLeft ? 'rtl' : 'ltr'}
+
     ></textarea>
   );
 };

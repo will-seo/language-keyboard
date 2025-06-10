@@ -29,6 +29,7 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
   const placeholder = data.placeholder || '';
   const mobileKeyboard = data.mobileKeyboard ?? true;
   const mobileKeyboardToggle = data.mobileKeyboardToggle || false;
+  const rightToLeft = data.rightToLeft || false;
   const copy = data.copy ?? true;
   const spacebar = data.spacebar ?? true;
   const backspace = data.backspace ?? true;
@@ -49,6 +50,7 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
     placeholder,
     mobileKeyboard,
     mobileKeyboardToggle,
+    rightToLeft,
     copy,
     spacebar,
     backspace,

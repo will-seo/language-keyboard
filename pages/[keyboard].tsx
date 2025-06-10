@@ -31,7 +31,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const [shiftKeyOverride, setShiftKeyOverride] = useState(false);
   const [mobileKeyboard, setMobileKeyboard] = useState(props.mobileKeyboard || false);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const mobileKeyboardToggle = props.mobileKeyboardToggle || false;
+  const { rightToLeft = false, mobileKeyboardToggle = false } = props;
 
   // Update available modes and reset text on route change
   useEffect(() => {
@@ -98,6 +98,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         text={text}
         placeholder={placeholder}
         mobileKeyboard={mobileKeyboard}
+        rightToLeft={rightToLeft}
         dictionary={mode.dictionary}
         allowed={mode.allowed}
         bufferMax={mode.bufferMax}
