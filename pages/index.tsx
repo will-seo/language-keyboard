@@ -50,7 +50,6 @@ const HomePage = (props: PageProps) => {
             </td>
           </tr>
           <tr>
-            {' '}
             <td>
               <Link href="/arabic">Arabic Keyboard</Link>
             </td>

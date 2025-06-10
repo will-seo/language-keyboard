@@ -4,7 +4,7 @@ import { RefObject, useState } from 'react';
 import buttonStyles from '../styles/Button.module.css';
 
 interface ControlButtonsProps {
-  textAreaRef: RefObject<HTMLTextAreaElement>;
+  textAreaRef: RefObject<HTMLTextAreaElement|null>;
   updateText: (insertText: string, offset?: number) => void;
   copy?: boolean;
   spacebar?: boolean;

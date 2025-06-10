@@ -9,7 +9,7 @@ interface TextAreaProps {
   dictionary: { [key: string]: string };
   allowed: string[];
   bufferMax: number;
-  textAreaRef: RefObject<HTMLTextAreaElement>;
+  textAreaRef: RefObject<HTMLTextAreaElement|null>;
   updateText: (insertText: string, offset?: number) => void;
   handleChange: () => void;
 }
@@ -108,7 +108,7 @@ const TextArea = ({
   updateText,
   handleChange,
 }: TextAreaProps) => {
-  const onBeforeInput = (e: React.CompositionEvent<HTMLTextAreaElement>) => {
+  const onBeforeInput = (e: React.InputEvent<HTMLTextAreaElement>) => {
     const { data } = e.nativeEvent;
     const input = data || ' ';
     const selectionStart = textAreaRef.current?.selectionStart || 0;

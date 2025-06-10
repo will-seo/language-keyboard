@@ -20,7 +20,19 @@ export interface KeyboardPageProps extends PageProps, LanguageData {
 }
 
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
-  const { globalContext, h1, placeholder, copy, spacebar, backspace, meta, faqs, modes } = props;
+  const {
+    globalContext,
+    h1,
+    placeholder,
+    copy,
+    spacebar,
+    backspace,
+    meta,
+    faqs,
+    modes,
+    rightToLeft = false,
+    mobileKeyboardToggle = false,
+  } = props;
 
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
@@ -30,8 +42,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const [capsLockKeyOverride, setCapsLockKeyOverride] = useState(false);
   const [shiftKeyOverride, setShiftKeyOverride] = useState(false);
   const [mobileKeyboard, setMobileKeyboard] = useState(props.mobileKeyboard || false);
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const { rightToLeft = false, mobileKeyboardToggle = false } = props;
+  const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
 
   // Update available modes and reset text on route change
   useEffect(() => {
