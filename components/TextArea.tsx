@@ -1,5 +1,6 @@
-import { RefObject } from 'react';
+import { RefObject, useMemo } from 'react';
 import styles from '../styles/TextArea.module.css';
+import { getBackspaceToSpaceIndex } from '../utils/text';
 
 interface TextAreaProps {
   text: string;
@@ -45,15 +46,18 @@ const getBufferWithInput = (buffer: string, bufferMax: number) => sliceBuffer(bu
 
 const checkBuffer = (
   dictionary: { [key: string]: string },
+  words: string[],
   buffer: string,
   input: string,
   allowed: string[],
   bufferMax: number,
 ) => {
   const inputValid = allowed.includes(input);
-  const words = Object.keys(dictionary);
   const matches = getMatches(buffer, words);
 
+  // The input character is not present in the set of characters which can be
+  // transformed, so we can only transform if the buffer matches exactly, and we
+  // should ignore the input character
   if (!inputValid && matches.longestExact) {
     return {
       text: dictionary[matches.longestExact] + input,
@@ -65,6 +69,13 @@ const checkBuffer = (
 
   const bufferWithInput = getBufferWithInput(buffer + input, bufferMax);
   const matchesWithInput = getMatches(bufferWithInput, words);
+
+  if (matchesWithInput.longestExact) {
+    return {
+      text: dictionary[matchesWithInput.longestExact],
+      offset: matchesWithInput.longestExact.length - input.length,
+    };
+  }
 
   if (
     matches.longestExact &&
@@ -110,13 +121,15 @@ const TextArea = ({
   updateText,
   handleChange,
 }: TextAreaProps) => {
+  const words = useMemo(() => Object.keys(dictionary), [dictionary]);
+
   const onBeforeInput = (e: React.InputEvent<HTMLTextAreaElement>) => {
     const { data } = e.nativeEvent;
     const input = data || ' ';
     const selectionStart = textAreaRef.current?.selectionStart || 0;
     const text = textAreaRef.current?.value || '';
     const buffer = sliceBuffer(text, selectionStart, bufferMax);
-    const replace = checkBuffer(dictionary, buffer, input, allowed, bufferMax);
+    const replace = checkBuffer(dictionary, words, buffer, input, allowed, bufferMax);
     if (replace) {
       e.preventDefault();
       updateText(replace.text, replace.offset);
@@ -132,12 +145,8 @@ const TextArea = ({
     const selectionEnd = textAreaRef.current.selectionEnd || 0;
     if (selectionStart !== selectionEnd) return;
 
-    const before = text.slice(0, selectionStart || text.length - 1);
-    const match = before.match(/\S+\s*$/);
-    const index = match?.index;
-    if (index === undefined) return;
-
     e.preventDefault();
+    const index = getBackspaceToSpaceIndex(text, selectionStart);
     textAreaRef.current.value = text.slice(0, index);
     handleChange();
   };

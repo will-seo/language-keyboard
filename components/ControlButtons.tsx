@@ -2,6 +2,7 @@ import { faArrowLeftLong, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { RefObject, useState } from 'react';
 import buttonStyles from '../styles/Button.module.css';
+import { getBackspaceToSpaceIndex } from '../utils/text';
 
 interface ControlButtonsProps {
   textAreaRef: RefObject<HTMLTextAreaElement | null>;
@@ -19,6 +20,7 @@ const ControlButtons = ({
   copy,
   spacebarCharacter,
   backspace,
+  backspaceToSpace,
   copiedDuration = 500,
 }: ControlButtonsProps) => {
   const [copied, setCopied] = useState(false);
@@ -39,14 +41,19 @@ const ControlButtons = ({
     updateText(spacebarCharacter || ' ', 0);
   };
 
+  const getOffset = (selectionStart: number, selectionEnd: number) => {
+    const text = textAreaRef.current?.value || '';
+    if (selectionStart !== selectionEnd || !text) return 0;
+    const index = getBackspaceToSpaceIndex(text, selectionStart);
+    return selectionStart - index;
+  };
+
   const onClickBackspace = () => {
     if (!textAreaRef.current) return;
     textAreaRef.current.focus();
     textAreaRef.current.dispatchEvent(new KeyboardEvent('keydown', { key: 'Backspace' }));
     const { selectionStart, selectionEnd } = textAreaRef.current;
-    if (selectionEnd === 0) return;
-    const offset = selectionStart === selectionEnd ? 1 : 0;
-    updateText('', offset);
+    updateText('', getOffset(selectionStart, selectionEnd));
   };
 
   return (
