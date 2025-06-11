@@ -129,6 +129,7 @@ const TextArea = ({
       ref={textAreaRef}
       inputMode={mobileKeyboard ? 'text' : 'none'}
       aria-label="Input Method Editor"
+      id="textarea"
     ></textarea>
   );
 };

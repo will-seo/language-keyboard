@@ -5,7 +5,7 @@ interface FAQProps {
   faqs?: FAQ[];
 }
 
-const FAQ = ({ faqs = [] }: FAQProps) => {
+const FAQComponent = ({ faqs = [] }: FAQProps) => {
   return (
     <section className={styles.faqs}>
       {faqs.map((faq, key) => (
@@ -18,4 +18,4 @@ const FAQ = ({ faqs = [] }: FAQProps) => {
   );
 };
 
-export default FAQ;
+export default FAQComponent;

@@ -2,6 +2,7 @@ import type { NextPage } from 'next';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { ParsedUrlQuery } from 'querystring';
 import { useEffect, useRef, useState } from 'react';
+import AdSlot from '../components/AdSlot';
 import ControlButtons from '../components/ControlButtons';
 import FAQs from '../components/FAQ';
 import Keyboard from '../components/Keyboard';
@@ -133,6 +134,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
           backspace={backspace}
         />
       </div>
+      <AdSlot />
       <FAQs faqs={faqs} />
     </Layout>
   );
