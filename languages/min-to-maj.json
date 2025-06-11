@@ -75,36 +75,36 @@
       "layout": [
         [
           [
-            { "to": "Q", "TO": "q" },
-            { "to": "W", "TO": "w" },
-            { "to": "E", "TO": "e" },
-            { "to": "R", "TO": "r" },
-            { "to": "T", "TO": "t" },
-            { "to": "Y", "TO": "y" },
-            { "to": "U", "TO": "u" },
-            { "to": "I", "TO": "i" },
-            { "to": "O", "TO": "o" },
-            { "to": "P", "TO": "p" }
+            { "from": "q", "to": "Q", "FROM": "Q", "TO": "q" },
+            { "from": "w", "to": "W", "FROM": "W", "TO": "w" },
+            { "from": "e", "to": "E", "FROM": "E", "TO": "e" },
+            { "from": "r", "to": "R", "FROM": "R", "TO": "r" },
+            { "from": "t", "to": "T", "FROM": "T", "TO": "t" },
+            { "from": "y", "to": "Y", "FROM": "Y", "TO": "y" },
+            { "from": "u", "to": "U", "FROM": "U", "TO": "u" },
+            { "from": "i", "to": "I", "FROM": "I", "TO": "i" },
+            { "from": "o", "to": "O", "FROM": "O", "TO": "o" },
+            { "from": "p", "to": "P", "FROM": "P", "TO": "p" }
           ],
           [
-            { "to": "A", "TO": "a" },
-            { "to": "S", "TO": "s" },
-            { "to": "D", "TO": "d" },
-            { "to": "F", "TO": "f" },
-            { "to": "G", "TO": "g" },
-            { "to": "H", "TO": "h" },
-            { "to": "J", "TO": "j" },
-            { "to": "K", "TO": "k" },
-            { "to": "L", "TO": "l" }
+            { "from": "a", "to": "A", "FROM": "A", "TO": "a" },
+            { "from": "s", "to": "S", "FROM": "S", "TO": "s" },
+            { "from": "d", "to": "D", "FROM": "D", "TO": "d" },
+            { "from": "f", "to": "F", "FROM": "F", "TO": "f" },
+            { "from": "g", "to": "G", "FROM": "G", "TO": "g" },
+            { "from": "h", "to": "H", "FROM": "H", "TO": "h" },
+            { "from": "j", "to": "J", "FROM": "J", "TO": "j" },
+            { "from": "k", "to": "K", "FROM": "K", "TO": "k" },
+            { "from": "l", "to": "L", "FROM": "L", "TO": "l" }
           ],
           [
-            { "to": "Z", "TO": "z" },
-            { "to": "X", "TO": "x" },
-            { "to": "C", "TO": "c" },
-            { "to": "V", "TO": "v" },
-            { "to": "B", "TO": "b" },
-            { "to": "N", "TO": "n" },
-            { "to": "M", "TO": "m" }
+            { "from": "z", "to": "Z", "FROM": "Z", "TO": "z" },
+            { "from": "x", "to": "X", "FROM": "X", "TO": "x" },
+            { "from": "c", "to": "C", "FROM": "C", "TO": "c" },
+            { "from": "v", "to": "V", "FROM": "V", "TO": "v" },
+            { "from": "b", "to": "B", "FROM": "B", "TO": "b" },
+            { "from": "n", "to": "N", "FROM": "N", "TO": "n" },
+            { "from": "m", "to": "M", "FROM": "M", "TO": "m" }
           ]
         ]
       ]
