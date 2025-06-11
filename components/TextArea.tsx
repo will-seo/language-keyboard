@@ -123,9 +123,10 @@ const TextArea = ({
     }
   };
 
+  // If backspaceToSpace is true, pressing backspace will delete all characters
+  // before the cursor until space (unless text is selected)
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    const { key } = e.nativeEvent;
-    if (!(key === 'Backspace' && backspaceToSpace) || !textAreaRef.current) return;
+    if (!(e.nativeEvent.key === 'Backspace') || !backspaceToSpace || !textAreaRef.current) return;
 
     const selectionStart = textAreaRef.current.selectionStart || 0;
     const selectionEnd = textAreaRef.current.selectionEnd || 0;
