@@ -69,6 +69,7 @@
   bottom: 0;
   left: 0;
   transition: opacity var(--menu-open-duration);
+  z-index: 1;
 }
 
 .fadeOut[data-open='false'] {

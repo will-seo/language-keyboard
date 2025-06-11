@@ -153,6 +153,7 @@ const TextArea = ({
       inputMode={mobileKeyboard ? 'text' : 'none'}
       aria-label="Input Method Editor"
       dir={rightToLeft ? 'rtl' : 'ltr'}
+      id="textarea"
     ></textarea>
   );
 };
