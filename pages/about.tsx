@@ -1,3 +1,4 @@
+import AdSlot from '../components/AdSlot';
 import Layout from '../components/Layout';
 import { MetaData, PageProps } from '../types';
 import { getGlobalContext } from '../utils/context';
@@ -27,6 +28,7 @@ const AboutPage = (props: PageProps) => {
         </a>
         .
       </p>
+      <AdSlot />
     </Layout>
   );
 };

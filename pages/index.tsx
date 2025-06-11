@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import AdSlot from '../components/AdSlot';
 import Layout from '../components/Layout';
 import { MetaData, PageProps } from '../types';
 import { getGlobalContext } from '../utils/context';
@@ -60,6 +61,7 @@ const HomePage = (props: PageProps) => {
           </tr>
         </tbody>
       </table>
+      <AdSlot />
     </Layout>
   );
 };

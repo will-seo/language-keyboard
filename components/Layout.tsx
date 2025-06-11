@@ -1,8 +1,5 @@
 import Head from 'next/head';
 import { usePathname } from 'next/navigation';
-import Script from 'next/script';
-import { useEffect } from 'react';
-import CookieConsent, { getCookieConsentValue } from 'react-cookie-consent';
 import styles from '../styles/Layout.module.css';
 import { FAQ, MetaData, PageProps } from '../types';
 import { renderFAQSchema } from '../utils/schema';
@@ -22,27 +19,6 @@ interface LayoutProps extends PageProps {
   children?: React.ReactNode;
 }
 
-const handleAcceptCookies = () => {
-  injectAdScript();
-  grantGtagConsent();
-};
-
-const grantGtagConsent = () => {
-  if ('gtag' in window)
-    window.gtag('consent', 'update', {
-      ad_storage: 'granted',
-      analytics_storage: 'granted',
-    });
-};
-
-const injectAdScript = () => {
-  const script = document.createElement('script');
-  script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1638826924479453';
-  script.crossOrigin = 'anonymous';
-  script.async = true;
-  document.head.prepend(script);
-};
-
 const Layout = (props: LayoutProps) => {
   const { globalContext, h1, meta, faqs, children } = props;
   const { baseURL, menu } = globalContext;
@@ -51,11 +27,6 @@ const Layout = (props: LayoutProps) => {
   const image = baseURL + (meta?.image || metaDefaults.image);
   const title = meta?.title || h1 || metaDefaults.title;
   const viewport = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes';
-
-  useEffect(() => {
-    const cookieConsent = getCookieConsentValue();
-    if (cookieConsent === 'true') handleAcceptCookies();
-  }, []);
 
   return (
     <div className={styles.container}>
@@ -81,37 +52,6 @@ const Layout = (props: LayoutProps) => {
       <Header h1={h1} menu={menu} />
       <main className={styles.main}>{children}</main>
       <Footer />
-      <Script
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('consent', 'default', {
-                ad_storage: 'denied',
-                analytics_storage: 'denied',
-              });
-
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-5WC42T9');
-            `,
-        }}
-      />
-      <CookieConsent
-        buttonText="Accept all"
-        declineButtonText="Decline all"
-        style={{ background: 'var(--light-gray)', color: 'var(--dark)' }}
-        buttonStyle={{ background: 'var(--dark-teal)', color: 'var(--light)' }}
-        declineButtonStyle={{ background: 'var(--red)', color: 'var(--light)' }}
-        onAccept={handleAcceptCookies}
-        enableDeclineButton
-      >
-        We use cookies to enhance your browsing experience, serve personalized ads or content, and analyze our traffic.
-        By clicking &quot;accept all&quot; you consent to our use of cookies.
-      </CookieConsent>
     </div>
   );
 };

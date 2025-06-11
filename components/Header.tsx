@@ -21,7 +21,7 @@ const Header = (props: HeaderProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.headerWrapper}>
-        <Link href="/">
+        <Link href="/" className={styles.homeLink}>
           <Image src="/language-keyboard-logo.svg" alt="Language keyboard logo" width={logoSize} height={logoSize} />
         </Link>
         <h1 className={styles.title}>{h1}</h1>

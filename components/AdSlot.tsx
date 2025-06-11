@@ -7,7 +7,6 @@ const AdSlot = () => {
       <div className={styles.adslot}>
         <ins
           className="adsbygoogle"
-          style={{ display: 'block' }}
           data-ad-client="ca-pub-1638826924479453"
           data-ad-slot="5751104211"
           data-ad-format="auto"
