@@ -50,7 +50,7 @@ html:focus-within {
 
 html,
 body {
-  min-height: 100vh;
+  min-height: 100svh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   color: var(--dark);

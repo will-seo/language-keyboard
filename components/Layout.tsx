@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { usePathname } from 'next/navigation';
+import { useEffect, useRef } from 'react';
 import styles from '../styles/Layout.module.css';
 import { FAQ, MetaData, PageProps } from '../types';
 import { renderFAQSchema } from '../utils/schema';
@@ -22,14 +23,27 @@ interface LayoutProps extends PageProps {
 const Layout = (props: LayoutProps) => {
   const { globalContext, h1, meta, faqs, children } = props;
   const { baseURL, menu } = globalContext;
+  const ref = useRef<HTMLDivElement>(null);
   const canonicalUrl = baseURL + usePathname();
   const description = meta?.description || metaDefaults.description;
   const image = baseURL + (meta?.image || metaDefaults.image);
   const title = meta?.title || h1 || metaDefaults.title;
   const viewport = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes';
 
+  // Google AdSense sets min-height and height inline - this resets them when they change
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new MutationObserver(() => {
+      if (!ref.current) return;
+      ref.current.style.height = '';
+      ref.current.style.minHeight = '';
+    });
+    observer.observe(ref.current, { attributes: true, attributeFilter: ['style'] });
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={canonicalUrl} />
@@ -49,10 +63,12 @@ const Layout = (props: LayoutProps) => {
         <meta name="theme-color" content="#0c6457" media="(prefers-color-scheme: light)" />
         {renderFAQSchema(faqs)}
       </Head>
-      <Header h1={h1} menu={menu} />
-      <main className={styles.main}>{children}</main>
-      <Footer />
-    </div>
+      <div ref={ref} className={styles.container}>
+        <Header h1={h1} menu={menu} />
+        <main className={styles.main}>{children}</main>
+        <Footer />
+      </div>
+    </>
   );
 };
 
