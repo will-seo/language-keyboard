@@ -13,8 +13,6 @@ interface MenuProps {
   closeMenu: () => void;
 }
 
-const currentYear = new Date().getFullYear();
-
 const Menu = ({ menuOpen, menu, closeMenu }: MenuProps) => {
   const currentPath = usePathname();
 

@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import styles from '../styles/AdSlot.module.css';
 
 const AdSlot = () => {
@@ -13,12 +12,6 @@ const AdSlot = () => {
           data-full-width-responsive="true"
         ></ins>
       </div>
-      <Script
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `(adsbygoogle = window.adsbygoogle || []).push({});`,
-        }}
-      />
     </>
   );
 };

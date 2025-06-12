@@ -44,6 +44,7 @@ const ControlButtons = ({
   const getOffset = (selectionStart: number, selectionEnd: number) => {
     const text = textAreaRef.current?.value || '';
     if (selectionStart !== selectionEnd || !text) return 0;
+    if (!backspaceRemoveWord) return 1;
 
     // If backspaceRemoveWord is true, clicking backspace will delete the
     // previous word instead of a single character
