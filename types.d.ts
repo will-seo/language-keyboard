@@ -52,7 +52,7 @@ export interface LanguageModeProcessed extends LanguageMode {
   shift: boolean;
 }
 
-export type ByLast = { [key: string]: { word: string; translation: string }[] };
+export type LetterToWordMap = { [letter: string]: { word: string; translation: string }[] };
 
 export type GlobalContext = {
   baseURL: string;

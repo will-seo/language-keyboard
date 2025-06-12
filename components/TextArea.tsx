@@ -1,7 +1,7 @@
 import { RefObject, useMemo } from 'react';
 import styles from '../styles/TextArea.module.css';
 import { getbackspaceRemoveWordIndex } from '../utils/text';
-import { ByLast, LanguageMode } from '../types';
+import { LetterToWordMap, LanguageMode } from '../types';
 
 interface TextAreaProps {
   text: string;
@@ -15,19 +15,18 @@ interface TextAreaProps {
   handleChange: () => void;
 }
 
-const getTranslationsByInputLastLetter = (dictionary: LanguageMode['dictionary']): ByLast => {
+const getTranslationsByInputLastLetter = (dictionary: LanguageMode['dictionary']): LetterToWordMap => {
   // Create a mapping from source word last letters to source words
-  const byLast = Object.entries(dictionary).reduce((acc, [word, translation]) => {
+  const mapping = Object.entries(dictionary).reduce((acc, [word, translation]) => {
     const lastLetter = word.slice(-1);
     acc[lastLetter] = acc[lastLetter] || [];
     acc[lastLetter].push({ word, translation });
     return acc;
-  }, {} as ByLast);
+  }, {} as LetterToWordMap);
 
   // Sort by word length in descending order, so we match longer words first
-  Object.values(byLast).forEach((arr) => arr.sort((a, b) => b.word.length - a.word.length));
-
-  return byLast;
+  Object.values(mapping).forEach((arr) => arr.sort((a, b) => b.word.length - a.word.length));
+  return mapping;
 };
 
 const TextArea = ({
