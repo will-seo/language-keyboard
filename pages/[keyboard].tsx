@@ -35,7 +35,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     modes,
     rightToLeft,
     mobileKeyboardToggle,
-    spacebarCharacter,
+    spacebarCharacter = ' ',
   } = props;
 
   const [text, setText] = useState('');
@@ -130,6 +130,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         mobileKeyboard={mobileKeyboard}
         rightToLeft={rightToLeft}
         backspaceRemoveWord={backspaceRemoveWord}
+        spacebarCharacter={spacebarCharacter}
         dictionary={mode.dictionary}
         textAreaRef={textAreaRef}
         updateText={updateText}

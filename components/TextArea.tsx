@@ -9,6 +9,7 @@ interface TextAreaProps {
   mobileKeyboard?: boolean;
   rightToLeft?: boolean;
   backspaceRemoveWord?: boolean;
+  spacebarCharacter: string;
   dictionary: LanguageMode['dictionary'];
   textAreaRef: RefObject<HTMLTextAreaElement | null>;
   updateText: (insertText: string, offset?: number) => void;
@@ -36,6 +37,7 @@ const TextArea = ({
   mobileKeyboard,
   rightToLeft,
   backspaceRemoveWord,
+  spacebarCharacter,
   dictionary,
   textAreaRef,
   updateText,
@@ -44,18 +46,29 @@ const TextArea = ({
 }: TextAreaProps) => {
   const lastCharacterMap = useMemo(() => getTranslationsByInputLastLetter(dictionary), [dictionary]);
 
+  // When the user types an input character, check if it matches the last letter
+  // of words in the dictionary
   const onBeforeInput = (e: React.InputEvent<HTMLTextAreaElement>) => {
-    // When the user types a character, check if it matches the last letter of
-    // words in the dictionary
     if (!textAreaRef.current) return;
 
     const { data } = e.nativeEvent;
-    if (!data || !(data in lastCharacterMap)) {
-      setLastInput(data || '');
+
+    // Handle spacebar press
+    if (data === undefined || data === null) {
+      e.preventDefault();
+      updateText(spacebarCharacter, 0);
+      setLastInput(spacebarCharacter);
       return;
     }
 
-    // Work out what the text would look like with the input character
+    // If the input isn't the last character of a word in the dictionary then
+    // exit early as there's no point in checking for matches
+    if (!(data in lastCharacterMap)) {
+      setLastInput(data);
+      return;
+    }
+
+    // Work out what the text will look like with the input character
     const { selectionStart, selectionEnd, value } = textAreaRef.current;
     const textWithInput = value.slice(0, selectionStart) + data + value.slice(selectionEnd);
     const words = lastCharacterMap[data];
@@ -79,9 +92,9 @@ const TextArea = ({
     setLastInput(data);
   };
 
+  // If backspaceRemoveWord is true, pressing backspace will delete the previous
+  // word instead of a single character
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    // If backspaceRemoveWord is true, pressing backspace will delete the
-    // previous word instead of a single character
     if (!(e.nativeEvent.key === 'Backspace') || !backspaceRemoveWord || !textAreaRef.current) return;
 
     const selectionStart = textAreaRef.current.selectionStart || 0;
