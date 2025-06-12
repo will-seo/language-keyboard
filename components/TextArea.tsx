@@ -12,6 +12,7 @@ interface TextAreaProps {
   dictionary: LanguageMode['dictionary'];
   textAreaRef: RefObject<HTMLTextAreaElement | null>;
   updateText: (insertText: string, offset?: number) => void;
+  setLastInput: (input: string) => void;
   handleChange: () => void;
 }
 
@@ -39,6 +40,7 @@ const TextArea = ({
   textAreaRef,
   updateText,
   handleChange,
+  setLastInput,
 }: TextAreaProps) => {
   const lastCharacterMap = useMemo(() => getTranslationsByInputLastLetter(dictionary), [dictionary]);
 
@@ -47,8 +49,11 @@ const TextArea = ({
     // words in the dictionary
     if (!textAreaRef.current) return;
 
-    const { data = ' ' } = e.nativeEvent;
-    if (!data || !(data in lastCharacterMap)) return;
+    const { data } = e.nativeEvent;
+    if (!data || !(data in lastCharacterMap)) {
+      setLastInput(data || '');
+      return;
+    }
 
     // Work out what the text would look like with the input character
     const { selectionStart, selectionEnd, value } = textAreaRef.current;
@@ -66,9 +71,12 @@ const TextArea = ({
       if (buffer.endsWith(word)) {
         e.preventDefault();
         updateText(translation, word.length - 1);
-        break;
+        setLastInput(translation);
+        return;
       }
     }
+
+    setLastInput(data);
   };
 
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {

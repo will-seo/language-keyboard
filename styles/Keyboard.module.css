@@ -33,9 +33,14 @@
   cursor: pointer;
 }
 
-.keyboardKey:active {
+.keyboardKey:active,
+.keyboardKey[data-active='true'] {
   color: var(--light);
   background: var(--teal);
+}
+
+.keyboardKey[data-active='false'] {
+  transition: all 200ms ease-out;
 }
 
 @media (hover: hover) {

@@ -14,7 +14,6 @@ export default function Document() {
             style={{ display: 'none', visibility: 'hidden' }}
           ></iframe>
         </noscript>
-
         <Main />
         <NextScript />
         <Script
