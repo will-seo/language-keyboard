@@ -20,27 +20,6 @@ interface LayoutProps extends PageProps {
   children?: React.ReactNode;
 }
 
-const handleAcceptCookies = () => {
-  injectAdScript();
-  grantGtagConsent();
-};
-
-const grantGtagConsent = () => {
-  if ('gtag' in window)
-    window.gtag('consent', 'update', {
-      ad_storage: 'granted',
-      analytics_storage: 'granted',
-    });
-};
-
-const injectAdScript = () => {
-  const script = document.createElement('script');
-  script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1638826924479453';
-  script.crossOrigin = 'anonymous';
-  script.async = true;
-  document.head.prepend(script);
-};
-
 const Layout = (props: LayoutProps) => {
   const { globalContext, h1, meta, faqs, children } = props;
   const { baseURL, menu } = globalContext;
