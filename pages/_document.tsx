@@ -49,13 +49,6 @@ export default function Document() {
             `,
           }}
         />
-        <Script
-          id="ad-slot"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `(adsbygoogle = window.adsbygoogle || []).push({});`,
-          }}
-        />
       </body>
     </Html>
   );
