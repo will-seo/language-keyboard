@@ -1,10 +1,10 @@
 ## Setup
 
 1. Install `Node.js`:
-https://nodejs.org/en/download
+   https://nodejs.org/en/download
 
 2. Install `Yarn`:
-https://yarnpkg.com/getting-started/install
+   https://yarnpkg.com/getting-started/install
 
 3. Install dependencies - open a terminal and run:
 
