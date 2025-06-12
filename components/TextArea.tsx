@@ -1,111 +1,33 @@
 import { RefObject, useMemo } from 'react';
 import styles from '../styles/TextArea.module.css';
-import { getBackspaceToSpaceIndex } from '../utils/text';
+import { getbackspaceRemoveWordIndex } from '../utils/text';
+import { ByLast, LanguageMode } from '../types';
 
 interface TextAreaProps {
   text: string;
   placeholder?: string;
   mobileKeyboard?: boolean;
   rightToLeft?: boolean;
-  backspaceToSpace?: boolean;
-  dictionary: { [key: string]: string };
-  allowed: string[];
-  bufferMax: number;
+  backspaceRemoveWord?: boolean;
+  dictionary: LanguageMode['dictionary'];
   textAreaRef: RefObject<HTMLTextAreaElement | null>;
   updateText: (insertText: string, offset?: number) => void;
   handleChange: () => void;
 }
 
-const getLongest = (words: string[]): string =>
-  words.reduce((previous, current) => (previous.length < current.length ? current : previous), '');
+const getTranslationsByInputLastLetter = (dictionary: LanguageMode['dictionary']): ByLast => {
+  // Create a mapping from source word last letters to source words
+  const byLast = Object.entries(dictionary).reduce((acc, [word, translation]) => {
+    const lastLetter = word.slice(-1);
+    acc[lastLetter] = acc[lastLetter] || [];
+    acc[lastLetter].push({ word, translation });
+    return acc;
+  }, {} as ByLast);
 
-const sliceBuffer = (text: string, before: number, maxLength: number) =>
-  text.slice(Math.max(before - maxLength, 0), before);
+  // Sort by word length in descending order, so we match longer words first
+  Object.values(byLast).forEach((arr) => arr.sort((a, b) => b.word.length - a.word.length));
 
-const getMatches = (buffer: string, words: string[]) => {
-  const potential: string[] = [];
-  const exact: string[] = [];
-  for (let pos = 0; pos < buffer.length; pos += 1) {
-    const bufferSlice = buffer.slice(buffer.length - 1 - pos, buffer.length);
-    words.forEach((word) => {
-      const wordSlice = word.slice(0, pos + 1);
-      if (wordSlice === bufferSlice) {
-        if (word === bufferSlice) exact.push(word);
-        else potential.push(word);
-      }
-    });
-  }
-  return {
-    longestExact: getLongest(exact),
-    longestPotential: getLongest(potential),
-    potential,
-  };
-};
-
-const getBufferWithInput = (buffer: string, bufferMax: number) => sliceBuffer(buffer, buffer.length, bufferMax);
-
-const checkBuffer = (
-  dictionary: { [key: string]: string },
-  words: string[],
-  buffer: string,
-  input: string,
-  allowed: string[],
-  bufferMax: number,
-) => {
-  const inputValid = allowed.includes(input);
-  const matches = getMatches(buffer, words);
-
-  // The input character is not present in the set of characters which can be
-  // transformed, so we can only transform if the buffer matches exactly, and we
-  // should ignore the input character
-  if (!inputValid && matches.longestExact) {
-    return {
-      text: dictionary[matches.longestExact] + input,
-      offset: matches.longestExact.length,
-    };
-  }
-
-  if (!inputValid) return null;
-
-  const bufferWithInput = getBufferWithInput(buffer + input, bufferMax);
-  const matchesWithInput = getMatches(bufferWithInput, words);
-
-  if (matchesWithInput.longestExact) {
-    return {
-      text: dictionary[matchesWithInput.longestExact],
-      offset: matchesWithInput.longestExact.length - input.length,
-    };
-  }
-
-  if (
-    matches.longestExact &&
-    matchesWithInput.longestExact &&
-    !matches.potential.includes(matchesWithInput.longestExact)
-  ) {
-    return {
-      text: dictionary[matches.longestExact] + dictionary[matchesWithInput.longestExact],
-      offset: matches.longestExact.length + matchesWithInput.longestExact.length - input.length,
-    };
-  }
-
-  if (
-    matchesWithInput.longestExact &&
-    matchesWithInput.longestExact.length >= matchesWithInput.longestPotential.length
-  ) {
-    return {
-      text: dictionary[matchesWithInput.longestExact],
-      offset: matchesWithInput.longestExact.length - input.length,
-    };
-  }
-
-  if (matches.longestExact && !matchesWithInput.potential.includes(matches.longestExact)) {
-    return {
-      text: dictionary[matches.longestExact] + input,
-      offset: matches.longestExact.length,
-    };
-  }
-
-  return null;
+  return byLast;
 };
 
 const TextArea = ({
@@ -113,40 +35,54 @@ const TextArea = ({
   placeholder,
   mobileKeyboard,
   rightToLeft,
-  backspaceToSpace,
+  backspaceRemoveWord,
   dictionary,
-  allowed,
-  bufferMax,
   textAreaRef,
   updateText,
   handleChange,
 }: TextAreaProps) => {
-  const words = useMemo(() => Object.keys(dictionary), [dictionary]);
+  const lastCharacterMap = useMemo(() => getTranslationsByInputLastLetter(dictionary), [dictionary]);
 
   const onBeforeInput = (e: React.InputEvent<HTMLTextAreaElement>) => {
-    const { data } = e.nativeEvent;
-    const input = data || ' ';
-    const selectionStart = textAreaRef.current?.selectionStart || 0;
-    const text = textAreaRef.current?.value || '';
-    const buffer = sliceBuffer(text, selectionStart, bufferMax);
-    const replace = checkBuffer(dictionary, words, buffer, input, allowed, bufferMax);
-    if (replace) {
-      e.preventDefault();
-      updateText(replace.text, replace.offset);
+    // When the user types a character, check if it matches the last letter of
+    // words in the dictionary
+    if (!textAreaRef.current) return;
+
+    const { data = ' ' } = e.nativeEvent;
+    if (!data || !(data in lastCharacterMap)) return;
+
+    // Work out what the text would look like with the input character
+    const { selectionStart, selectionEnd, value } = textAreaRef.current;
+    const textWithInput = value.slice(0, selectionStart) + data + value.slice(selectionEnd);
+    const words = lastCharacterMap[data];
+
+    // Go through the words which end with the input character, and check the
+    // previous characters to see if any of the words completely match
+    for (let index = 0; index < words.length; index++) {
+      const { word, translation } = words[index];
+      const buffer = textWithInput.slice(Math.max(selectionStart - word.length + 1, 0), selectionStart + 1);
+
+      // If the text preceding the cursor matches a full word, replace it with
+      // the translation and stop looking for more matches
+      if (buffer.endsWith(word)) {
+        e.preventDefault();
+        updateText(translation, word.length - 1);
+        break;
+      }
     }
   };
 
-  // If backspaceToSpace is true, pressing backspace will delete all characters
-  // before the cursor until space (unless text is selected)
   const onKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (!(e.nativeEvent.key === 'Backspace') || !backspaceToSpace || !textAreaRef.current) return;
+    // If backspaceRemoveWord is true, pressing backspace will delete the
+    // previous word instead of a single character
+    if (!(e.nativeEvent.key === 'Backspace') || !backspaceRemoveWord || !textAreaRef.current) return;
 
     const selectionStart = textAreaRef.current.selectionStart || 0;
     const selectionEnd = textAreaRef.current.selectionEnd || 0;
     if (selectionStart !== selectionEnd) return;
 
     e.preventDefault();
-    const index = getBackspaceToSpaceIndex(text, selectionStart);
+    const index = getbackspaceRemoveWordIndex(text, selectionStart);
     textAreaRef.current.value = text.slice(0, index);
     handleChange();
   };

@@ -40,19 +40,19 @@ export type LanguageData = {
   copy?: boolean;
   spacebarCharacter?: string;
   backspace?: boolean;
-  backspaceToSpace?: boolean;
+  backspaceRemoveWord?: boolean;
   meta?: MetaData;
   faqs?: FAQ[];
   modes: LanguageMode[];
 };
 
 export interface LanguageModeProcessed extends LanguageMode {
-  allowed: string[];
-  bufferMax: number;
   key: number;
   capsLock: boolean;
   shift: boolean;
 }
+
+export type ByLast = { [key: string]: { word: string; translation: string }[] };
 
 export type GlobalContext = {
   baseURL: string;

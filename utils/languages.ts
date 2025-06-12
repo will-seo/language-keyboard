@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { LanguageData, LanguageKeyData } from '../types';
+import { LanguageData, LanguageKeyData, LanguageMode } from '../types';
 
 export const getLanguagesDirectory = () => {
   return path.join(process.cwd(), 'languages');

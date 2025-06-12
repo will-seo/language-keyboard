@@ -27,7 +27,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
     placeholder,
     copy,
     backspace,
-    backspaceToSpace,
+    backspaceRemoveWord,
     meta,
     faqs,
     modes,
@@ -112,10 +112,8 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         placeholder={placeholder}
         mobileKeyboard={mobileKeyboard}
         rightToLeft={rightToLeft}
-        backspaceToSpace={backspaceToSpace}
+        backspaceRemoveWord={backspaceRemoveWord}
         dictionary={mode.dictionary}
-        allowed={mode.allowed}
-        bufferMax={mode.bufferMax}
         textAreaRef={textAreaRef}
         updateText={updateText}
         handleChange={handleChangeText}
@@ -146,7 +144,7 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
           copy={copy}
           spacebarCharacter={spacebarCharacter}
           backspace={backspace}
-          backspaceToSpace={backspaceToSpace}
+          backspaceRemoveWord={backspaceRemoveWord}
         />
       </div>
       <AdSlot />

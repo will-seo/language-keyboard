@@ -2,7 +2,7 @@ import { faArrowLeftLong, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { RefObject, useState } from 'react';
 import buttonStyles from '../styles/Button.module.css';
-import { getBackspaceToSpaceIndex } from '../utils/text';
+import { getbackspaceRemoveWordIndex } from '../utils/text';
 
 interface ControlButtonsProps {
   textAreaRef: RefObject<HTMLTextAreaElement | null>;
@@ -10,7 +10,7 @@ interface ControlButtonsProps {
   copy?: boolean;
   spacebarCharacter?: string;
   backspace?: boolean;
-  backspaceToSpace?: boolean;
+  backspaceRemoveWord?: boolean;
   copiedDuration?: number;
 }
 
@@ -20,7 +20,7 @@ const ControlButtons = ({
   copy,
   spacebarCharacter,
   backspace,
-  backspaceToSpace,
+  backspaceRemoveWord,
   copiedDuration = 500,
 }: ControlButtonsProps) => {
   const [copied, setCopied] = useState(false);
@@ -44,7 +44,10 @@ const ControlButtons = ({
   const getOffset = (selectionStart: number, selectionEnd: number) => {
     const text = textAreaRef.current?.value || '';
     if (selectionStart !== selectionEnd || !text) return 0;
-    const index = getBackspaceToSpaceIndex(text, selectionStart);
+
+    // If backspaceRemoveWord is true, clicking backspace will delete the
+    // previous word instead of a single character
+    const index = getbackspaceRemoveWordIndex(text, selectionStart);
     return selectionStart - index;
   };
 

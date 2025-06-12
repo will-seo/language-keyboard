@@ -33,16 +33,13 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
   const copy = data.copy ?? true;
   const spacebarCharacter = data.spacebarCharacter ?? ' ';
   const backspace = data.backspace ?? true;
-  const backspaceToSpace = data.backspaceToSpace ?? false;
+  const backspaceRemoveWord = data.backspaceRemoveWord ?? false;
   const meta = data.meta || {};
   const faqs = data.faqs || [];
 
   const modes = data.modes.map((mode, key) => {
-    const words = Object.keys(mode.dictionary);
-    const allowed = Array.from(new Set(words.join(''))).sort();
-    const bufferMax = Math.max(...words.map((word) => word.length), 0);
     const [capsLock, shift] = hasModifiers(mode.layout);
-    return { key, allowed, bufferMax, capsLock, shift, ...mode };
+    return { key, capsLock, shift, ...mode };
   });
 
   return {
@@ -55,7 +52,7 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
     copy,
     spacebarCharacter,
     backspace,
-    backspaceToSpace,
+    backspaceRemoveWord,
     meta,
     faqs,
     modes,
