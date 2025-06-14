@@ -6,14 +6,13 @@ import { useEffect } from 'react';
 import buttonStyles from '../styles/Button.module.css';
 import styles from '../styles/Menu.module.css';
 import { MenuLink } from '../types';
+import ThemeToggle from './ThemeToggle';
 
 interface MenuProps {
   menuOpen: boolean;
   menu: MenuLink[];
   closeMenu: () => void;
 }
-
-const currentYear = new Date().getFullYear();
 
 const Menu = ({ menuOpen, menu, closeMenu }: MenuProps) => {
   const currentPath = usePathname();
@@ -40,11 +39,14 @@ const Menu = ({ menuOpen, menu, closeMenu }: MenuProps) => {
           <FontAwesomeIcon icon={faXmark} size="2x" />
         </button>
         <div className={styles.menuText}>
-          Like this site?{' '}
-          <Link rel="noopener" target="_blank" href="https://www.buymeacoffee.com/willdrinkcoffee">
-            Buy me a coffee
-          </Link>
-          .
+          <ThemeToggle />
+          <div>
+            Like this site?{' '}
+            <Link rel="noopener" target="_blank" href="https://www.buymeacoffee.com/willdrinkcoffee">
+              Buy me a coffee
+            </Link>
+            .
+          </div>
         </div>
       </nav>
     </>

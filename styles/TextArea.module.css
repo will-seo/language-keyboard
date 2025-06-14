@@ -3,13 +3,14 @@
   padding: var(--spacing);
   resize: vertical;
   width: 100%;
-  color: inherit;
-  border: var(--border-width) solid var(--dark);
   font-family: sans-serif;
+  border: var(--border-width) solid var(--text-area-border);
+  background: var(--text-area-bg);
+  color: var(--text-area-color);
 }
 
 .textArea::placeholder {
-  color: var(--dark-gray);
+  color: var(--text-area-placeholder);
 }
 
 @media (max-width: 959px) {

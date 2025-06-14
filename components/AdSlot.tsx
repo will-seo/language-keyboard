@@ -14,6 +14,7 @@ const AdSlot = () => {
         ></ins>
       </div>
       <Script
+        id="ad-script"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `(adsbygoogle = window.adsbygoogle || []).push({});`,

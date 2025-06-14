@@ -41,7 +41,7 @@
 }
 
 .menu a {
-  color: var(--light);
+  color: var(--white);
 }
 
 .menu ul a {
@@ -55,6 +55,9 @@
 .menuText {
   padding: calc(var(--spacing) * 2);
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
 }
 
 .menuText a:hover {
@@ -82,15 +85,15 @@
 }
 
 .scrollbar::-webkit-scrollbar-track {
-  background: var(--dark-teal);
+  background: var(--teal-dark);
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  background: var(--light);
+  background: var(--white);
 }
 
 .scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--light-gray);
+  background: var(--gray-light);
 }
 
 @media (max-width: 959px) {

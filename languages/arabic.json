@@ -9,6 +9,7 @@
   },
   "mobileKeyboard": false,
   "mobileKeyboardToggle": true,
+  "rightToLeft": true,
   "faqs": [
     {
       "question": "This keyboard is a work in progress, hopefully I'll have it fully working soon.",

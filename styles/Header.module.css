@@ -1,7 +1,7 @@
 .header {
   width: 100%;
   background: var(--teal);
-  color: var(--light);
+  color: var(--white);
 }
 
 .headerWrapper {

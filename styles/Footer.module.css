@@ -1,5 +1,6 @@
 .footer {
-  background: var(--light-gray);
+  color: var(--footer-color);
+  background: var(--footer-bg);
   padding: var(--spacing) var(--gutter);
   font-size: 0.875rem;
 }
