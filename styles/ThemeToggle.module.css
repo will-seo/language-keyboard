@@ -1,0 +1,8 @@
+.themeToggle {
+  display: flex;
+  gap: var(--spacing);
+
+  & select {
+    flex-grow: 1;
+  }
+}
