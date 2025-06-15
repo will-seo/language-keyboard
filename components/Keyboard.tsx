@@ -5,11 +5,12 @@ interface KeyboardKeyProps {
   keyData: LanguageKeyData;
   capsLock: boolean;
   shift: boolean;
+  lastInput: string;
   handleKeyboardKeyClick: (insertText: string, offset?: number) => void;
 }
 
 const KeyboardKey = (props: KeyboardKeyProps) => {
-  const { keyData, capsLock, shift, handleKeyboardKeyClick } = props;
+  const { keyData, capsLock, shift, lastInput, handleKeyboardKeyClick } = props;
   const { from, to, FROM, TO } = keyData;
 
   // Return placeholder if "to" isn't set
@@ -20,7 +21,11 @@ const KeyboardKey = (props: KeyboardKeyProps) => {
   const displayFrom = getCase(from, FROM);
 
   return (
-    <div className={`${styles.keyboardKey}`} onClick={() => handleKeyboardKeyClick(displayTo)}>
+    <div
+      className={`${styles.keyboardKey}`}
+      data-active={displayTo === lastInput}
+      onClick={() => handleKeyboardKeyClick(displayTo)}
+    >
       <span className={styles.keyboardKeyTo}>{displayTo}</span>
       <span className={styles.keyboardKeyFrom}>{displayFrom}</span>
     </div>
@@ -31,11 +36,12 @@ interface KeyboardProps {
   layout: LanguageKeyData[][][];
   capsLock: boolean;
   shift: boolean;
+  lastInput: string;
   handleKeyboardKeyClick: (insertText: string, offset?: number) => void;
 }
 
 const Keyboard = (props: KeyboardProps) => {
-  const { layout, capsLock, shift, handleKeyboardKeyClick } = props;
+  const { layout, capsLock, shift, lastInput, handleKeyboardKeyClick } = props;
   return (
     <div className={styles.keyboard}>
       {layout.map((columns, i) => (
@@ -49,6 +55,7 @@ const Keyboard = (props: KeyboardProps) => {
                   capsLock={capsLock}
                   shift={shift}
                   handleKeyboardKeyClick={handleKeyboardKeyClick}
+                  lastInput={lastInput}
                 />
               ))}
             </div>

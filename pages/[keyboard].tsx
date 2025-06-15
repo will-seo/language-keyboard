@@ -20,8 +20,23 @@ export interface KeyboardPageProps extends PageProps, LanguageData {
   modes: LanguageModeProcessed[];
 }
 
+const activeKeyDuration = 100; // ms
+
 const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
-  const { globalContext, h1, placeholder, copy, spacebar, backspace, meta, faqs, modes } = props;
+  const {
+    globalContext,
+    h1,
+    placeholder,
+    copy,
+    backspace,
+    backspaceRemoveWord,
+    meta,
+    faqs,
+    modes,
+    rightToLeft,
+    mobileKeyboardToggle,
+    spacebarCharacter = ' ',
+  } = props;
 
   const [text, setText] = useState('');
   const [mode, setMode] = useState(modes[0]);
@@ -31,8 +46,8 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   const [capsLockKeyOverride, setCapsLockKeyOverride] = useState(false);
   const [shiftKeyOverride, setShiftKeyOverride] = useState(false);
   const [mobileKeyboard, setMobileKeyboard] = useState(props.mobileKeyboard || false);
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-  const mobileKeyboardToggle = props.mobileKeyboardToggle || false;
+  const [lastInput, setLastInput] = useState('');
+  const textAreaRef = useRef<HTMLTextAreaElement | null>(null);
 
   // Update available modes and reset text on route change
   useEffect(() => {
@@ -45,6 +60,20 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
   useEffect(() => {
     textAreaRef.current?.setSelectionRange(caret, caret);
   }, [textAreaRef, caret, text]);
+
+  // Reset active key after delay
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout | null = null;
+
+    if (lastInput)
+      timeoutId = setTimeout(() => {
+        setLastInput('');
+      }, activeKeyDuration);
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
+  }, [lastInput]);
 
   // Check status of caps lock and shift keys when any key is pressed
   useEffect(() => {
@@ -99,18 +128,21 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
         text={text}
         placeholder={placeholder}
         mobileKeyboard={mobileKeyboard}
+        rightToLeft={rightToLeft}
+        backspaceRemoveWord={backspaceRemoveWord}
+        spacebarCharacter={spacebarCharacter}
         dictionary={mode.dictionary}
-        allowed={mode.allowed}
-        bufferMax={mode.bufferMax}
         textAreaRef={textAreaRef}
         updateText={updateText}
         handleChange={handleChangeText}
+        setLastInput={setLastInput}
       />
       <Keyboard
         layout={mode.layout}
         shift={shiftKey || shiftKeyOverride}
         capsLock={capsLockKey || capsLockKeyOverride}
         handleKeyboardKeyClick={handleKeyboardKeyClick}
+        lastInput={lastInput}
       />
       <div className={styles.keyboardActions}>
         <ModeSwitcher currentMode={mode} allModes={modes} handleChange={handleChangeMode} />
@@ -130,8 +162,9 @@ const KeyboardPage: NextPage<KeyboardPageProps> = (props) => {
           textAreaRef={textAreaRef}
           updateText={updateText}
           copy={copy}
-          spacebar={spacebar}
+          spacebarCharacter={spacebarCharacter}
           backspace={backspace}
+          backspaceRemoveWord={backspaceRemoveWord}
         />
       </div>
       <AdSlot />
