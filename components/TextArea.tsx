@@ -46,6 +46,26 @@ const TextArea = ({
 }: TextAreaProps) => {
   const lastCharacterMap = useMemo(() => getTranslationsByInputLastLetter(dictionary), [dictionary]);
 
+  const processInput = (text: string, pressedKey: string, caret: number): [string | null, number] => {
+    if (!(pressedKey in lastCharacterMap)) return [null, 0];
+
+    const words = lastCharacterMap[pressedKey];
+
+    // Go through the words which end with the input character, and check the
+    // previous characters to see if any of the words completely match
+    for (let index = 0; index < words.length; index++) {
+      const { word, translation } = words[index];
+      const buffer = text.slice(Math.max(caret - word.length + 1, 0), caret + 1);
+
+      // If the text preceding the cursor matches a full word, return the
+      // translation and the number of characters to replace, and stop looking
+      // for more matches
+      if (buffer.endsWith(word)) return [translation, word.length - 1];
+    }
+
+    return [null, 0];
+  };
+
   // When the user types an input character, check if it matches the last letter
   // of words in the dictionary
   const onBeforeInput = (e: React.InputEvent<HTMLTextAreaElement>) => {
@@ -56,7 +76,7 @@ const TextArea = ({
     // Handle spacebar press
     if (data === undefined || data === null) {
       e.preventDefault();
-      updateText(spacebarCharacter, 0);
+      updateText(spacebarCharacter);
       setLastInput(spacebarCharacter);
       return;
     }
@@ -71,25 +91,35 @@ const TextArea = ({
     // Work out what the text will look like with the input character
     const { selectionStart, selectionEnd, value } = textAreaRef.current;
     const textWithInput = value.slice(0, selectionStart) + data + value.slice(selectionEnd);
-    const words = lastCharacterMap[data];
-
-    // Go through the words which end with the input character, and check the
-    // previous characters to see if any of the words completely match
-    for (let index = 0; index < words.length; index++) {
-      const { word, translation } = words[index];
-      const buffer = textWithInput.slice(Math.max(selectionStart - word.length + 1, 0), selectionStart + 1);
-
-      // If the text preceding the cursor matches a full word, replace it with
-      // the translation and stop looking for more matches
-      if (buffer.endsWith(word)) {
-        e.preventDefault();
-        updateText(translation, word.length - 1);
-        setLastInput(translation);
-        return;
-      }
+    const [translation, offset] = processInput(textWithInput, data, selectionStart);
+    if (translation !== null) {
+      e.preventDefault();
+      updateText(translation, offset);
+      setLastInput(translation);
+      return;
     }
 
     setLastInput(data);
+  };
+
+  // If the user pastes some text, we process it character by character as if
+  // they were typing it
+  const onPaste = (e: React.ClipboardEvent<HTMLTextAreaElement>) => {
+    if (!textAreaRef.current) return;
+
+    e.preventDefault();
+    setLastInput('');
+
+    const input = e.clipboardData.getData('text/plain');
+    let output = '';
+    input.split('').forEach((char) => {
+      output += char;
+      const caret = output.length - 1;
+      const [translation, offset] = processInput(output, char, caret);
+      if (translation !== null) output = output.slice(0, caret - offset) + translation;
+    });
+
+    updateText(output);
   };
 
   // If backspaceRemoveWord is true, pressing backspace will delete the previous
@@ -115,6 +145,7 @@ const TextArea = ({
       onChange={() => handleChange()}
       onBeforeInput={onBeforeInput}
       onKeyDown={onKeyDown}
+      onPaste={onPaste}
       ref={textAreaRef}
       inputMode={mobileKeyboard ? 'text' : 'none'}
       aria-label="Input Method Editor"
