@@ -17,6 +17,7 @@
 .keyboardRow {
   display: flex;
   margin: 0 auto;
+  min-height: 28px;
 }
 
 .keyboardKey,
@@ -32,14 +33,19 @@
   cursor: pointer;
 }
 
-.keyboardKey:active {
-  color: var(--light);
+.keyboardKey:active,
+.keyboardKey[data-active='true'] {
+  color: var(--white);
   background: var(--teal);
+}
+
+.keyboardKey[data-active='false'] {
+  transition: all 200ms ease-out;
 }
 
 @media (hover: hover) {
   .keyboardKey:hover {
-    color: var(--light);
+    color: var(--white);
     background: var(--teal);
   }
 }

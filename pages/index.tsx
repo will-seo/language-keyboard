@@ -17,7 +17,7 @@ const HomePage = (props: PageProps) => {
     <Layout globalContext={globalContext} h1={h1} meta={meta}>
       <p>Welcome to the Language Keyboard, your one-stop-shop for typing in non-roman alphabets.</p>
       <p>
-        Find below a list of our current keyboards. We're always looking for new languages to add, so{' '}
+        Find below a list of our current keyboards. We&apos;re always looking for new languages to add, so{' '}
         <a href="mailto:will@languagekeyboard.net">please send us any requests</a>.
       </p>
       <table cellPadding={0} cellSpacing={0}>
@@ -51,7 +51,6 @@ const HomePage = (props: PageProps) => {
             </td>
           </tr>
           <tr>
-            {' '}
             <td>
               <Link href="/arabic">Arabic Keyboard</Link>
             </td>

@@ -29,18 +29,17 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
   const placeholder = data.placeholder || '';
   const mobileKeyboard = data.mobileKeyboard ?? true;
   const mobileKeyboardToggle = data.mobileKeyboardToggle || false;
+  const rightToLeft = data.rightToLeft || false;
   const copy = data.copy ?? true;
-  const spacebar = data.spacebar ?? true;
+  const spacebarCharacter = data.spacebarCharacter ?? ' ';
   const backspace = data.backspace ?? true;
+  const backspaceRemoveWord = data.backspaceRemoveWord ?? false;
   const meta = data.meta || {};
   const faqs = data.faqs || [];
 
   const modes = data.modes.map((mode, key) => {
-    const words = Object.keys(mode.dictionary);
-    const allowed = Array.from(new Set(words.join(''))).sort();
-    const bufferMax = Math.max(...words.map((word) => word.length), 0);
     const [capsLock, shift] = hasModifiers(mode.layout);
-    return { key, allowed, bufferMax, capsLock, shift, ...mode };
+    return { key, capsLock, shift, ...mode };
   });
 
   return {
@@ -49,9 +48,11 @@ export const getLanguageContext = (keyboard: string): KeyboardPageProps => {
     placeholder,
     mobileKeyboard,
     mobileKeyboardToggle,
+    rightToLeft,
     copy,
-    spacebar,
+    spacebarCharacter,
     backspace,
+    backspaceRemoveWord,
     meta,
     faqs,
     modes,

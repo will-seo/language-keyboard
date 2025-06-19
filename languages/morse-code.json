@@ -8,6 +8,8 @@
     "image": "/ogimage.png"
   },
   "mobileKeyboard": true,
+  "spacebarCharacter": "/ ",
+  "backspaceRemoveWord": true,
   "modes": [
     {
       "dictionary": {
@@ -90,8 +92,7 @@
         "_": "··−−·− ",
         "\"": "·−··−· ",
         "$": "···−··− ",
-        "@": "·−−·−· ",
-        " ": "/ "
+        "@": "·−−·−· "
       },
       "layout": [
         [
@@ -127,6 +128,7 @@
             { "from": "Y", "to": "−·−− " },
             { "from": "Z", "to": "−−·· " }
           ],
+          [],
           [
             { "from": "0", "to": "−−−−− " },
             { "from": "1", "to": "·−−−− " },
