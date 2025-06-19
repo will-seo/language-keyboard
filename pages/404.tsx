@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Layout from '../components/Layout';
 import { MetaData, PageProps } from '../types';
 import { getGlobalContext } from '../utils/context';
@@ -13,7 +12,7 @@ const FourOhFourPage = (props: PageProps) => {
   const { globalContext } = props;
   return (
     <Layout globalContext={globalContext} h1={h1} meta={meta}>
-      <Link href="/">Go back home</Link>
+      <a href="/">Go back home</a>
     </Layout>
   );
 };

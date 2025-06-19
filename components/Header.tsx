@@ -1,7 +1,6 @@
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import buttonStyles from '../styles/Button.module.css';
 import styles from '../styles/Header.module.css';
@@ -21,9 +20,9 @@ const Header = (props: HeaderProps) => {
   return (
     <header className={styles.header}>
       <div className={styles.headerWrapper}>
-        <Link href="/" className={styles.homeLink}>
+        <a href="/" className={styles.homeLink}>
           <Image src="/language-keyboard-logo.svg" alt="Language keyboard logo" width={logoSize} height={logoSize} />
-        </Link>
+        </a>
         <h1 className={styles.title}>{h1}</h1>
         <Menu menuOpen={menuOpen} menu={menu} closeMenu={() => setMenuOpen(false)} />
         <button onClick={() => setMenuOpen(true)} className={buttonStyles.menuButton} aria-label="Open menu">

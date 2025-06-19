@@ -1,6 +1,5 @@
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 import buttonStyles from '../styles/Button.module.css';
@@ -29,9 +28,7 @@ const Menu = ({ menuOpen, menu, closeMenu }: MenuProps) => {
         <ul className={styles.scrollbar}>
           {(menu || []).map((item, key) => (
             <li key={key} data-active={currentPath === item.route}>
-              <Link href={item.route} onClick={() => closeMenu()}>
-                {item.label}
-              </Link>
+              <a href={item.route}>{item.label}</a>
             </li>
           ))}
         </ul>
@@ -42,9 +39,9 @@ const Menu = ({ menuOpen, menu, closeMenu }: MenuProps) => {
           <ThemeToggle />
           <div>
             Like this site?{' '}
-            <Link rel="noopener" target="_blank" href="https://www.buymeacoffee.com/willdrinkcoffee">
+            <a rel="noopener" target="_blank" href="https://www.buymeacoffee.com/willdrinkcoffee">
               Buy me a coffee
-            </Link>
+            </a>
             .
           </div>
         </div>

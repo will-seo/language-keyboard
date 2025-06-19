@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import AdSlot from '../components/AdSlot';
 import Layout from '../components/Layout';
 import { MetaData, PageProps } from '../types';
@@ -24,38 +23,38 @@ const HomePage = (props: PageProps) => {
         <tbody>
           <tr>
             <td>
-              <Link href="/japanese">Japanese Keyboard</Link>
+              <a href="/japanese">Japanese Keyboard</a>
             </td>
             <td>
-              <Link href="/russian">Russian Keyboard</Link>
+              <a href="/russian">Russian Keyboard</a>
             </td>
             <td>
-              <Link href="/maori">Maori Keyboard</Link>
+              <a href="/maori">Maori Keyboard</a>
             </td>
             <td>
-              <Link href="/french">French Keyboard</Link>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <Link href="/spanish">Spanish Keyboard</Link>
-            </td>
-            <td>
-              <Link href="/german">German Keyboard</Link>
-            </td>
-            <td>
-              <Link href="/morse-code">Morse Code</Link>
-            </td>
-            <td>
-              <Link href="/min-to-maj">Min to Maj</Link>
+              <a href="/french">French Keyboard</a>
             </td>
           </tr>
           <tr>
             <td>
-              <Link href="/arabic">Arabic Keyboard</Link>
+              <a href="/spanish">Spanish Keyboard</a>
             </td>
             <td>
-              <Link href="/hebrew">Hebrew Keyboard</Link>
+              <a href="/german">German Keyboard</a>
+            </td>
+            <td>
+              <a href="/morse-code">Morse Code</a>
+            </td>
+            <td>
+              <a href="/min-to-maj">Min to Maj</a>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="/arabic">Arabic Keyboard</a>
+            </td>
+            <td>
+              <a href="/hebrew">Hebrew Keyboard</a>
             </td>
           </tr>
         </tbody>
