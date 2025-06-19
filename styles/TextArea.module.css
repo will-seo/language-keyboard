@@ -18,5 +18,6 @@
     position: sticky;
     min-height: 4rem;
     top: var(--spacing);
+    z-index: 99;
   }
 }
