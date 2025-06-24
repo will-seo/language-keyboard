@@ -78,7 +78,7 @@
   font-weight: bold;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 840px) {
   .mobileOnly {
     display: none;
   }

@@ -97,7 +97,7 @@
   background: var(--gray-light);
 }
 
-@media (max-width: 959px) {
+@media (max-width: 839px) {
   .menu {
     width: 100vw;
     max-width: none;

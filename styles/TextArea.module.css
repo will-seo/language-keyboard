@@ -13,7 +13,7 @@
   color: var(--text-area-placeholder);
 }
 
-@media (max-width: 959px) {
+@media (max-width: 839px) {
   .textArea {
     position: sticky;
     min-height: 4rem;
