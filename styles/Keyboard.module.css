@@ -40,10 +40,10 @@
   background: var(--teal);
 }
 
-.keyboardKey[data-active='false'] {
+.keyboardKey[data-active='false']:not(:active):not(:hover) {
   transition:
-    color 200ms ease-out,
-    background 200ms ease-out;
+    color var(--key-fade-duration) ease-out,
+    background var(--key-fade-duration) ease-out;
 }
 
 @media (hover: hover) {

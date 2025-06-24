@@ -8,8 +8,9 @@
   --menu-width: 400px;
   --gutter: 1rem;
   --spacing: 1rem;
-  --menu-open-duration: 0.2s;
   --page-width: 840px;
+  --menu-open-duration: 0.2s;
+  --key-fade-duration: 0.15s;
 
   --white: #fff;
   --black: #111;
