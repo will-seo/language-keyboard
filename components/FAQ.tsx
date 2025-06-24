@@ -7,14 +7,16 @@ interface FAQProps {
 
 const FAQComponent = ({ faqs = [] }: FAQProps) => {
   return (
-    <section className={styles.faqs}>
-      {faqs.map((faq, key) => (
-        <div key={key} className={styles.faq}>
-          <h2>{faq.question}</h2>
-          <div dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
-        </div>
-      ))}
-    </section>
+    faqs.length > 0 && (
+      <section className={styles.faqs}>
+        {faqs.map((faq, key) => (
+          <div key={key} className={styles.faq}>
+            <h2>{faq.question}</h2>
+            <div dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
+          </div>
+        ))}
+      </section>
+    )
   );
 };
 
