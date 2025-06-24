@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { usePathname } from 'next/navigation';
-import { useRef } from 'react';
 import styles from '../styles/Layout.module.css';
 import { FAQ, MetaData, PageProps } from '../types';
 import { renderFAQSchema } from '../utils/schema';
@@ -23,7 +22,6 @@ interface LayoutProps extends PageProps {
 const Layout = (props: LayoutProps) => {
   const { globalContext, h1, meta, faqs, children } = props;
   const { baseURL, menu } = globalContext;
-  const ref = useRef<HTMLDivElement>(null);
   const canonicalUrl = baseURL + usePathname();
   const description = meta?.description || metaDefaults.description;
   const image = baseURL + (meta?.image || metaDefaults.image);
