@@ -6,8 +6,6 @@
 
 .headerWrapper {
   padding: var(--spacing) var(--gutter);
-  max-width: 959px;
-  margin: 0 auto;
   display: grid;
   align-items: center;
   gap: calc(var(--spacing) * 1);

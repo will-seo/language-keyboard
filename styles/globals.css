@@ -6,9 +6,10 @@
   --scrollbar-width: 5px;
   --menu-button-size: 32px;
   --menu-width: 400px;
-  --gutter: 1rem;
+  --gutter: 0.5rem;
   --spacing: 1rem;
   --menu-open-duration: 0.2s;
+  --page-width: 840px;
 
   --white: #fff;
   --black: #111;
@@ -26,7 +27,7 @@
   --button-color: var(--black);
   --container-bg: var(--white);
   --container-color: var(--black);
-  --footer-bg: var(--gray-light);
+  --footer-border: var(--gray-light);
   --footer-color: var(--black);
   --link-color: var(--teal);
   --link-hover-color: var(--teal-dark);
@@ -38,7 +39,7 @@
 
 @media (min-width: 960px) {
   :root {
-    --gutter: 2rem;
+    --gutter: 1rem;
     --button-width: 8.5rem;
   }
 }
@@ -50,7 +51,7 @@
   --button-color: var(--white);
   --container-bg: var(--black);
   --container-color: var(--white);
-  --footer-bg: var(--gray-dark);
+  --footer-border: var(--gray-dark);
   --footer-color: var(--white);
   --link-color: var(--teal-light);
   --link-hover-color: var(--teal-lighter);
@@ -88,9 +89,15 @@ body {
   min-height: 100svh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  color: var(--black);
   font-size: 1rem;
   font-weight: normal;
+  background: var(--container-bg);
+  color: var(--container-color);
+}
+
+#__next {
+  max-width: var(--page-width, 100%);
+  margin: 0 auto;
 }
 
 img {

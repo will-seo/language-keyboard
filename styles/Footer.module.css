@@ -1,12 +1,6 @@
 .footer {
   color: var(--footer-color);
-  background: var(--footer-bg);
   padding: var(--spacing) var(--gutter);
   font-size: 0.875rem;
-}
-
-@media (min-width: 960px) {
-  .footer {
-    text-align: center;
-  }
+  border-top: 1px solid var(--footer-border);
 }
