@@ -19,46 +19,38 @@ const HomePage = (props: PageProps) => {
         Find below a list of our current keyboards. We&apos;re always looking for new languages to add, so{' '}
         <a href="mailto:will@languagekeyboard.net">please send us any requests</a>.
       </p>
-      <table cellPadding={0} cellSpacing={0}>
-        <tbody>
-          <tr>
-            <td>
-              <a href="/japanese">Japanese Keyboard</a>
-            </td>
-            <td>
-              <a href="/russian">Russian Keyboard</a>
-            </td>
-            <td>
-              <a href="/maori">Maori Keyboard</a>
-            </td>
-            <td>
-              <a href="/french">French Keyboard</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/spanish">Spanish Keyboard</a>
-            </td>
-            <td>
-              <a href="/german">German Keyboard</a>
-            </td>
-            <td>
-              <a href="/morse-code">Morse Code</a>
-            </td>
-            <td>
-              <a href="/min-to-maj">Min to Maj</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/arabic">Arabic Keyboard</a>
-            </td>
-            <td>
-              <a href="/hebrew">Hebrew Keyboard</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <ul>
+        <li>
+          <a href="/japanese">Japanese Keyboard</a>
+        </li>
+        <li>
+          <a href="/russian">Russian Keyboard</a>
+        </li>
+        <li>
+          <a href="/maori">Maori Keyboard</a>
+        </li>
+        <li>
+          <a href="/french">French Keyboard</a>
+        </li>
+        <li>
+          <a href="/spanish">Spanish Keyboard</a>
+        </li>
+        <li>
+          <a href="/german">German Keyboard</a>
+        </li>
+        <li>
+          <a href="/morse-code">Morse Code</a>
+        </li>
+        <li>
+          <a href="/min-to-maj">Min to Maj</a>
+        </li>
+        <li>
+          <a href="/arabic">Arabic Keyboard</a>
+        </li>
+        <li>
+          <a href="/hebrew">Hebrew Keyboard</a>
+        </li>
+      </ul>
       <AdSlot />
     </Layout>
   );

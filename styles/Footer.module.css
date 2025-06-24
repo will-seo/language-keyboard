@@ -1,6 +1,6 @@
 .footer {
-  color: var(--footer-color);
   padding: var(--spacing) var(--gutter);
   font-size: 0.875rem;
-  border-top: 1px solid var(--footer-border);
+  border-top: 1px solid var(--gray);
+  font-style: italic;
 }

@@ -6,6 +6,7 @@
   max-width: max-content;
   padding: var(--spacing) 0 0;
   overflow-x: auto;
+  margin: 0 auto;
 }
 
 .keyboardColumn {

@@ -27,8 +27,6 @@
   --button-color: var(--black);
   --container-bg: var(--white);
   --container-color: var(--black);
-  --footer-border: var(--gray-light);
-  --footer-color: var(--black);
   --link-color: var(--teal);
   --link-hover-color: var(--teal-dark);
   --text-area-bg: var(--white);
@@ -50,8 +48,6 @@
   --button-color: var(--white);
   --container-bg: var(--black);
   --container-color: var(--white);
-  --footer-border: var(--gray-dark);
-  --footer-color: var(--white);
   --link-color: var(--teal-light);
   --link-hover-color: var(--teal-lighter);
   --text-area-placeholder: var(--gray);
@@ -97,7 +93,6 @@ body {
 #__next {
   max-width: var(--page-width, 100%);
   margin: 0 auto;
-  min-height: 100svh;
 }
 
 img {
@@ -161,25 +156,4 @@ ol {
 
 li {
   margin: 0 0 calc(var(--spacing) / 2);
-}
-
-table {
-  font-size: 1.25rem;
-  align-self: flex-start;
-}
-
-td {
-  padding-bottom: 0.5rem;
-}
-
-@media (min-width: 960px) {
-  td:not(:first-of-type) {
-    padding-left: 2rem;
-  }
-}
-
-@media (max-width: 959px) {
-  td {
-    display: block;
-  }
 }
