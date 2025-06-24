@@ -13,7 +13,8 @@
 }
 
 .homeLink {
-  width: fit-content;
+  width: var(--menu-button-size);
+  height: var(--menu-button-size);
 }
 
 .title {
@@ -28,7 +29,7 @@
 
 @media (min-width: 960px) {
   .title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 
   .headerWrapper {

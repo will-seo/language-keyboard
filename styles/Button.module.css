@@ -5,6 +5,7 @@
   color: var(--button-color);
   border: var(--border-width) solid var(--button-color);
   min-width: var(--button-width);
+  font-size: 0.875rem;
 }
 
 .button:active {

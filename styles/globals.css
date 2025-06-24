@@ -6,7 +6,7 @@
   --scrollbar-width: 5px;
   --menu-button-size: 32px;
   --menu-width: 400px;
-  --gutter: 0.5rem;
+  --gutter: 1rem;
   --spacing: 1rem;
   --menu-open-duration: 0.2s;
   --page-width: 840px;
@@ -39,7 +39,6 @@
 
 @media (min-width: 960px) {
   :root {
-    --gutter: 1rem;
     --button-width: 8.5rem;
   }
 }
@@ -98,6 +97,7 @@ body {
 #__next {
   max-width: var(--page-width, 100%);
   margin: 0 auto;
+  min-height: 100svh;
 }
 
 img {
