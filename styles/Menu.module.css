@@ -36,6 +36,10 @@
   list-style: none;
 }
 
+.menu li {
+  margin: 0;
+}
+
 .menu li[data-active='true'] {
   font-weight: bold;
 }
