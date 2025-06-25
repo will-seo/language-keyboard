@@ -1,5 +1,6 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 import Script from 'next/script';
+import { GTM_ID } from '../utils/constants';
 
 export default function Document() {
   return (
@@ -16,12 +17,6 @@ export default function Document() {
         </noscript>
         <Main />
         <NextScript />
-        <Script
-          strategy="beforeInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1638826924479453"
-          async
-          crossOrigin="anonymous"
-        />
         <Script
           id="gtag-init"
           strategy="beforeInteractive"
@@ -45,7 +40,7 @@ export default function Document() {
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','GTM-5WC42T9');
+              })(window,document,'script','dataLayer','${GTM_ID}');
             `,
           }}
         />

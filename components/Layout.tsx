@@ -32,6 +32,8 @@ const Layout = (props: LayoutProps) => {
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href={canonicalUrl} />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
         <title>{title}</title>
         <meta name="viewport" content={viewport} />
         <meta name="description" content={description} />

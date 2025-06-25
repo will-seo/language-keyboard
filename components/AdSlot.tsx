@@ -1,7 +1,19 @@
-import Script from 'next/script';
+import { useEffect } from 'react';
 import styles from '../styles/AdSlot.module.css';
 
+declare global {
+  interface Window {
+    adsbygoogle: object[];
+  }
+}
+
 const AdSlot = () => {
+  useEffect(() => {
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch (err) {}
+  }, []);
+
   return (
     <>
       <div className={styles.adslot}>
@@ -13,13 +25,6 @@ const AdSlot = () => {
           data-full-width-responsive="true"
         ></ins>
       </div>
-      <Script
-        id="ad-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `(adsbygoogle = window.adsbygoogle || []).push({});`,
-        }}
-      />
     </>
   );
 };
