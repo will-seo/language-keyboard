@@ -9,9 +9,7 @@ declare global {
 
 const AdSlot = () => {
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {}
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
   }, []);
 
   return (
