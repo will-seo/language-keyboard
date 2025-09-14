@@ -3,6 +3,7 @@ export const DARK_MODE_SETTINGS = {
   localStorageKey: 'darkMode',
 };
 
-export const ADSENSE_ID = 'ca-pub-1638826924479453';
+export const ADSENSE_ID = 'ca-pub-5201956155134669';
 
 export const GTM_ID = 'GTM-5WC42T9';
+
