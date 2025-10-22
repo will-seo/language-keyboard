@@ -1,12 +1,34 @@
 {
   "language": "Morse Code",
-  "h1": "Morse Code Converter",
+  "h1": "Morse Code Converter and Keyboard",
   "menu": "Morse Code Converter",
   "meta": {
-    "title": "Morse Code Converter",
+    "title": "Morse Code Converter and Keyboard",
     "description": "Easily write in Morse Code with our online Morse Code converter - perfect for typing in -- --- .-. ... . / -.-. --- -.. .",
     "image": "/ogimage.png"
   },
+
+  "faqs": [
+    {
+      "question": "What is an online Morse Code keyboard?",
+      "answer": "This virtual keyboard lets you type in normal letters, numbers, and punctuation, and automatically converts them into Morse Code. It’s perfect for anyone learning Morse, sending coded messages, or just curious about how it works. The keyboard is easy to use on both mobile and desktop, and I’ve tried to make it as simple and accurate as possible. I’m always looking for ways to improve the keyboards on this site, so please let me know if you have any suggestions."
+    },
+    {
+      "question": "How do I use this Morse Code keyboard?",
+      "schema": true,
+      "answer": "Just type as you normally would! As you press letters or numbers on your keyboard, the Morse Code version will appear automatically. You can copy and share the output easily if you want to send a message or use it for learning practice. The keyboard works on both mobile and desktop, and you don’t need to know any Morse Code to start using it - it does all the conversion for you."
+    },
+    {
+      "question": "What is Morse Code?",
+      "schema": true,
+      "answer": "Morse Code is a system of dots and dashes that was once used to send messages over long distances using telegraph and radio. Each letter and number has its own pattern - for example, “A” is written as ·− and “B” as −···. It was invented in the 1830s and quickly became one of the first ways people could communicate electronically. Today, it’s mostly used by radio enthusiasts and learners, but it’s still a fascinating part of communication history."
+    },
+    {
+      "question": "Who invented Morse Code?",
+      "schema": true,
+      "answer": "Morse Code was invented by Samuel Morse and Alfred Vail in the 1830s. Samuel Morse was actually a painter before becoming an inventor, but he came up with the idea of sending messages using electrical signals over wires. Together with Vail, he developed the code of dots and dashes that could be used to represent the alphabet. Their invention transformed communication forever, paving the way for the telegraph, radio, and even the digital systems we use today."
+    }
+  ],
   "mobileKeyboard": true,
   "spacebarCharacter": "/ ",
   "backspaceRemoveWord": true,

@@ -2,6 +2,7 @@
   "language": "Min to Maj",
   "h1": "Minuscule to Majuscule Text Converter",
   "menu": "Min to Maj",
+  "placeholder": "Start typing",
   "meta": {
     "title": "Minuscule to Majuscule Text Converter",
     "description": "Easily type in uppercase characters with our min to maj keyboard - perfect for typing in capital letters.",
@@ -11,9 +12,34 @@
   "mobileKeyboardToggle": true,
   "faqs": [
     {
-      "question": "This keyboard is a work in progress, hopefully I'll have it fully working soon.",
-      "answer": "",
+      "question": "How to use an online Minuscule to Majuscule keyboard?",
+      "answer": "This keyboard lets you type in normal lowercase letters (minuscule), and it will automatically convert them into uppercase (majuscule) letters. You can type directly on the keyboard or paste text from elsewhere, and it will instantly appear in uppercase. The keyboard works on both desktop and mobile, and I’m always looking to improve it, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
       "schema": false
+    },
+    {
+      "question": "Why use a Minuscule to Majuscule keyboard?",
+      "answer": "A Minuscule to Majuscule keyboard is a simple and fast way to convert lowercase text into uppercase without needing to use complicated software or keyboard shortcuts. It’s ideal for anyone who needs to quickly make text more prominent or standardized.",
+      "schema": true
+    },
+    {
+      "question": "What is the difference between minuscule and majuscule?",
+      "answer": "Minuscule letters are lowercase letters like a, b, and c, while majuscule letters are uppercase letters like A, B, and C. This keyboard automatically changes your minuscule letters into majuscule ones, so you don’t have to worry about doing it manually.",
+      "schema": true
+    },
+    {
+      "question": "Can I type using my normal keyboard?",
+      "answer": "Yes! You can type as you normally would using your regular keyboard, and the online tool will automatically convert any lowercase letters into uppercase letters. You can also paste blocks of text, and the keyboard will process the entire input instantly.",
+      "schema": true
+    },
+    {
+      "question": "Does this keyboard work on mobile?",
+      "answer": "Yes, the keyboard works on both desktop and mobile devices. On mobile, you can tap directly on the keyboard buttons or paste text from your clipboard, and the conversion to uppercase happens instantly.",
+      "schema": true
+    },
+    {
+      "question": "Can I copy and share the uppercase text?",
+      "answer": "Absolutely. Once your text has been converted into uppercase, you can easily copy it and paste it anywhere — emails, documents, social media, or messages. It’s a quick and easy way to standardize text formatting without any extra software.",
+      "schema": true
     }
   ],
   "modes": [
@@ -44,68 +70,34 @@
         "w": "W",
         "x": "X",
         "y": "Y",
-        "z": "Z",
-        "A": "a",
-        "B": "b",
-        "C": "c",
-        "D": "d",
-        "E": "e",
-        "F": "f",
-        "G": "g",
-        "H": "h",
-        "I": "i",
-        "J": "j",
-        "K": "k",
-        "L": "l",
-        "M": "m",
-        "N": "n",
-        "O": "o",
-        "P": "p",
-        "Q": "q",
-        "R": "r",
-        "S": "s",
-        "T": "t",
-        "U": "u",
-        "V": "v",
-        "W": "w",
-        "X": "x",
-        "Y": "y",
-        "Z": "z"
+        "z": "Z"
       },
       "layout": [
         [
           [
-            { "to": "Q", "TO": "q" },
-            { "to": "W", "TO": "w" },
-            { "to": "E", "TO": "e" },
-            { "to": "R", "TO": "r" },
-            { "to": "T", "TO": "t" },
-            { "to": "Y", "TO": "y" },
-            { "to": "U", "TO": "u" },
-            { "to": "I", "TO": "i" },
-            { "to": "O", "TO": "o" },
-            { "to": "P", "TO": "p" }
+            { "to": "Q" },
+            { "to": "W" },
+            { "to": "E" },
+            { "to": "R" },
+            { "to": "T" },
+            { "to": "Y" },
+            { "to": "U" },
+            { "to": "I" },
+            { "to": "O" },
+            { "to": "P" }
           ],
           [
-            { "to": "A", "TO": "a" },
-            { "to": "S", "TO": "s" },
-            { "to": "D", "TO": "d" },
-            { "to": "F", "TO": "f" },
-            { "to": "G", "TO": "g" },
-            { "to": "H", "TO": "h" },
-            { "to": "J", "TO": "j" },
-            { "to": "K", "TO": "k" },
-            { "to": "L", "TO": "l" }
+            { "to": "A" },
+            { "to": "S" },
+            { "to": "D" },
+            { "to": "F" },
+            { "to": "G" },
+            { "to": "H" },
+            { "to": "J" },
+            { "to": "K" },
+            { "to": "L" }
           ],
-          [
-            { "to": "Z", "TO": "z" },
-            { "to": "X", "TO": "x" },
-            { "to": "C", "TO": "c" },
-            { "to": "V", "TO": "v" },
-            { "to": "B", "TO": "b" },
-            { "to": "N", "TO": "n" },
-            { "to": "M", "TO": "m" }
-          ]
+          [{ "to": "Z" }, { "to": "X" }, { "to": "C" }, { "to": "V" }, { "to": "B" }, { "to": "N" }, { "to": "M" }]
         ]
       ]
     }

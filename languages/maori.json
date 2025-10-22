@@ -1,9 +1,9 @@
 {
   "language": "Maori",
-  "h1": "Online Maori Keyboard",
+  "h1": "Online Maori Keyboard and Macrons",
   "menu": "Maori Keyboard",
   "meta": {
-    "title": "Online Maori Keyboard",
+    "title": "Online Maori Keyboard and Macrons",
     "description": "Easily type in Maori with our online Maori keyboard - perfect for typing in te reo Māori.",
     "image": "/ogimage.png"
   },
@@ -11,8 +11,28 @@
   "faqs": [
     {
       "question": "How to use this Maori keyboard?",
-      "answer": "This keyboard has been designed to mimic Microsoft's Maori IME. To type a long vowel with a macron, you just need to add an acute before the vowel. For example <strong>` + o</strong> will come out as <strong>ō</strong>. I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
+      "answer": "This keyboard has been designed to mimic Microsoft's Maori IME. To type a long vowel with a macron, you can either add an acute accent before the vowel (for example ` + o will come out as ō) or type the vowel followed by = (for example o + = will also become ō). The keyboard works on both desktop and mobile, and I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
       "schema": false
+    },
+    {
+      "question": "What are macrons and why are they important in Maori?",
+      "answer": "Macrons are horizontal lines above vowels that indicate the vowel should be held longer. In Māori, they are important because they can change the meaning of a word. For example, 'keke' means cake, while 'kēkē' can mean armpit or a duck's quack, depending on context!",
+      "schema": true
+    },
+    {
+      "question": "Can I type Maori using my regular keyboard?",
+      "answer": "Yes! You can type with your normal keyboard. The online tool will automatically convert your inputs into the correct Maori letters with macrons, either using the ` + vowel method or the vowel + = method.",
+      "schema": true
+    },
+    {
+      "question": "Does this keyboard work on mobile?",
+      "answer": "Yes, the keyboard works on both desktop and mobile devices. On mobile, you can tap the letters on the on-screen keyboard, and use the same methods for typing macrons. This makes typing Maori text much easier than relying on your device’s built-in keyboard.",
+      "schema": true
+    },
+    {
+      "question": "Can I copy and share what I’ve typed?",
+      "answer": "Absolutely. Once you’ve typed your text in Maori with the correct macrons, you can copy and paste it anywhere — emails, documents, social media, or messages. It’s a fast and reliable way to write accurately in Maori without installing extra software.",
+      "schema": true
     }
   ],
   "modes": [
@@ -27,7 +47,17 @@
         "`E": "Ē",
         "`I": "Ī",
         "`O": "Ō",
-        "`U": "Ū"
+        "`U": "Ū",
+        "a=": "ā",
+        "e=": "ē",
+        "i=": "ī",
+        "o=": "ō",
+        "u=": "ū",
+        "A=": "Ā",
+        "E=": "Ē",
+        "I=": "Ī",
+        "O=": "Ō",
+        "U=": "Ū"
       },
       "layout": [
         [

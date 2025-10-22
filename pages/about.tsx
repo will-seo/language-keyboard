@@ -20,6 +20,7 @@ const AboutPage = (props: PageProps) => {
         simple solution to type in it when I didn&apos;t have a Japanese keyboard installed. Following the success of
         it, I have expanded the site to cover a range of languages. I hope you find these keyboards as useful as I do.
       </p>
+      <p></p>
       <p>
         If you have any questions or suggestions, please <a href="mailto:will@languagekeyboard.net">email me</a>, or
         find me on Bluesky at{' '}
@@ -28,7 +29,13 @@ const AboutPage = (props: PageProps) => {
         </a>
         .
       </p>
-      <AdSlot />
+      <p>
+        ☕ and if you like the keyboards, and want to support the site, you can always{' '}
+        <a rel="noopener noreferrer" target="_blank" href="https://buymeacoffee.com/willdrinkcoffee">
+          buy me a coffee
+        </a>
+        .
+      </p>
     </Layout>
   );
 };

@@ -14,11 +14,26 @@
     {
       "question": "How to use an online Russian keyboard?",
       "answer": "This Russian keyboard has been designed to mimic Microsoft's Russian IME, so all you need to do is tap the letter you need. If you are on a computer, you can type with a QWERTY keyboard too, but for usability, I have disabled the built-in mobile keyboard. I am always looking to improve the keyboards on this site, so please <a href=\"mailto:will@languagekeyboard.net\">let me know</a> if you have any suggestions.",
-      "schema": false
+      "schema": true
+    },
+    {
+      "question": "Why use an online Russian keyboard?",
+      "answer": "An online Russian keyboard is a simple way to type in Cyrillic without having to install any extra software or change your system settings. It’s ideal for learners, travellers, or anyone who just needs to write a few Russian words quickly. Whether you’re practising vocabulary, chatting with friends, or searching in Russian, this keyboard makes it easy to do so right in your browser.",
+      "schema": true
+    },
+    {
+      "question": "What is the Cyrillic alphabet?",
+      "answer": "The Cyrillic alphabet is used for writing Russian, as well as several other Slavic and Central Asian languages. It was originally developed in the 9th century and has evolved over time into the modern Russian alphabet, which contains 33 letters. Some letters may look familiar to English speakers, but they often sound completely different — for example, “B” in Cyrillic is pronounced like “V”, and “P” is pronounced like “R”.",
+      "schema": true
     },
     {
       "question": "What is a JCUKEN keyboard?",
       "answer": "This Russian keyboard uses the JCUKEN keyboard layout. JCUKEN is used primarily for typing in Russian, and was designed to make it easy to type using the Cyrillic alphabet. The name JCUKEN comes from the first six letters of the top row of keys, and it places often used letters in more convenient locations, enhancing typing speed and accuracy for those accustomed to the Cyrillic script. As well as Russian, the JCUKEN keyboard layout is used for a variety of other Cyrillic languages including Bulgarian, Serbian and Ukrainian.",
+      "schema": false
+    },
+    {
+      "question": "Can I type Russian using my QWERTY keyboard?",
+      "answer": "Yes! You can type using your regular QWERTY keyboard, and the on-screen Russian keyboard will display the correct Cyrillic characters. It’s a great way to learn where each Russian letter sits on the JCUKEN layout. Over time, you’ll get used to typing directly in Cyrillic without even needing to look at the screen.",
       "schema": true
     }
   ],

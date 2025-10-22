@@ -1,12 +1,19 @@
 {
   "language": "French",
-  "h1": "French Accents Keyboard",
+  "h1": "Online French Keyboard and Accents",
   "menu": "French Keyboard",
   "meta": {
-    "title": "French Accents Keyboard",
+    "title": "Online French Keyboard and Accents",
     "description": "Easily type in French with our online French keyboard - perfect for typing in français and with French accents.",
     "image": "/ogimage.png"
   },
+  "faqs": [
+    {
+      "question": "This keyboard is a work in progress, hopefully I'll have it fully working soon.",
+      "answer": "",
+      "schema": false
+    }
+  ],
   "mobileKeyboard": true,
   "modes": [
     {
