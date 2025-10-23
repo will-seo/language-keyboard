@@ -23,14 +23,14 @@ const AboutPage = (props: PageProps) => {
       <p></p>
       <p>
         If you have any questions or suggestions, please <a href="mailto:will@languagekeyboard.net">email me</a>, or
-        find me on Bluesky at{' '}
+        find me on Bluesky at
         <a rel="noopener noreferrer" target="_blank" href="https://bsky.app/profile/iamwill.io">
           @iamwill.io
         </a>
         .
       </p>
       <p>
-        ☕ and if you like the keyboards, and want to support the site, you can always{' '}
+        ☕ and if you like the keyboards, and want to support the site, you can always
         <a rel="noopener noreferrer" target="_blank" href="https://buymeacoffee.com/willdrinkcoffee">
           buy me a coffee
         </a>
