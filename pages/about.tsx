@@ -36,6 +36,7 @@ const AboutPage = (props: PageProps) => {
         </a>
         .
       </p>
+      <AdSlot />
     </Layout>
   );
 };
