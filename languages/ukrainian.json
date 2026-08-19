@@ -2,6 +2,7 @@
   "language": "Ukrainian",
   "h1": "Ukrainian Keyboard",
   "menu": "Ukrainian Keyboard",
+  "placeholder": "Start typing",
   "meta": {
     "title": "Ukrainian Keyboard",
     "description": "Easily type in Ukrainian with our Ukrainian keyboard - perfect for typing using the український алфавіт.",
@@ -9,7 +10,6 @@
   },
   "mobileKeyboard": false,
   "mobileKeyboardToggle": true,
-  "rightToLeft": false,
   "faqs": [
     {
       "question": "How do I use this online Ukrainian keyboard?",
