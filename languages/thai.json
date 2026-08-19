@@ -1,0 +1,135 @@
+{
+  "language": "Thai",
+  "h1": "Thai Keyboard",
+  "menu": "Thai Keyboard",
+  "meta": {
+    "title": "Thai Keyboard",
+    "description": "Easily type in Thai with our Thai keyboard - perfect for typing using the อักษรไทย alphabet.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "What layout does this Thai keyboard use?",
+      "answer": "This keyboard uses the Kedmanee layout, the most widely used Thai keyboard layout, mapped onto a QWERTY keyboard.",
+      "schema": true
+    },
+    {
+      "question": "How do I type tone marks and extra characters?",
+      "answer": "Hold Shift while pressing the corresponding key to access the upper character on each key, such as tone marks and numerals.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "`": "_",
+        "1": "ๅ",
+        "2": "/",
+        "3": "-",
+        "4": "ภ",
+        "5": "ถ",
+        "6": "ุ",
+        "7": "ึ",
+        "8": "ค",
+        "9": "ต",
+        "0": "จ",
+        "-": "ข",
+        "=": "ช",
+        "q": "ๆ",
+        "w": "ไ",
+        "e": "ำ",
+        "r": "พ",
+        "t": "ะ",
+        "y": "ั",
+        "u": "ี",
+        "i": "ร",
+        "o": "น",
+        "p": "ย",
+        "[": "บ",
+        "]": "ล",
+        "a": "ฟ",
+        "s": "ห",
+        "d": "ก",
+        "f": "ด",
+        "g": "เ",
+        "h": "้",
+        "j": "่",
+        "k": "า",
+        "l": "ส",
+        ";": "ว",
+        "'": "ง",
+        "z": "ผ",
+        "x": "ป",
+        "c": "แ",
+        "v": "อ",
+        "b": "ิ",
+        "n": "ื",
+        "m": "ท",
+        ",": "ม",
+        ".": "ใ",
+        "/": "ฝ"
+      },
+      "layout": [
+        [
+          [
+            { "from": "`", "to": "_", "FROM": "~", "TO": "฿" },
+            { "from": "1", "to": "ๅ", "FROM": "!", "TO": "+" },
+            { "from": "2", "to": "/", "FROM": "@", "TO": "๑" },
+            { "from": "3", "to": "-", "FROM": "#", "TO": "๒" },
+            { "from": "4", "to": "ภ", "FROM": "$", "TO": "๓" },
+            { "from": "5", "to": "ถ", "FROM": "%", "TO": "๔" },
+            { "from": "6", "to": "ุ", "FROM": "^", "TO": "ู" },
+            { "from": "7", "to": "ึ", "FROM": "&", "TO": "฿" },
+            { "from": "8", "to": "ค", "FROM": "*", "TO": "๕" },
+            { "from": "9", "to": "ต", "FROM": "(", "TO": "๖" },
+            { "from": "0", "to": "จ", "FROM": ")", "TO": "๗" },
+            { "from": "-", "to": "ข", "FROM": "_", "TO": "๘" },
+            { "from": "=", "to": "ช", "FROM": "+", "TO": "๙" }
+          ],
+          [
+            { "from": "q", "to": "ๆ", "FROM": "Q", "TO": "๐" },
+            { "from": "w", "to": "ไ", "FROM": "W", "TO": "\"" },
+            { "from": "e", "to": "ำ", "FROM": "E", "TO": "ฎ" },
+            { "from": "r", "to": "พ", "FROM": "R", "TO": "ฑ" },
+            { "from": "t", "to": "ะ", "FROM": "T", "TO": "ธ" },
+            { "from": "y", "to": "ั", "FROM": "Y", "TO": "ํ" },
+            { "from": "u", "to": "ี", "FROM": "U", "TO": "๊" },
+            { "from": "i", "to": "ร", "FROM": "I", "TO": "ณ" },
+            { "from": "o", "to": "น", "FROM": "O", "TO": "ฯ" },
+            { "from": "p", "to": "ย", "FROM": "P", "TO": "ญ" },
+            { "from": "[", "to": "บ", "FROM": "{", "TO": "ฐ" },
+            { "from": "]", "to": "ล", "FROM": "}", "TO": "," }
+          ],
+          [
+            { "from": "a", "to": "ฟ", "FROM": "A", "TO": "ฤ" },
+            { "from": "s", "to": "ห", "FROM": "S", "TO": "ฆ" },
+            { "from": "d", "to": "ก", "FROM": "D", "TO": "ฏ" },
+            { "from": "f", "to": "ด", "FROM": "F", "TO": "โ" },
+            { "from": "g", "to": "เ", "FROM": "G", "TO": "ฌ" },
+            { "from": "h", "to": "้", "FROM": "H", "TO": "็" },
+            { "from": "j", "to": "่", "FROM": "J", "TO": "๋" },
+            { "from": "k", "to": "า", "FROM": "K", "TO": "ษ" },
+            { "from": "l", "to": "ส", "FROM": "L", "TO": "ศ" },
+            { "from": ";", "to": "ว", "FROM": ":", "TO": "ซ" },
+            { "from": "'", "to": "ง", "FROM": "\"", "TO": "." }
+          ],
+          [
+            { "from": "z", "to": "ผ", "FROM": "Z", "TO": "(" },
+            { "from": "x", "to": "ป", "FROM": "X", "TO": ")" },
+            { "from": "c", "to": "แ", "FROM": "C", "TO": "ฉ" },
+            { "from": "v", "to": "อ", "FROM": "V", "TO": "ฮ" },
+            { "from": "b", "to": "ิ", "FROM": "B", "TO": "ฺ" },
+            { "from": "n", "to": "ื", "FROM": "N", "TO": "์" },
+            { "from": "m", "to": "ท", "FROM": "M", "TO": "?" },
+            { "from": ",", "to": "ม", "FROM": "<", "TO": "ฒ" },
+            { "from": ".", "to": "ใ", "FROM": ">", "TO": "ฬ" },
+            { "from": "/", "to": "ฝ", "FROM": "?", "TO": "ฦ" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

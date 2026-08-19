@@ -4,7 +4,7 @@
   "menu": "Hebrew Keyboard",
   "meta": {
     "title": "Hebrew Keyboard",
-    "description": "Easily type in hebrew with our hebrew keyboard - perfect for typing using the אלפבית עברי.",
+    "description": "Easily type in Hebrew with our Hebrew keyboard - perfect for typing using the אלפבית עברי.",
     "image": "/ogimage.png"
   },
   "mobileKeyboard": false,
@@ -12,16 +12,26 @@
   "rightToLeft": true,
   "faqs": [
     {
-      "question": "This keyboard is a work in progress, hopefully I'll have it fully working soon.",
-      "answer": "",
-      "schema": false
+      "question": "What layout does this Hebrew keyboard use?",
+      "answer": "This keyboard uses the SI-1452 standard Hebrew layout, the official Israeli standard, mapped onto a QWERTY keyboard.",
+      "schema": true
+    },
+    {
+      "question": "Why are the bracket keys swapped?",
+      "answer": "On the standard Hebrew layout, punctuation like brackets follows logical rather than physical order, so they render mirrored to display correctly in right-to-left text.",
+      "schema": true
+    },
+    {
+      "question": "Can I type Hebrew using my QWERTY keyboard?",
+      "answer": "Yes. You can type using your regular QWERTY keyboard and the on-screen Hebrew keyboard will display the matching Hebrew character for each key.",
+      "schema": true
     }
   ],
   "modes": [
     {
       "dictionary": {
         "q": "/",
-        "w": "''",
+        "w": "'",
         "e": "ק",
         "r": "ר",
         "t": "א",
@@ -30,6 +40,8 @@
         "i": "ן",
         "o": "ם",
         "p": "פ",
+        "[": "]",
+        "]": "[",
         "a": "ש",
         "s": "ד",
         "d": "ג",
@@ -40,6 +52,7 @@
         "k": "ל",
         "l": "ך",
         ";": "ף",
+        "'": ",",
         "z": "ז",
         "x": "ס",
         "c": "ב",
@@ -48,7 +61,8 @@
         "n": "מ",
         "m": "צ",
         ",": "ת",
-        ".": "ץ"
+        ".": "ץ",
+        "/": "."
       },
       "layout": [
         [
@@ -63,8 +77,8 @@
             { "from": "i", "to": "ן" },
             { "from": "o", "to": "ם" },
             { "from": "p", "to": "פ" },
-            { "from": "[", "to": "[" },
-            { "from": "]", "to": "]" }
+            { "from": "[", "to": "]" },
+            { "from": "]", "to": "[" }
           ],
           [
             { "from": "a", "to": "ש" },
@@ -76,7 +90,8 @@
             { "from": "j", "to": "ח" },
             { "from": "k", "to": "ל" },
             { "from": "l", "to": "ך" },
-            { "from": ";", "to": "ף" }
+            { "from": ";", "to": "ף" },
+            { "from": "'", "to": "," }
           ],
           [
             { "from": "z", "to": "ז" },
@@ -87,7 +102,8 @@
             { "from": "n", "to": "מ" },
             { "from": "m", "to": "צ" },
             { "from": ",", "to": "ת" },
-            { "from": ".", "to": "ץ" }
+            { "from": ".", "to": "ץ" },
+            { "from": "/", "to": "." }
           ]
         ]
       ]

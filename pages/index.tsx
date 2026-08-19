@@ -50,6 +50,18 @@ const HomePage = (props: PageProps) => {
         <li>
           <a href="/hebrew">Hebrew Keyboard</a>
         </li>
+        <li>
+          <a href="/korean">Korean Keyboard</a>
+        </li>
+        <li>
+          <a href="/thai">Thai Keyboard</a>
+        </li>
+        <li>
+          <a href="/ukrainian">Ukrainian Keyboard</a>
+        </li>
+        <li>
+          <a href="/greek">Greek Keyboard</a>
+        </li>
       </ul>
       <AdSlot />
     </Layout>

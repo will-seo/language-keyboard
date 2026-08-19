@@ -4,7 +4,7 @@
   "menu": "Arabic Keyboard",
   "meta": {
     "title": "Arabic Keyboard",
-    "description": "Easily type in hebrew with our hebrew keyboard - perfect for typing using the אלפבית עברי.",
+    "description": "Easily type in Arabic with our Arabic keyboard - perfect for typing using the الأبجدية العربية.",
     "image": "/ogimage.png"
   },
   "mobileKeyboard": false,
@@ -12,16 +12,26 @@
   "rightToLeft": true,
   "faqs": [
     {
-      "question": "This keyboard is a work in progress, hopefully I'll have it fully working soon.",
-      "answer": "",
-      "schema": false
+      "question": "What layout does this Arabic keyboard use?",
+      "answer": "This keyboard uses the standard Arabic (101) layout, the most common Arabic keyboard layout, mapped onto a QWERTY keyboard.",
+      "schema": true
+    },
+    {
+      "question": "How do I type the shadda (ّ)?",
+      "answer": "The shadda sits on the key to the left of 1, above Tab (the backtick/tilde key on a US keyboard), alongside ذ.",
+      "schema": true
+    },
+    {
+      "question": "Can I type Arabic using my QWERTY keyboard?",
+      "answer": "Yes. You can type using your regular QWERTY keyboard and the on-screen Arabic keyboard will display the matching Arabic character for each key.",
+      "schema": true
     }
   ],
   "modes": [
     {
       "dictionary": {
         "q": "ض",
-        "w": "ص'",
+        "w": "ص",
         "e": "ث",
         "r": "ق",
         "t": "ف",

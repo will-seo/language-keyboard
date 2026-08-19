@@ -1,0 +1,107 @@
+{
+  "language": "Korean",
+  "h1": "Korean Keyboard",
+  "menu": "Korean Keyboard",
+  "meta": {
+    "title": "Korean Keyboard",
+    "description": "Easily type in Korean with our Korean keyboard - perfect for typing using the 한글 alphabet.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "What layout does this Korean keyboard use?",
+      "answer": "This keyboard uses the standard 2-beolsik (두벌식) layout, the most common Korean keyboard layout, mapped onto a QWERTY keyboard.",
+      "schema": true
+    },
+    {
+      "question": "How do I type double consonants like ㄲ or ㅃ?",
+      "answer": "Hold Shift while pressing the corresponding key (e.g. Shift+R for ㄲ, Shift+Q for ㅃ).",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "ㅂ",
+        "w": "ㅈ",
+        "e": "ㄷ",
+        "r": "ㄱ",
+        "t": "ㅅ",
+        "y": "ㅛ",
+        "u": "ㅕ",
+        "i": "ㅑ",
+        "o": "ㅐ",
+        "p": "ㅔ",
+        "a": "ㅁ",
+        "s": "ㄴ",
+        "d": "ㅇ",
+        "f": "ㄹ",
+        "g": "ㅎ",
+        "h": "ㅗ",
+        "j": "ㅓ",
+        "k": "ㅏ",
+        "l": "ㅣ",
+        "z": "ㅋ",
+        "x": "ㅌ",
+        "c": "ㅊ",
+        "v": "ㅍ",
+        "b": "ㅠ",
+        "n": "ㅜ",
+        "m": "ㅡ",
+        ",": ",",
+        ".": ".",
+        "/": "/",
+        "[": "[",
+        "]": "]",
+        ";": ";",
+        "'": "'"
+      },
+      "layout": [
+        [
+          [
+            { "from": "q", "to": "ㅂ", "FROM": "Q", "TO": "ㅃ" },
+            { "from": "w", "to": "ㅈ", "FROM": "W", "TO": "ㅉ" },
+            { "from": "e", "to": "ㄷ", "FROM": "E", "TO": "ㄸ" },
+            { "from": "r", "to": "ㄱ", "FROM": "R", "TO": "ㄲ" },
+            { "from": "t", "to": "ㅅ", "FROM": "T", "TO": "ㅆ" },
+            { "from": "y", "to": "ㅛ" },
+            { "from": "u", "to": "ㅕ" },
+            { "from": "i", "to": "ㅑ", "FROM": "I", "TO": "ㅑ" },
+            { "from": "o", "to": "ㅐ", "FROM": "O", "TO": "ㅒ" },
+            { "from": "p", "to": "ㅔ", "FROM": "P", "TO": "ㅖ" },
+            { "from": "[", "to": "[" },
+            { "from": "]", "to": "]" }
+          ],
+          [
+            { "from": "a", "to": "ㅁ" },
+            { "from": "s", "to": "ㄴ" },
+            { "from": "d", "to": "ㅇ" },
+            { "from": "f", "to": "ㄹ" },
+            { "from": "g", "to": "ㅎ" },
+            { "from": "h", "to": "ㅗ" },
+            { "from": "j", "to": "ㅓ" },
+            { "from": "k", "to": "ㅏ" },
+            { "from": "l", "to": "ㅣ" },
+            { "from": ";", "to": ";" },
+            { "from": "'", "to": "'" }
+          ],
+          [
+            { "from": "z", "to": "ㅋ" },
+            { "from": "x", "to": "ㅌ" },
+            { "from": "c", "to": "ㅊ" },
+            { "from": "v", "to": "ㅍ" },
+            { "from": "b", "to": "ㅠ" },
+            { "from": "n", "to": "ㅜ" },
+            { "from": "m", "to": "ㅡ" },
+            { "from": ",", "to": "," },
+            { "from": ".", "to": "." },
+            { "from": "/", "to": "/" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

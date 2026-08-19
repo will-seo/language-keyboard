@@ -1,0 +1,110 @@
+{
+  "language": "Ukrainian",
+  "h1": "Ukrainian Keyboard",
+  "menu": "Ukrainian Keyboard",
+  "meta": {
+    "title": "Ukrainian Keyboard",
+    "description": "Easily type in Ukrainian with our Ukrainian keyboard - perfect for typing using the український алфавіт.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "What layout does this Ukrainian keyboard use?",
+      "answer": "This keyboard uses the standard Ukrainian layout (based on ЙЦУКЕН, with і, ї, and є replacing the Russian ы, ъ, and э), mapped onto a QWERTY keyboard.",
+      "schema": true
+    },
+    {
+      "question": "Where is the letter ґ?",
+      "answer": "Ґ sits on the key to the right of M on a US keyboard (the backslash-adjacent OEM 102 key), and is duplicated on Shift+U.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "`": "ё",
+        "q": "й",
+        "w": "ц",
+        "e": "у",
+        "r": "к",
+        "t": "е",
+        "y": "н",
+        "u": "г",
+        "i": "ш",
+        "o": "щ",
+        "p": "з",
+        "[": "х",
+        "]": "ї",
+        "a": "ф",
+        "s": "і",
+        "d": "в",
+        "f": "а",
+        "g": "п",
+        "h": "р",
+        "j": "о",
+        "k": "л",
+        "l": "д",
+        ";": "ж",
+        "'": "є",
+        "z": "я",
+        "x": "ч",
+        "c": "с",
+        "v": "м",
+        "b": "и",
+        "n": "т",
+        "m": "ь",
+        ",": "б",
+        ".": "ю",
+        "/": ".",
+        "\\": "ґ"
+      },
+      "layout": [
+        [
+          [
+            { "from": "`", "to": "ё", "FROM": "~", "TO": "Ё" },
+            { "from": "q", "to": "й", "FROM": "Q", "TO": "Й" },
+            { "from": "w", "to": "ц", "FROM": "W", "TO": "Ц" },
+            { "from": "e", "to": "у", "FROM": "E", "TO": "У" },
+            { "from": "r", "to": "к", "FROM": "R", "TO": "К" },
+            { "from": "t", "to": "е", "FROM": "T", "TO": "Е" },
+            { "from": "y", "to": "н", "FROM": "Y", "TO": "Н" },
+            { "from": "u", "to": "г", "FROM": "U", "TO": "Г" },
+            { "from": "i", "to": "ш", "FROM": "I", "TO": "Ш" },
+            { "from": "o", "to": "щ", "FROM": "O", "TO": "Щ" },
+            { "from": "p", "to": "з", "FROM": "P", "TO": "З" },
+            { "from": "[", "to": "х", "FROM": "{", "TO": "Х" },
+            { "from": "]", "to": "ї", "FROM": "}", "TO": "Ї" }
+          ],
+          [
+            { "from": "a", "to": "ф", "FROM": "A", "TO": "Ф" },
+            { "from": "s", "to": "і", "FROM": "S", "TO": "І" },
+            { "from": "d", "to": "в", "FROM": "D", "TO": "В" },
+            { "from": "f", "to": "а", "FROM": "F", "TO": "А" },
+            { "from": "g", "to": "п", "FROM": "G", "TO": "П" },
+            { "from": "h", "to": "р", "FROM": "H", "TO": "Р" },
+            { "from": "j", "to": "о", "FROM": "J", "TO": "О" },
+            { "from": "k", "to": "л", "FROM": "K", "TO": "Л" },
+            { "from": "l", "to": "д", "FROM": "L", "TO": "Д" },
+            { "from": ";", "to": "ж", "FROM": ":", "TO": "Ж" },
+            { "from": "'", "to": "є", "FROM": "\"", "TO": "Є" }
+          ],
+          [
+            { "from": "z", "to": "я", "FROM": "Z", "TO": "Я" },
+            { "from": "x", "to": "ч", "FROM": "X", "TO": "Ч" },
+            { "from": "c", "to": "с", "FROM": "C", "TO": "С" },
+            { "from": "v", "to": "м", "FROM": "V", "TO": "М" },
+            { "from": "b", "to": "и", "FROM": "B", "TO": "И" },
+            { "from": "n", "to": "т", "FROM": "N", "TO": "Т" },
+            { "from": "m", "to": "ь", "FROM": "M", "TO": "Ь" },
+            { "from": ",", "to": "б", "FROM": "<", "TO": "Б" },
+            { "from": ".", "to": "ю", "FROM": ">", "TO": "Ю" },
+            { "from": "/", "to": ".", "FROM": "?", "TO": "," }
+          ]
+        ]
+      ]
+    }
+  ]
+}

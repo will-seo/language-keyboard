@@ -1,0 +1,112 @@
+{
+  "language": "Greek",
+  "h1": "Greek Keyboard",
+  "menu": "Greek Keyboard",
+  "meta": {
+    "title": "Greek Keyboard",
+    "description": "Easily type in Greek with our Greek keyboard - perfect for typing using the ελληνικό αλφάβητο.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "What layout does this Greek keyboard use?",
+      "answer": "This keyboard uses the standard Modern (monotonic) Greek layout, mapped onto a QWERTY keyboard.",
+      "schema": true
+    },
+    {
+      "question": "How do I type accented vowels like ά or ή?",
+      "answer": "The key to the right of L is the tonos dead key. Press it, then the vowel, to get an accented character such as ά, έ, ή, ί, ό, ύ, or ώ.",
+      "schema": true
+    },
+    {
+      "question": "Where is the final sigma (ς)?",
+      "answer": "The final sigma sits on the W key, since Greek has no direct equivalent for that position.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": ";",
+        "w": "ς",
+        "e": "ε",
+        "r": "ρ",
+        "t": "τ",
+        "y": "υ",
+        "u": "θ",
+        "i": "ι",
+        "o": "ο",
+        "p": "π",
+        "[": "[",
+        "]": "]",
+        "a": "α",
+        "s": "σ",
+        "d": "δ",
+        "f": "φ",
+        "g": "γ",
+        "h": "η",
+        "j": "ξ",
+        "k": "κ",
+        "l": "λ",
+        ";": "΄",
+        "'": "'",
+        "z": "ζ",
+        "x": "χ",
+        "c": "ψ",
+        "v": "ω",
+        "b": "β",
+        "n": "ν",
+        "m": "μ",
+        ",": ",",
+        ".": ".",
+        "/": "/"
+      },
+      "layout": [
+        [
+          [
+            { "from": "q", "to": ";", "FROM": "Q", "TO": ":" },
+            { "from": "w", "to": "ς", "FROM": "W", "TO": "΅" },
+            { "from": "e", "to": "ε", "FROM": "E", "TO": "Ε" },
+            { "from": "r", "to": "ρ", "FROM": "R", "TO": "Ρ" },
+            { "from": "t", "to": "τ", "FROM": "T", "TO": "Τ" },
+            { "from": "y", "to": "υ", "FROM": "Y", "TO": "Υ" },
+            { "from": "u", "to": "θ", "FROM": "U", "TO": "Θ" },
+            { "from": "i", "to": "ι", "FROM": "I", "TO": "Ι" },
+            { "from": "o", "to": "ο", "FROM": "O", "TO": "Ο" },
+            { "from": "p", "to": "π", "FROM": "P", "TO": "Π" },
+            { "from": "[", "to": "[", "FROM": "{", "TO": "{" },
+            { "from": "]", "to": "]", "FROM": "}", "TO": "}" }
+          ],
+          [
+            { "from": "a", "to": "α", "FROM": "A", "TO": "Α" },
+            { "from": "s", "to": "σ", "FROM": "S", "TO": "Σ" },
+            { "from": "d", "to": "δ", "FROM": "D", "TO": "Δ" },
+            { "from": "f", "to": "φ", "FROM": "F", "TO": "Φ" },
+            { "from": "g", "to": "γ", "FROM": "G", "TO": "Γ" },
+            { "from": "h", "to": "η", "FROM": "H", "TO": "Η" },
+            { "from": "j", "to": "ξ", "FROM": "J", "TO": "Ξ" },
+            { "from": "k", "to": "κ", "FROM": "K", "TO": "Κ" },
+            { "from": "l", "to": "λ", "FROM": "L", "TO": "Λ" },
+            { "from": ";", "to": "΄", "FROM": ":", "TO": "¨" },
+            { "from": "'", "to": "'", "FROM": "\"", "TO": "\"" }
+          ],
+          [
+            { "from": "z", "to": "ζ", "FROM": "Z", "TO": "Ζ" },
+            { "from": "x", "to": "χ", "FROM": "X", "TO": "Χ" },
+            { "from": "c", "to": "ψ", "FROM": "C", "TO": "Ψ" },
+            { "from": "v", "to": "ω", "FROM": "V", "TO": "Ω" },
+            { "from": "b", "to": "β", "FROM": "B", "TO": "Β" },
+            { "from": "n", "to": "ν", "FROM": "N", "TO": "Ν" },
+            { "from": "m", "to": "μ", "FROM": "M", "TO": "Μ" },
+            { "from": ",", "to": ",", "FROM": "<", "TO": "<" },
+            { "from": ".", "to": ".", "FROM": ">", "TO": ">" },
+            { "from": "/", "to": "/", "FROM": "?", "TO": "?" }
+          ]
+        ]
+      ]
+    }
+  ]
+}
