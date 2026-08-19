@@ -12,6 +12,11 @@
   "rightToLeft": true,
   "faqs": [
     {
+      "question": "How do I use this online Arabic keyboard?",
+      "answer": "Click or tap any key to insert its Arabic character into the text box, or type directly on your physical QWERTY keyboard and the matching Arabic letters will appear. Hold Shift for the shadda (ّ) and other shifted characters, then copy the result to use anywhere you need Arabic text.",
+      "schema": true
+    },
+    {
       "question": "What layout does this Arabic keyboard use?",
       "answer": "This keyboard uses the standard Arabic (101) layout, the most common Arabic keyboard layout, mapped onto a QWERTY keyboard.",
       "schema": true

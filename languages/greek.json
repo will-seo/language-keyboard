@@ -12,6 +12,11 @@
   "rightToLeft": false,
   "faqs": [
     {
+      "question": "How do I use this online Greek keyboard?",
+      "answer": "Click or tap any key to insert its Greek character into the text box, or type directly on your physical QWERTY keyboard and the matching Greek letters will appear. Use the tonos dead key (to the right of L) for accented vowels, then copy the result to use anywhere you need Greek text.",
+      "schema": true
+    },
+    {
       "question": "What layout does this Greek keyboard use?",
       "answer": "This keyboard uses the standard Modern (monotonic) Greek layout, mapped onto a QWERTY keyboard.",
       "schema": true

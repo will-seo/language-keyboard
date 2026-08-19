@@ -12,6 +12,11 @@
   "rightToLeft": false,
   "faqs": [
     {
+      "question": "How do I use this online Ukrainian keyboard?",
+      "answer": "Click or tap any key to insert its Ukrainian character into the text box, or type directly on your physical QWERTY keyboard and the matching Ukrainian letters will appear. Hold Shift for capital letters and shifted characters like ґ, then copy the result to use anywhere you need Ukrainian text.",
+      "schema": true
+    },
+    {
       "question": "What layout does this Ukrainian keyboard use?",
       "answer": "This keyboard uses the standard Ukrainian layout (based on ЙЦУКЕН, with і, ї, and є replacing the Russian ы, ъ, and э), mapped onto a QWERTY keyboard.",
       "schema": true

@@ -12,6 +12,11 @@
   "rightToLeft": false,
   "faqs": [
     {
+      "question": "How do I use this online Thai keyboard?",
+      "answer": "Click or tap any key to insert its Thai character into the text box, or type directly on your physical QWERTY keyboard and the matching Thai letters will appear. Hold Shift to reach tone marks, Thai numerals, and other upper-row characters, then copy the result to use anywhere you need Thai text.",
+      "schema": true
+    },
+    {
       "question": "What layout does this Thai keyboard use?",
       "answer": "This keyboard uses the Kedmanee layout, the most widely used Thai keyboard layout, mapped onto a QWERTY keyboard.",
       "schema": true

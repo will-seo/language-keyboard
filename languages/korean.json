@@ -12,6 +12,11 @@
   "rightToLeft": false,
   "faqs": [
     {
+      "question": "How do I use this online Korean keyboard?",
+      "answer": "Click or tap any key to insert its Hangul character into the text box, or type directly on your physical QWERTY keyboard and the matching Korean letters will appear. Hold Shift for double consonants like ㄲ or ㅃ, then copy the result to use anywhere you need Korean text.",
+      "schema": true
+    },
+    {
       "question": "What layout does this Korean keyboard use?",
       "answer": "This keyboard uses the standard 2-beolsik (두벌식) layout, the most common Korean keyboard layout, mapped onto a QWERTY keyboard.",
       "schema": true

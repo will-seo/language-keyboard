@@ -12,6 +12,11 @@
   "rightToLeft": true,
   "faqs": [
     {
+      "question": "How do I use this online Hebrew keyboard?",
+      "answer": "Click or tap any key to insert its Hebrew character into the text box, or type directly on your physical QWERTY keyboard and the matching Hebrew letters will appear. Once you're done, copy the text to use it anywhere you need Hebrew.",
+      "schema": true
+    },
+    {
       "question": "What layout does this Hebrew keyboard use?",
       "answer": "This keyboard uses the SI-1452 standard Hebrew layout, the official Israeli standard, mapped onto a QWERTY keyboard.",
       "schema": true
