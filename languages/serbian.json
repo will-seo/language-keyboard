@@ -1,0 +1,110 @@
+{
+  "language": "Serbian",
+  "h1": "Serbian Keyboard",
+  "menu": "Serbian Keyboard",
+  "meta": {
+    "title": "Serbian Keyboard",
+    "description": "Easily type in Serbian with our Serbian keyboard - perfect for typing using the српска ћирилица.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "How do I use this online Serbian keyboard?",
+      "answer": "Click or tap any key to insert its Serbian Cyrillic character into the text box, or type directly on your physical QWERTY keyboard and the matching Serbian letters will appear. Hold Shift for capital letters, then copy the result to use anywhere you need Serbian text.",
+      "schema": true
+    },
+    {
+      "question": "What layout does this Serbian keyboard use?",
+      "answer": "This keyboard uses the standard Serbian Cyrillic layout, the official Serbian keyboard standard, mapped onto a QWERTY keyboard. It includes the special letters љ, њ, ђ, џ, and ћ, formed from digraphs in the Latin alphabet.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "љ",
+        "w": "њ",
+        "e": "е",
+        "r": "р",
+        "t": "т",
+        "y": "з",
+        "u": "у",
+        "i": "и",
+        "o": "о",
+        "p": "п",
+        "a": "а",
+        "s": "с",
+        "d": "д",
+        "f": "ф",
+        "g": "г",
+        "h": "х",
+        "j": "ј",
+        "k": "к",
+        "l": "л",
+        "z": "ѕ",
+        "x": "џ",
+        "c": "ц",
+        "v": "в",
+        "b": "б",
+        "n": "н",
+        "m": "м",
+        ";": "ч",
+        "[": "ш",
+        "]": "ђ",
+        "\\": "ж",
+        "'": "ћ",
+        ",": ",",
+        ".": ".",
+        "/": "-",
+        "`": "`"
+      },
+      "layout": [
+        [
+          [
+            { "from": "`", "to": "`", "FROM": "~", "TO": "~" },
+            { "from": "q", "to": "љ", "FROM": "Q", "TO": "Љ" },
+            { "from": "w", "to": "њ", "FROM": "W", "TO": "Њ" },
+            { "from": "e", "to": "е", "FROM": "E", "TO": "Е" },
+            { "from": "r", "to": "р", "FROM": "R", "TO": "Р" },
+            { "from": "t", "to": "т", "FROM": "T", "TO": "Т" },
+            { "from": "y", "to": "з", "FROM": "Y", "TO": "З" },
+            { "from": "u", "to": "у", "FROM": "U", "TO": "У" },
+            { "from": "i", "to": "и", "FROM": "I", "TO": "И" },
+            { "from": "o", "to": "о", "FROM": "O", "TO": "О" },
+            { "from": "p", "to": "п", "FROM": "P", "TO": "П" },
+            { "from": "[", "to": "ш", "FROM": "{", "TO": "Ш" },
+            { "from": "]", "to": "ђ", "FROM": "}", "TO": "Ђ" }
+          ],
+          [
+            { "from": "a", "to": "а", "FROM": "A", "TO": "А" },
+            { "from": "s", "to": "с", "FROM": "S", "TO": "С" },
+            { "from": "d", "to": "д", "FROM": "D", "TO": "Д" },
+            { "from": "f", "to": "ф", "FROM": "F", "TO": "Ф" },
+            { "from": "g", "to": "г", "FROM": "G", "TO": "Г" },
+            { "from": "h", "to": "х", "FROM": "H", "TO": "Х" },
+            { "from": "j", "to": "ј", "FROM": "J", "TO": "Ј" },
+            { "from": "k", "to": "к", "FROM": "K", "TO": "К" },
+            { "from": "l", "to": "л", "FROM": "L", "TO": "Л" },
+            { "from": ";", "to": "ч", "FROM": ":", "TO": "Ч" },
+            { "from": "'", "to": "ћ", "FROM": "\"", "TO": "Ћ" }
+          ],
+          [
+            { "from": "z", "to": "ѕ", "FROM": "Z", "TO": "Ѕ" },
+            { "from": "x", "to": "џ", "FROM": "X", "TO": "Џ" },
+            { "from": "c", "to": "ц", "FROM": "C", "TO": "Ц" },
+            { "from": "v", "to": "в", "FROM": "V", "TO": "В" },
+            { "from": "b", "to": "б", "FROM": "B", "TO": "Б" },
+            { "from": "n", "to": "н", "FROM": "N", "TO": "Н" },
+            { "from": "m", "to": "м", "FROM": "M", "TO": "М" },
+            { "from": ",", "to": ",", "FROM": "<", "TO": ";" },
+            { "from": ".", "to": ".", "FROM": ">", "TO": ":" },
+            { "from": "/", "to": "-", "FROM": "?", "TO": "_" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

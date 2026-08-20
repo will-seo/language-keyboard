@@ -1,0 +1,112 @@
+{
+  "language": "Georgian",
+  "h1": "Georgian Keyboard",
+  "menu": "Georgian Keyboard",
+  "meta": {
+    "title": "Georgian Keyboard",
+    "description": "Easily type in Georgian with our Georgian keyboard - perfect for typing using the ქართული ანბანი.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "How do I use this online Georgian keyboard?",
+      "answer": "Click or tap any key to insert its Georgian character into the text box, or type directly on your physical QWERTY keyboard and the matching Georgian letters will appear. Hold Shift on certain keys to reach an extra letter, since Georgian has 33 letters and no capitalization.",
+      "schema": true
+    },
+    {
+      "question": "Why does Shift produce a different letter instead of a capital?",
+      "answer": "The Georgian alphabet has no uppercase or lowercase forms. Since it has 33 letters and a QWERTY keyboard only has 26 main letter keys, several keys use Shift to reach a second, entirely different letter rather than a capitalized version of the base letter.",
+      "schema": true
+    },
+    {
+      "question": "What layout does this Georgian keyboard use?",
+      "answer": "This keyboard uses the Georgian (QWERTY) layout, the default Georgian layout in Windows, mapped onto a QWERTY keyboard.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "ქ",
+        "w": "წ",
+        "e": "ე",
+        "r": "რ",
+        "t": "ტ",
+        "y": "ყ",
+        "u": "უ",
+        "i": "ი",
+        "o": "ო",
+        "p": "პ",
+        "a": "ა",
+        "s": "ს",
+        "d": "დ",
+        "f": "ფ",
+        "g": "გ",
+        "h": "ჰ",
+        "j": "ჯ",
+        "k": "კ",
+        "l": "ლ",
+        "z": "ზ",
+        "x": "ხ",
+        "c": "ც",
+        "v": "ვ",
+        "b": "ბ",
+        "n": "ნ",
+        "m": "მ",
+        ";": ";",
+        "'": "'",
+        "[": "[",
+        "]": "]",
+        ",": ",",
+        ".": ".",
+        "/": "/"
+      },
+      "layout": [
+        [
+          [
+            { "from": "q", "to": "ქ" },
+            { "from": "w", "to": "წ", "FROM": "W", "TO": "ჭ" },
+            { "from": "e", "to": "ე" },
+            { "from": "r", "to": "რ", "FROM": "R", "TO": "ღ" },
+            { "from": "t", "to": "ტ", "FROM": "T", "TO": "თ" },
+            { "from": "y", "to": "ყ" },
+            { "from": "u", "to": "უ" },
+            { "from": "i", "to": "ი" },
+            { "from": "o", "to": "ო" },
+            { "from": "p", "to": "პ" },
+            { "from": "[", "to": "[", "FROM": "{", "TO": "{" },
+            { "from": "]", "to": "]", "FROM": "}", "TO": "}" }
+          ],
+          [
+            { "from": "a", "to": "ა" },
+            { "from": "s", "to": "ს", "FROM": "S", "TO": "შ" },
+            { "from": "d", "to": "დ" },
+            { "from": "f", "to": "ფ" },
+            { "from": "g", "to": "გ" },
+            { "from": "h", "to": "ჰ" },
+            { "from": "j", "to": "ჯ", "FROM": "J", "TO": "ჟ" },
+            { "from": "k", "to": "კ" },
+            { "from": "l", "to": "ლ" },
+            { "from": ";", "to": ";", "FROM": ":", "TO": ":" },
+            { "from": "'", "to": "'", "FROM": "\"", "TO": "\"" }
+          ],
+          [
+            { "from": "z", "to": "ზ", "FROM": "Z", "TO": "ძ" },
+            { "from": "x", "to": "ხ" },
+            { "from": "c", "to": "ც", "FROM": "C", "TO": "ჩ" },
+            { "from": "v", "to": "ვ" },
+            { "from": "b", "to": "ბ" },
+            { "from": "n", "to": "ნ", "FROM": "N", "TO": "N" },
+            { "from": "m", "to": "მ" },
+            { "from": ",", "to": ",", "FROM": "<", "TO": "<" },
+            { "from": ".", "to": ".", "FROM": ">", "TO": ">" },
+            { "from": "/", "to": "/", "FROM": "?", "TO": "?" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "language": "Bulgarian",
+  "h1": "Bulgarian Keyboard",
+  "menu": "Bulgarian Keyboard",
+  "meta": {
+    "title": "Bulgarian Keyboard",
+    "description": "Easily type in Bulgarian with our Bulgarian keyboard - perfect for typing using the българска азбука.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "How do I use this online Bulgarian keyboard?",
+      "answer": "Click or tap any key to insert its Bulgarian character into the text box, or type directly on your physical QWERTY keyboard and the matching Bulgarian letters will appear. Hold Shift for capital letters and shifted characters, then copy the result to use anywhere you need Bulgarian text.",
+      "schema": true
+    },
+    {
+      "question": "What layout does this Bulgarian keyboard use?",
+      "answer": "This keyboard uses the standard BDS (Bulgarian national standard) layout, the official Bulgarian keyboard layout, mapped onto a QWERTY keyboard. Note this is a different letter arrangement to Russian or Ukrainian, which use the ЙЦУКЕН layout.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "л",
+        "w": "у",
+        "e": "е",
+        "r": "и",
+        "t": "ш",
+        "y": "щ",
+        "u": "к",
+        "i": "с",
+        "o": "д",
+        "p": "з",
+        "a": "ь",
+        "s": "я",
+        "d": "а",
+        "f": "о",
+        "g": "ж",
+        "h": "г",
+        "j": "т",
+        "k": "н",
+        "l": "в",
+        "z": "ю",
+        "x": "й",
+        "c": "ъ",
+        "v": "э",
+        "b": "ф",
+        "n": "х",
+        "m": "п",
+        ";": "м",
+        "'": "ч",
+        "[": "ц",
+        "]": ";",
+        "\\": "„",
+        ",": ",",
+        ".": ".",
+        "/": "б",
+        "`": "("
+      },
+      "layout": [
+        [
+          [
+            { "from": "`", "to": "(", "FROM": "~", "TO": ")" },
+            { "from": "q", "to": "л", "FROM": "Q", "TO": "Л" },
+            { "from": "w", "to": "у", "FROM": "W", "TO": "У" },
+            { "from": "e", "to": "е", "FROM": "E", "TO": "Е" },
+            { "from": "r", "to": "и", "FROM": "R", "TO": "И" },
+            { "from": "t", "to": "ш", "FROM": "T", "TO": "Ш" },
+            { "from": "y", "to": "щ", "FROM": "Y", "TO": "Щ" },
+            { "from": "u", "to": "к", "FROM": "U", "TO": "К" },
+            { "from": "i", "to": "с", "FROM": "I", "TO": "С" },
+            { "from": "o", "to": "д", "FROM": "O", "TO": "Д" },
+            { "from": "p", "to": "з", "FROM": "P", "TO": "З" },
+            { "from": "[", "to": "ц", "FROM": "{", "TO": "Ц" },
+            { "from": "]", "to": ";", "FROM": "}", "TO": "§" }
+          ],
+          [
+            { "from": "a", "to": "ь", "FROM": "A", "TO": "ѝ" },
+            { "from": "s", "to": "я", "FROM": "S", "TO": "Я" },
+            { "from": "d", "to": "а", "FROM": "D", "TO": "А" },
+            { "from": "f", "to": "о", "FROM": "F", "TO": "О" },
+            { "from": "g", "to": "ж", "FROM": "G", "TO": "Ж" },
+            { "from": "h", "to": "г", "FROM": "H", "TO": "Г" },
+            { "from": "j", "to": "т", "FROM": "J", "TO": "Т" },
+            { "from": "k", "to": "н", "FROM": "K", "TO": "Н" },
+            { "from": "l", "to": "в", "FROM": "L", "TO": "В" },
+            { "from": ";", "to": "м", "FROM": ":", "TO": "М" },
+            { "from": "'", "to": "ч", "FROM": "\"", "TO": "Ч" }
+          ],
+          [
+            { "from": "z", "to": "ю", "FROM": "Z", "TO": "Ю" },
+            { "from": "x", "to": "й", "FROM": "X", "TO": "Й" },
+            { "from": "c", "to": "ъ", "FROM": "C", "TO": "Ъ" },
+            { "from": "v", "to": "э", "FROM": "V", "TO": "Э" },
+            { "from": "b", "to": "ф", "FROM": "B", "TO": "Ф" },
+            { "from": "n", "to": "х", "FROM": "N", "TO": "Х" },
+            { "from": "m", "to": "п", "FROM": "M", "TO": "П" },
+            { "from": ",", "to": ",", "FROM": "<", "TO": "ы" },
+            { "from": ".", "to": ".", "FROM": ">", "TO": "€" },
+            { "from": "/", "to": "б", "FROM": "?", "TO": "Б" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

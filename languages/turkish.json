@@ -1,0 +1,115 @@
+{
+  "language": "Turkish",
+  "h1": "Turkish Keyboard",
+  "menu": "Turkish Keyboard",
+  "meta": {
+    "title": "Turkish Keyboard",
+    "description": "Easily type in Turkish with our Turkish keyboard - perfect for typing using the Türk alfabesi, including ğ, ş, ç, ö, ü, and dotless ı.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "How do I use this online Turkish keyboard?",
+      "answer": "Click or tap any key to insert its Turkish character into the text box, or type directly on your physical QWERTY keyboard and the matching Turkish letters will appear. Hold Shift for capitals and shifted characters, then copy the result to use anywhere you need Turkish text.",
+      "schema": true
+    },
+    {
+      "question": "Why does the I key produce ı instead of i?",
+      "answer": "Turkish has two distinct pairs of I: dotted İ/i and dotless I/ı. On the standard Turkish Q layout, the I key produces lowercase dotless ı (Shift gives capital I), while the apostrophe key produces lowercase dotted i (Shift gives capital İ).",
+      "schema": true
+    },
+    {
+      "question": "What layout does this Turkish keyboard use?",
+      "answer": "This keyboard uses the Turkish Q layout, the standard layout used on the vast majority of computers in Turkey, mapped onto a QWERTY keyboard.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "q",
+        "w": "w",
+        "e": "e",
+        "r": "r",
+        "t": "t",
+        "y": "y",
+        "u": "u",
+        "i": "ı",
+        "o": "o",
+        "p": "p",
+        "a": "a",
+        "s": "s",
+        "d": "d",
+        "f": "f",
+        "g": "g",
+        "h": "h",
+        "j": "j",
+        "k": "k",
+        "l": "l",
+        "z": "z",
+        "x": "x",
+        "c": "c",
+        "v": "v",
+        "b": "b",
+        "n": "n",
+        "m": "m",
+        ";": "ş",
+        "'": "i",
+        "[": "ğ",
+        "]": "ü",
+        "\\": "ç",
+        ",": ",",
+        ".": ".",
+        "/": "*",
+        "`": "\""
+      },
+      "layout": [
+        [
+          [
+            { "from": "`", "to": "\"", "FROM": "~", "TO": "é" },
+            { "from": "q", "to": "q", "FROM": "Q", "TO": "Q" },
+            { "from": "w", "to": "w", "FROM": "W", "TO": "W" },
+            { "from": "e", "to": "e", "FROM": "E", "TO": "E" },
+            { "from": "r", "to": "r", "FROM": "R", "TO": "R" },
+            { "from": "t", "to": "t", "FROM": "T", "TO": "T" },
+            { "from": "y", "to": "y", "FROM": "Y", "TO": "Y" },
+            { "from": "u", "to": "u", "FROM": "U", "TO": "U" },
+            { "from": "i", "to": "ı", "FROM": "I", "TO": "I" },
+            { "from": "o", "to": "o", "FROM": "O", "TO": "O" },
+            { "from": "p", "to": "p", "FROM": "P", "TO": "P" },
+            { "from": "[", "to": "ğ", "FROM": "{", "TO": "Ğ" },
+            { "from": "]", "to": "ü", "FROM": "}", "TO": "Ü" }
+          ],
+          [
+            { "from": "a", "to": "a", "FROM": "A", "TO": "A" },
+            { "from": "s", "to": "s", "FROM": "S", "TO": "S" },
+            { "from": "d", "to": "d", "FROM": "D", "TO": "D" },
+            { "from": "f", "to": "f", "FROM": "F", "TO": "F" },
+            { "from": "g", "to": "g", "FROM": "G", "TO": "G" },
+            { "from": "h", "to": "h", "FROM": "H", "TO": "H" },
+            { "from": "j", "to": "j", "FROM": "J", "TO": "J" },
+            { "from": "k", "to": "k", "FROM": "K", "TO": "K" },
+            { "from": "l", "to": "l", "FROM": "L", "TO": "L" },
+            { "from": ";", "to": "ş", "FROM": ":", "TO": "Ş" },
+            { "from": "'", "to": "i", "FROM": "\"", "TO": "İ" }
+          ],
+          [
+            { "from": "z", "to": "z", "FROM": "Z", "TO": "Z" },
+            { "from": "x", "to": "x", "FROM": "X", "TO": "X" },
+            { "from": "c", "to": "c", "FROM": "C", "TO": "C" },
+            { "from": "v", "to": "v", "FROM": "V", "TO": "V" },
+            { "from": "b", "to": "b", "FROM": "B", "TO": "B" },
+            { "from": "n", "to": "n", "FROM": "N", "TO": "N" },
+            { "from": "m", "to": "m", "FROM": "M", "TO": "M" },
+            { "from": ",", "to": ",", "FROM": "<", "TO": ";" },
+            { "from": ".", "to": ".", "FROM": ">", "TO": ":" },
+            { "from": "/", "to": "*", "FROM": "?", "TO": "?" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

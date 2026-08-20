@@ -1,0 +1,109 @@
+{
+  "language": "Persian",
+  "h1": "Persian Keyboard",
+  "menu": "Persian Keyboard",
+  "meta": {
+    "title": "Persian Keyboard",
+    "description": "Easily type in Persian with our Farsi keyboard - perfect for typing using the الفبای فارسی.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": true,
+  "faqs": [
+    {
+      "question": "How do I use this online Persian keyboard?",
+      "answer": "Click or tap any key to insert its Persian character into the text box, or type directly on your physical QWERTY keyboard and the matching Persian letters will appear. Hold Shift to reach vowel diacritics (like َ, ِ, ُ) and extra punctuation, then copy the result to use anywhere you need Persian text.",
+      "schema": true
+    },
+    {
+      "question": "What layout does this Persian keyboard use?",
+      "answer": "This keyboard uses the standard Persian layout, the default Farsi keyboard layout in Windows, mapped onto a QWERTY keyboard. It's closely related to the Arabic layout but includes extra Persian letters like پ, چ, ژ, and گ.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "ض",
+        "w": "ص",
+        "e": "ث",
+        "r": "ق",
+        "t": "ف",
+        "y": "غ",
+        "u": "ع",
+        "i": "ه",
+        "o": "خ",
+        "p": "ح",
+        "a": "ش",
+        "s": "س",
+        "d": "ی",
+        "f": "ب",
+        "g": "ل",
+        "h": "ا",
+        "j": "ت",
+        "k": "ن",
+        "l": "م",
+        ";": "ک",
+        "'": "گ",
+        "z": "ظ",
+        "x": "ط",
+        "c": "ز",
+        "v": "ر",
+        "b": "ذ",
+        "n": "د",
+        "m": "ئ",
+        ",": "و",
+        ".": ".",
+        "/": "/",
+        "[": "ج",
+        "]": "چ",
+        "`": "÷"
+      },
+      "layout": [
+        [
+          [
+            { "from": "`", "to": "÷", "FROM": "~", "TO": "×" },
+            { "from": "q", "to": "ض", "FROM": "Q", "TO": "ً" },
+            { "from": "w", "to": "ص", "FROM": "W", "TO": "ٌ" },
+            { "from": "e", "to": "ث", "FROM": "E", "TO": "ٍ" },
+            { "from": "r", "to": "ق", "FROM": "R", "TO": "ق" },
+            { "from": "t", "to": "ف", "FROM": "T", "TO": "،" },
+            { "from": "y", "to": "غ", "FROM": "Y", "TO": "؛" },
+            { "from": "u", "to": "ع", "FROM": "U", "TO": "," },
+            { "from": "i", "to": "ه", "FROM": "I", "TO": "]" },
+            { "from": "o", "to": "خ", "FROM": "O", "TO": "[" },
+            { "from": "p", "to": "ح", "FROM": "P", "TO": "\\" },
+            { "from": "[", "to": "ج", "FROM": "{", "TO": "}" },
+            { "from": "]", "to": "چ", "FROM": "}", "TO": "{" }
+          ],
+          [
+            { "from": "a", "to": "ش", "FROM": "A", "TO": "َ" },
+            { "from": "s", "to": "س", "FROM": "S", "TO": "ُ" },
+            { "from": "d", "to": "ی", "FROM": "D", "TO": "ِ" },
+            { "from": "f", "to": "ب", "FROM": "F", "TO": "ّ" },
+            { "from": "g", "to": "ل", "FROM": "G", "TO": "ۀ" },
+            { "from": "h", "to": "ا", "FROM": "H", "TO": "آ" },
+            { "from": "j", "to": "ت", "FROM": "J", "TO": "ـ" },
+            { "from": "k", "to": "ن", "FROM": "K", "TO": "«" },
+            { "from": "l", "to": "م", "FROM": "L", "TO": "»" },
+            { "from": ";", "to": "ک", "FROM": ":", "TO": ":" },
+            { "from": "'", "to": "گ", "FROM": "\"", "TO": "\"" }
+          ],
+          [
+            { "from": "z", "to": "ظ", "FROM": "Z", "TO": "ة" },
+            { "from": "x", "to": "ط", "FROM": "X", "TO": "ي" },
+            { "from": "c", "to": "ز", "FROM": "C", "TO": "ژ" },
+            { "from": "v", "to": "ر", "FROM": "V", "TO": "ؤ" },
+            { "from": "b", "to": "ذ", "FROM": "B", "TO": "إ" },
+            { "from": "n", "to": "د", "FROM": "N", "TO": "أ" },
+            { "from": "m", "to": "ئ", "FROM": "M", "TO": "ء" },
+            { "from": ",", "to": "و", "FROM": "<", "TO": "<" },
+            { "from": ".", "to": ".", "FROM": ">", "TO": ">" },
+            { "from": "/", "to": "/", "FROM": "?", "TO": "؟" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

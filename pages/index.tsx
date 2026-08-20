@@ -62,6 +62,30 @@ const HomePage = (props: PageProps) => {
         <li>
           <a href="/greek">Greek Keyboard</a>
         </li>
+        <li>
+          <a href="/bulgarian">Bulgarian Keyboard</a>
+        </li>
+        <li>
+          <a href="/serbian">Serbian Keyboard</a>
+        </li>
+        <li>
+          <a href="/armenian">Armenian Keyboard</a>
+        </li>
+        <li>
+          <a href="/georgian">Georgian Keyboard</a>
+        </li>
+        <li>
+          <a href="/turkish">Turkish Keyboard</a>
+        </li>
+        <li>
+          <a href="/persian">Persian Keyboard</a>
+        </li>
+        <li>
+          <a href="/urdu">Urdu Keyboard</a>
+        </li>
+        <li>
+          <a href="/mongolian">Mongolian Keyboard</a>
+        </li>
       </ul>
       <AdSlot />
     </Layout>

@@ -1,0 +1,107 @@
+{
+  "language": "Armenian",
+  "h1": "Armenian Keyboard",
+  "menu": "Armenian Keyboard",
+  "meta": {
+    "title": "Armenian Keyboard",
+    "description": "Easily type in Armenian with our Armenian keyboard - perfect for typing using the հայկական այբուբեն.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "How do I use this online Armenian keyboard?",
+      "answer": "Click or tap any key to insert its Armenian character into the text box, or type directly on your physical QWERTY keyboard and the matching Armenian letters will appear. Hold Shift for capital letters, then copy the result to use anywhere you need Armenian text.",
+      "schema": true
+    },
+    {
+      "question": "What layout does this Armenian keyboard use?",
+      "answer": "This keyboard uses the Armenian Phonetic layout, the default Armenian layout in Windows, mapped onto a QWERTY keyboard. Some Armenian-specific punctuation marks (such as ՞ and ՛) may differ slightly from the full Windows layout, so double check punctuation for formal documents.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "ք",
+        "w": "ո",
+        "e": "ե",
+        "r": "ռ",
+        "t": "տ",
+        "y": "ը",
+        "u": "ւ",
+        "i": "ի",
+        "o": "օ",
+        "p": "պ",
+        "a": "ա",
+        "s": "ս",
+        "d": "դ",
+        "f": "ֆ",
+        "g": "գ",
+        "h": "հ",
+        "j": "յ",
+        "k": "կ",
+        "l": "լ",
+        "z": "զ",
+        "x": "ղ",
+        "c": "ց",
+        "v": "վ",
+        "b": "բ",
+        "n": "ն",
+        "m": "մ",
+        ";": "։",
+        "'": "'",
+        "[": "խ",
+        "]": "ծ",
+        ",": ",",
+        ".": ".",
+        "/": "/"
+      },
+      "layout": [
+        [
+          [
+            { "from": "q", "to": "ք", "FROM": "Q", "TO": "Ք" },
+            { "from": "w", "to": "ո", "FROM": "W", "TO": "Ո" },
+            { "from": "e", "to": "ե", "FROM": "E", "TO": "Ե" },
+            { "from": "r", "to": "ռ", "FROM": "R", "TO": "Ռ" },
+            { "from": "t", "to": "տ", "FROM": "T", "TO": "Տ" },
+            { "from": "y", "to": "ը", "FROM": "Y", "TO": "Ը" },
+            { "from": "u", "to": "ւ", "FROM": "U", "TO": "Ւ" },
+            { "from": "i", "to": "ի", "FROM": "I", "TO": "Ի" },
+            { "from": "o", "to": "օ", "FROM": "O", "TO": "Օ" },
+            { "from": "p", "to": "պ", "FROM": "P", "TO": "Պ" },
+            { "from": "[", "to": "խ", "FROM": "{", "TO": "Խ" },
+            { "from": "]", "to": "ծ", "FROM": "}", "TO": "Ծ" }
+          ],
+          [
+            { "from": "a", "to": "ա", "FROM": "A", "TO": "Ա" },
+            { "from": "s", "to": "ս", "FROM": "S", "TO": "Ս" },
+            { "from": "d", "to": "դ", "FROM": "D", "TO": "Դ" },
+            { "from": "f", "to": "ֆ", "FROM": "F", "TO": "Ֆ" },
+            { "from": "g", "to": "գ", "FROM": "G", "TO": "Գ" },
+            { "from": "h", "to": "հ", "FROM": "H", "TO": "Հ" },
+            { "from": "j", "to": "յ", "FROM": "J", "TO": "Յ" },
+            { "from": "k", "to": "կ", "FROM": "K", "TO": "Կ" },
+            { "from": "l", "to": "լ", "FROM": "L", "TO": "Լ" },
+            { "from": ";", "to": "։", "FROM": ":", "TO": ":" },
+            { "from": "'", "to": "'", "FROM": "\"", "TO": "\"" }
+          ],
+          [
+            { "from": "z", "to": "զ", "FROM": "Z", "TO": "Զ" },
+            { "from": "x", "to": "ղ", "FROM": "X", "TO": "Ղ" },
+            { "from": "c", "to": "ց", "FROM": "C", "TO": "Ց" },
+            { "from": "v", "to": "վ", "FROM": "V", "TO": "Վ" },
+            { "from": "b", "to": "բ", "FROM": "B", "TO": "Բ" },
+            { "from": "n", "to": "ն", "FROM": "N", "TO": "Ն" },
+            { "from": "m", "to": "մ", "FROM": "M", "TO": "Մ" },
+            { "from": ",", "to": ",", "FROM": "<", "TO": "<" },
+            { "from": ".", "to": ".", "FROM": ">", "TO": ">" },
+            { "from": "/", "to": "/", "FROM": "?", "TO": "?" }
+          ]
+        ]
+      ]
+    }
+  ]
+}

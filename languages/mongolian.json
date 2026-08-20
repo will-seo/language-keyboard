@@ -1,0 +1,111 @@
+{
+  "language": "Mongolian",
+  "h1": "Mongolian Keyboard",
+  "menu": "Mongolian Keyboard",
+  "meta": {
+    "title": "Mongolian Keyboard",
+    "description": "Easily type in Mongolian with our Mongolian keyboard - perfect for typing using the Монгол кирилл цагаан толгой.",
+    "image": "/ogimage.png"
+  },
+  "mobileKeyboard": false,
+  "mobileKeyboardToggle": true,
+  "rightToLeft": false,
+  "faqs": [
+    {
+      "question": "How do I use this online Mongolian keyboard?",
+      "answer": "Click or tap any key to insert its Mongolian Cyrillic character into the text box, or type directly on your physical QWERTY keyboard and the matching Mongolian letters will appear. Hold Shift for capital letters, then copy the result to use anywhere you need Mongolian text.",
+      "schema": true
+    },
+    {
+      "question": "What layout does this Mongolian keyboard use?",
+      "answer": "This keyboard uses the standard Mongolian Cyrillic layout, the default Mongolian keyboard layout in Windows, mapped onto a QWERTY keyboard. It includes the two extra Mongolian Cyrillic letters ө and ү, found on the F and O keys.",
+      "schema": true
+    }
+  ],
+  "modes": [
+    {
+      "dictionary": {
+        "q": "ф",
+        "w": "ц",
+        "e": "у",
+        "r": "ж",
+        "t": "э",
+        "y": "н",
+        "u": "г",
+        "i": "ш",
+        "o": "ү",
+        "p": "з",
+        "a": "й",
+        "s": "ы",
+        "d": "б",
+        "f": "ө",
+        "g": "а",
+        "h": "х",
+        "j": "р",
+        "k": "о",
+        "l": "л",
+        "z": "я",
+        "x": "ч",
+        "c": "ё",
+        "v": "с",
+        "b": "м",
+        "n": "и",
+        "m": "т",
+        ";": "д",
+        "'": "п",
+        "[": "к",
+        "]": "ъ",
+        ",": "ь",
+        ".": "в",
+        "/": "ю",
+        "`": "=",
+        "-": "е",
+        "=": "щ"
+      },
+      "layout": [
+        [
+          [
+            { "from": "`", "to": "=", "FROM": "~", "TO": "+" },
+            { "from": "q", "to": "ф", "FROM": "Q", "TO": "Ф" },
+            { "from": "w", "to": "ц", "FROM": "W", "TO": "Ц" },
+            { "from": "e", "to": "у", "FROM": "E", "TO": "У" },
+            { "from": "r", "to": "ж", "FROM": "R", "TO": "Ж" },
+            { "from": "t", "to": "э", "FROM": "T", "TO": "Э" },
+            { "from": "y", "to": "н", "FROM": "Y", "TO": "Н" },
+            { "from": "u", "to": "г", "FROM": "U", "TO": "Г" },
+            { "from": "i", "to": "ш", "FROM": "I", "TO": "Ш" },
+            { "from": "o", "to": "ү", "FROM": "O", "TO": "Ү" },
+            { "from": "p", "to": "з", "FROM": "P", "TO": "З" },
+            { "from": "[", "to": "к", "FROM": "{", "TO": "К" },
+            { "from": "]", "to": "ъ", "FROM": "}", "TO": "Ъ" }
+          ],
+          [
+            { "from": "a", "to": "й", "FROM": "A", "TO": "Й" },
+            { "from": "s", "to": "ы", "FROM": "S", "TO": "Ы" },
+            { "from": "d", "to": "б", "FROM": "D", "TO": "Б" },
+            { "from": "f", "to": "ө", "FROM": "F", "TO": "Ө" },
+            { "from": "g", "to": "а", "FROM": "G", "TO": "А" },
+            { "from": "h", "to": "х", "FROM": "H", "TO": "Х" },
+            { "from": "j", "to": "р", "FROM": "J", "TO": "Р" },
+            { "from": "k", "to": "о", "FROM": "K", "TO": "О" },
+            { "from": "l", "to": "л", "FROM": "L", "TO": "Л" },
+            { "from": ";", "to": "д", "FROM": ":", "TO": "Д" },
+            { "from": "'", "to": "п", "FROM": "\"", "TO": "П" }
+          ],
+          [
+            { "from": "z", "to": "я", "FROM": "Z", "TO": "Я" },
+            { "from": "x", "to": "ч", "FROM": "X", "TO": "Ч" },
+            { "from": "c", "to": "ё", "FROM": "C", "TO": "Ё" },
+            { "from": "v", "to": "с", "FROM": "V", "TO": "С" },
+            { "from": "b", "to": "м", "FROM": "B", "TO": "М" },
+            { "from": "n", "to": "и", "FROM": "N", "TO": "И" },
+            { "from": "m", "to": "т", "FROM": "M", "TO": "Т" },
+            { "from": ",", "to": "ь", "FROM": "<", "TO": "Ь" },
+            { "from": ".", "to": "в", "FROM": ">", "TO": "В" },
+            { "from": "/", "to": "ю", "FROM": "?", "TO": "Ю" }
+          ]
+        ]
+      ]
+    }
+  ]
+}
